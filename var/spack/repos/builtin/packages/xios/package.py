@@ -44,7 +44,8 @@ class Xios(Package):
     # Use spack versions of blitz and netcdf for compatibility
     # with recent compilers and optimised platform libraries:
     patch('bld_extern_1.0.patch', when='@:1.0')
-    patch('bld_extern_1.x.patch', when='@1.1:')
+    patch('bld_extern_1.x.patch', when='@1.1:1.99')
+    patch('bld_extern_trunk.patch', when='@develop')
 
     # Workaround bug #17782 in llvm, where reading a double
     # followed by a character is broken (e.g. duration '1d'):
