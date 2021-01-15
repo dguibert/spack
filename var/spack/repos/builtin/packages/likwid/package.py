@@ -47,6 +47,8 @@ class Likwid(Package):
     patch('https://github.com/RRZE-HPC/likwid/releases/download/v5.1.0/likwid-mpirun-5.1.0.patch',
           when='@5.1.0',
           sha256='62da145da0a09de21020f9726290e1daf7437691bab8a92d7254bc192d5f3061')
+
+    variant('accessdaemon', default=False, description='with likwid-accessD')
     variant('fortran', default=True, description='with fortran interface')
     variant('cuda', default=False, description='with Nvidia GPU profiling support')
 
@@ -125,6 +127,18 @@ class Likwid(Package):
         filter_file('^BUILDDAEMON .*',
                     'BUILDDAEMON = false',
                     'config.mk')
+
+        if '+accessdaemon' in self.spec:
+            filter_file('^INSTALL_CHOWN.*', 'INSTALL_CHOWN = -o $(USER)', 'config.mk')
+            filter_file('^ACCESSMODE .*',
+                        'ACCESSMODE = accessdaemon',
+                        'config.mk')
+            filter_file('^BUILDDAEMON .*',
+                        'BUILDDAEMON = true',
+                        'config.mk')
+            filter_file('^BUILDAPPDAEMON.*',
+                        'BUILDAPPDAEMON = true',
+                        'config.mk')
 
         if '+fortran' in self.spec:
             filter_file('^FORTRAN_INTERFACE .*',
