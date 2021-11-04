@@ -61,6 +61,7 @@ class Likwid(Package):
         sha256="af4ce278ef20cd1df26d8749a6b0e2716e4286685dae5a5e1eb4af8c383f7d10",
         when="@5.2.0:",
     )
+    variant("accessdaemon", default=False, description="with likwid-accessD")
     variant("fortran", default=True, description="with fortran interface")
     variant("cuda", default=False, description="with Nvidia GPU profiling support")
 
@@ -131,6 +132,18 @@ class Likwid(Package):
         filter_file("^ACCESSMODE .*", "ACCESSMODE = perf_event", "config.mk")
         filter_file("^BUILDFREQ .*", "BUILDFREQ = false", "config.mk")
         filter_file("^BUILDDAEMON .*", "BUILDDAEMON = false", "config.mk")
+
+        if "+accessdaemon" in self.spec:
+            filter_file("^INSTALL_CHOWN.*", "INSTALL_CHOWN = -o $(USER)", "config.mk")
+            filter_file("^ACCESSMODE .*",
+                        "ACCESSMODE = accessdaemon",
+                        "config.mk")
+            filter_file("^BUILDDAEMON .*",
+                        "BUILDDAEMON = true",
+                        "config.mk")
+            filter_file("^BUILDAPPDAEMON.*",
+                        "BUILDAPPDAEMON = true",
+                        "config.mk")
 
         if "+fortran" in self.spec:
             filter_file("^FORTRAN_INTERFACE .*", "FORTRAN_INTERFACE = true", "config.mk")
