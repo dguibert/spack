@@ -1419,6 +1419,60 @@ other similar operations:
             ).with_default('auto').with_non_feature_values('auto'),
         )
 
+^^^^^^^^^^^^^^^^^^^^
+Conditional Variants
+^^^^^^^^^^^^^^^^^^^^
+
+The variant directive accepts a ``when`` clause. The variant will only
+be present on specs that otherwise satisfy the spec listed as the
+``when`` clause. For example, the following class has a variant
+``bar`` when it is at version 2.0 or higher.
+
+.. code-block:: python
+
+   class Foo(Package):
+       ...
+       variant('bar', default=False, when='@2.0:', description='help message')
+
+The ``when`` clause follows the same syntax and accepts the same
+values as the ``when`` argument of
+:py:func:`spack.directives.depends_on`
+
+^^^^^^^^^^^^^^^^^^^
+Overriding Variants
+^^^^^^^^^^^^^^^^^^^
+
+Packages may override variants for several reasons, most often to
+change the default from a variant defined in a parent class or to
+change the conditions under which a variant is present on the spec.
+
+When a variant is defined multiple times, whether in the same package
+file or in a subclass and a superclass, the last definition is used
+for all attributes **except** for the ``when`` clauses. The ``when``
+clauses are accumulated through all invocations, and the variant is
+present on the spec if any of the accumulated conditions are
+satisfied.
+
+For example, consider the following package:
+
+.. code-block:: python
+
+   class Foo(Package):
+       ...
+       variant('bar', default=False, when='@1.0', description='help1')
+       variant('bar', default=True, when='platform=darwin', description='help2')
+       ...
+
+This package ``foo`` has a variant ``bar`` when the spec satisfies
+either ``@1.0`` or ``platform=darwin``, but not for other platforms at
+other versions. The default for this variant, when it is present, is
+always ``True``, regardless of which condition of the variant is
+satisfied. This allows packages to override variants in packages or
+build system classes from which they inherit, by modifying the variant
+values without modifying the ``when`` clause. It also allows a package
+to implement ``or`` semantics for a variant ``when`` clause by
+duplicating the variant definition.
+
 ------------------------------------
 Resources (expanding extra tarballs)
 ------------------------------------
@@ -2103,7 +2157,7 @@ correct way to specify this would be:
 
 .. code-block:: python
 
-   depends_on('python@2.6.0:2.6.999')
+   depends_on('python@2.6.0:2.6')
 
 A spec can contain multiple version ranges separated by commas.
 For example, if you need Boost 1.59.0 or newer, but there are known
@@ -2824,7 +2878,7 @@ is equivalent to:
 
    depends_on('elpa+openmp', when='+openmp+elpa')
 
-Constraints from nested context managers are also added together, but they are rarely
+Constraints from nested context managers are also combined together, but they are rarely
 needed or recommended.
 
 .. _install-method:
