@@ -3,6 +3,8 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
+import re
+
 from spack import *
 
 
@@ -84,6 +86,10 @@ class Ucx(AutotoolsPackage, CudaPackage):
     variant('backtrace-detail', default=False,
             description="Enable using BFD support for detailed backtrace")
 
+    variant('mofed', default=False,
+            description="Use Mellanox OFED")
+
+    depends_on('mofed', when="+mofed")
     depends_on('numactl')
     depends_on('rdma-core')
     depends_on('pkgconfig', type='build')
@@ -101,6 +107,8 @@ class Ucx(AutotoolsPackage, CudaPackage):
     depends_on('binutils+ld', when='+backtrace-detail')
 
     configure_abs_path = 'contrib/configure-release'
+
+    executables=['ucx_info']
 
     @when('@1.9-dev')
     def autoreconf(self, spec, prefix):
@@ -161,3 +169,62 @@ class Ucx(AutotoolsPackage, CudaPackage):
             config_args.append('LDFLAGS=-fuse-ld=bfd')
 
         return config_args
+
+    @classmethod
+    def determine_version(cls, exe):
+        output = Executable(exe)('-v', output=str, error=str)
+        match = re.match(r'\S \S* \S*=(\S*) +', output)
+        return match.group(1) if match else None
+
+    @classmethod
+    def determine_variants(cls, exes, version):
+        results = []
+        for exe in exes:
+            variants = ''
+            output = Executable(exe)("-v", output=str, error=str)
+
+            if re.search(r'--enable-mt', output):
+                variants += "+thread_multiple"
+            if re.search(r'--enable-cma', output):
+                variants += "+cma"
+            if re.search(r'--enable-params-check', output):
+                variants += "+paramter_checking"
+            if re.search(r'--enable-assertions', output):
+                variants += "+assertions"
+            if re.search(r'--enable-logging', output):
+                variants += "+logging"
+            if re.search(r'--enable-optimizations', output):
+                variants += "+optimizations"
+            if re.search(r'--with-cm', output):
+                variants += "+cm"
+            if re.search(r'--with-pic', output) or re.search(r'--with-pic=yes', output):
+                variants += "+pic"
+
+            # As value=yes if with-... is missing, we looking for the non-disabling
+            if not re.search(r'--without-rc', output) or re.search(r'--with-rc=no', output):
+                variants += "+rc"
+            if not re.search(r'--without-ud', output) or re.search(r'--with-ud=no', output):
+                variants += "+ud"
+            if not re.search(r'--without-dc', output) or re.search(r'--with-dc=no', output):
+                variants += "+dc"
+            if re.search(r'--with-mlx5-dv', output):
+                variants += "+mlx5-dv"
+            if not re.search(r'--without-ib-hw-tm', output) or re.search(r'--with-ib-hw-tm=no', output):
+                variants += "+ib-hw-tm"
+            if not re.search(r'--without-dm', output) or  re.search(r'--with-dm=no', output):
+                variants += "+dm"
+            if not re.search(r'--without-java', output):
+                variants += "+java"
+            if not re.search(r'--without-cuda', output):
+                variants += "+cuda"
+            if not re.search(r'--without-gdrcopy', output):
+                variants += "+gdrcopy"
+            if not re.search(r'--without-knem', output):
+                variants += "+knem"
+            if not re.search(r'--without-xpmem', output):
+                variants += "+xpmem"
+
+            results.append(variants)
+        return results
+
+
