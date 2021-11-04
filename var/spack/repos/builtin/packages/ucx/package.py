@@ -84,6 +84,10 @@ class Ucx(AutotoolsPackage, CudaPackage):
     variant('cm', default=False,
             description="Compile with IB Connection Manager support")
 
+    variant('mofed', default=False,
+            description="Use Mellanox OFED")
+
+    depends_on('mofed', when="+mofed")
     depends_on('numactl')
     depends_on('rdma-core')
     depends_on('pkgconfig', type='build')
