@@ -55,8 +55,9 @@ class Likwid(Package):
         when="@5.1.0",
         sha256="62da145da0a09de21020f9726290e1daf7437691bab8a92d7254bc192d5f3061",
     )
-    variant("fortran", default=True, description="with fortran interface")
-    variant("cuda", default=False, description="with Nvidia GPU profiling support")
+    variant('fortran', default=True, description='with fortran interface')
+    variant('cuda', default=False, description='with Nvidia GPU profiling support')
+    variant('accessdaemon', default=False, description='with likwid-accessD')
 
     # NOTE: There is no way to use an externally provided hwloc with Likwid.
     # The reason is that the internal hwloc is patched to contain extra
@@ -126,6 +127,7 @@ class Likwid(Package):
         filter_file("^BUILDFREQ .*", "BUILDFREQ = false", "config.mk")
         filter_file("^BUILDDAEMON .*", "BUILDDAEMON = false", "config.mk")
 
+
         if "+fortran" in self.spec:
             filter_file("^FORTRAN_INTERFACE .*", "FORTRAN_INTERFACE = true", "config.mk")
             if self.compiler.name == "gcc":
@@ -148,6 +150,18 @@ class Likwid(Package):
             )
         else:
             filter_file("^NVIDIA_INTERFACE.*", "NVIDIA_INTERFACE = false", "config.mk")
+
+        if '+accessdaemon' in self.spec:
+            filter_file('^INSTALL_CHOWN.*', 'INSTALL_CHOWN = -o $(USER)', 'config.mk')
+            filter_file('^ACCESSMODE .*',
+                        'ACCESSMODE = accessdaemon',
+                        'config.mk')
+            filter_file('^BUILDDAEMON .*',
+                        'BUILDDAEMON = true',
+                        'config.mk')
+            filter_file('^BUILDAPPDAEMON.*',
+                        'BUILDAPPDAEMON = true',
+                        'config.mk')
 
         if spec.satisfies("^lua"):
             filter_file(
