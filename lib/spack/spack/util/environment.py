@@ -258,6 +258,14 @@ class SetEnv(NameValueModifier):
         env[self.name] = str(self.value)
 
 
+class PushEnv(NameValueModifier):
+
+    def execute(self, env):
+        tty.debug("PushEnv: {0}={1}".format(self.name, str(self.value)),
+                  level=3)
+        env[self.name] = str(self.value)
+
+
 class AppendFlagsEnv(NameValueModifier):
 
     def execute(self, env):
@@ -426,6 +434,17 @@ class EnvironmentModifications(object):
         """
         self._maybe_trace(kwargs)
         item = SetEnv(name, value, **kwargs)
+        self.env_modifications.append(item)
+
+    def push(self, name, value, **kwargs):
+        """Stores a request to push an environment variable.
+
+        Args:
+            name: name of the environment variable to be set
+            value: value of the environment variable
+        """
+        kwargs.update(self._get_outside_caller_attributes())
+        item = PushEnv(name, value, **kwargs)
         self.env_modifications.append(item)
 
     def append_flags(self, name, value, sep=' ', **kwargs):
