@@ -1,0 +1,106 @@
+spack:
+  #upstreams:
+  #  slash-software:
+  #    install_tree: /software/spack/v0.13.2-9600-g5f36801aa7-2925a5e/software/spack/opt/spack
+  config:
+    install_missing_compilers: true
+  mirrors:
+    software-mirror: file://software/spack/mirror
+  modules:
+    prefix_inspections:
+      lib:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      lib64:
+      - LIBRARY_PATH
+      - LD_LIBRARY_PATH
+      ? ''
+      : - CMAKE_PREFIX_PATH
+        - '{name}_ROOT'
+    default:
+      enable:
+      - lmod
+      - tcl
+      roots:
+        tcl: $PWD/tcl/modules
+        lmod: $PWD/lmod/modules
+      tcl:
+        hash_length: 0
+        projections:
+          all: '{name}/{version}-{compiler.name}-{compiler.version}'
+          ^mpi: '{name}/{version}-{^mpi.name}-{^mpi.version}-{compiler.name}-{compiler.version}'
+        all:
+          prerequisites: direct
+      lmod:
+        hash_length: 0
+        core_compilers:
+        - gcc@8.4.1
+        hierarchy:
+        - mpi
+        all:
+          autoload: direct
+  packages:
+    ucx:
+      variants:
+      - +cm
+      - +cma
+      - +dc
+      - +dm
+      - +ib-hw-tm
+      - +knem
+      - +mlx5-dv
+      - +rc
+      - +ud
+      - +mofed
+    all:
+      target: [x86_64, aarch64]
+      compiler: [gcc@8.4.1]
+    openmpi:
+      variants:
+      - fabrics=knem,ucx # comma not handle
+      - +legacylaunchers
+      - +pmix
+      - schedulers=slurm
+      - +thread_multiple
+        #compiler:
+        #- gcc@11.2.0   # https://github.com/spack/spack/issues/21660, https://github.com/spack/spack/issues/1371
+  specs:
+  - binutils
+  - cmake%gcc
+  - environment-modules
+  - gcc@9.2.0
+  - gcc@10.2.0
+  - gcc@10.2.0+nvptx~bootstrap
+  - gcc@11.2.0
+  - likwid@5.0.1+accessdaemon%gcc ^lua%gcc ^perl%gcc ^unzip%gcc
+  - likwid+accessdaemon%gcc ^lua%gcc ^perl%gcc ^unzip%gcc
+  - lmod
+  - nvhpc@21.2~mpi~blas~lapack
+  - nvhpc@21.7~mpi~blas~lapack
+  - netcdf-fortran%nvhpc@21.7 ^autoconf%gcc ^automake%gcc ^cmake%gcc ^cuda%gcc ^gdrcopy%gcc
+    ^netcdf-c%nvhpc@21.7 ^hdf5+fortran%nvhpc@21.7 ^hwloc%gcc ^libevent%gcc ^libtool%gcc
+    ^libxml2%gcc ^m4%gcc ^numactl%gcc ^openmpi fabrics=knem,ucx ^openssh%gcc ^rdma-core%gcc
+    ^ucx%gcc ^zlib%gcc
+
+  - netcdf-fortran%nvhpc@21.7 ^zlib%gcc ^m4%gcc ^hdf5+fortran~mpi ^netcdf-c~mpi ^cmake%gcc
+  - intel-mkl@2019.5.281
+  - openmpi fabrics=knem,ucx %aocc@3.2.0 ^ucx%aocc@3.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+    ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+    ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - openmpi fabrics=knem,ucx %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
+    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
+    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - openmpi fabrics=knem,ucx %gcc@11.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
+    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
+    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - openmpi fabrics=knem,ucx %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
+    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
+    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - openmpi fabrics=knem,ucx %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
+    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
+    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - openmpi fabrics=knem,ucx %nvhpc@21.11 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+    ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+    ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  view: false
+  concretization: separately
