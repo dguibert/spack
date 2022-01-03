@@ -1,0 +1,42 @@
+spack:
+  #upstreams:
+  #  slash-software:
+  #    install_tree: /software/spack/v0.13.2-9600-g5f36801aa7-2925a5e/software/spack/opt/spack
+  ## include:
+  ##   - packages-genji-x86_64.yaml
+  #definitions:
+  #  - include_file:
+  #    - packages-genji-x86_64.yaml
+  #    when: arch.satisfies('x86_64')
+  #include:
+  #  - $include_file
+  include:
+  - packages-genji-x86_64.yaml
+  - ../env-gcc-openmpi.yaml
+  #- ../env-gcc-openmpi-specs.yaml
+  config:
+    install_missing_compilers: true
+    source_cache: /software/spack/mirror
+  mirrors:
+    software-mirror: file://software/spack/mirror
+  modules:
+    default:
+      lmod:
+        core_compilers:
+        - gcc@8.4.1
+  view: false
+  concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@8.4.1
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
