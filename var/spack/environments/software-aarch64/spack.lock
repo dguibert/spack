@@ -1,0 +1,5521 @@
+{
+  "_meta": {
+    "file-type": "spack-lockfile",
+    "lockfile-version": 3,
+    "specfile-version": 2
+  },
+  "roots": [
+    {
+      "hash": "5zpxkz4y4nhdi7qqym34g5mzkzrrag2a",
+      "spec": "binutils"
+    },
+    {
+      "hash": "eknu4exruo62v3wkvpjspwgsfzgobtnu",
+      "spec": "cmake@3.21.4%gcc@8.4.1"
+    },
+    {
+      "hash": "rmib62imnzxz76vdihixrytcpma27abt",
+      "spec": "environment-modules"
+    },
+    {
+      "hash": "dlezea6xvspmz4eekzhxen2rqj7p57jj",
+      "spec": "git+tcltk"
+    },
+    {
+      "hash": "qr2sc6zwxcbsigxgtshj2dcesiej4hi3",
+      "spec": "htop ^python%gcc@8.4.1+ssl"
+    },
+    {
+      "hash": "ar3d3wbouqywl2xcyxja36rnygag5gp4",
+      "spec": "lmod"
+    },
+    {
+      "hash": "trwtsali3paxsmnxi5jabisrrynvfrye",
+      "spec": "gcc@10.2.0"
+    },
+    {
+      "hash": "xhd7s72xbtlcg4u2lhdwyxaqzsvo3fxg",
+      "spec": "gcc@11.2.0"
+    },
+    {
+      "hash": "vs25drbub6lb2nd3pzvbt4r2oh5ztvye",
+      "spec": "openmpi%gcc@10.2.0 fabrics=knem,ucx ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^perl%gcc@8.4.1 ^python%gcc@8.4.1+ssl ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1"
+    },
+    {
+      "hash": "5onwnvwz77mpr7xserirsyc7rsxhook3",
+      "spec": "openmpi%gcc@11.2.0 fabrics=knem,ucx ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^perl%gcc@8.4.1 ^python%gcc@8.4.1+ssl ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1"
+    },
+    {
+      "hash": "mdgyzpgplesb4qxshekoirlyndyzj37r",
+      "spec": "osu-micro-benchmarks%gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openmpi%gcc@10.2.0 fabrics=knem,ucx ^openssh%gcc@8.4.1 ^perl%gcc@8.4.1 ^python%gcc@8.4.1+ssl ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1"
+    },
+    {
+      "hash": "6emfo3q74jtmx3bhuz2j7n7u32kiy3du",
+      "spec": "osu-micro-benchmarks%gcc@11.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openmpi%gcc@11.2.0 fabrics=knem,ucx ^openssh%gcc@8.4.1 ^perl%gcc@8.4.1 ^python%gcc@8.4.1+ssl ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1"
+    }
+  ],
+  "concrete_specs": {
+    "5zpxkz4y4nhdi7qqym34g5mzkzrrag2a": {
+      "name": "binutils",
+      "version": "2.37",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "gas": false,
+        "gold": false,
+        "headers": false,
+        "interwork": false,
+        "ld": false,
+        "libiberty": false,
+        "libs": [
+          "shared",
+          "static"
+        ],
+        "lto": false,
+        "nls": true,
+        "plugins": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "diffutils",
+          "build_hash": "w22zojtjplqetif6uljnaqnkjhks5roi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gettext",
+          "build_hash": "ujvhxbu6me6lgzrqun2spkbvxf3spnef",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "hxfsro3qkcn2lzhukdmxhxb4cba54amj"
+    },
+    "w22zojtjplqetif6uljnaqnkjhks5roi": {
+      "name": "diffutils",
+      "version": "3.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "w22zojtjplqetif6uljnaqnkjhks5roi"
+    },
+    "ujvhxbu6me6lgzrqun2spkbvxf3spnef": {
+      "name": "gettext",
+      "version": "0.21",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "bzip2": true,
+        "curses": true,
+        "git": true,
+        "libunistring": false,
+        "libxml2": true,
+        "tar": true,
+        "xz": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "bzip2",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libiconv",
+          "build_hash": "j6cq3hqfnixurehkivdxjccx4qz3vjmj",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxml2",
+          "build_hash": "cecuuzo2pal6gtgmqbpccyuocqvnnz7x",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "tar",
+          "build_hash": "hwtbsj5rcvolzpefsxdyojmgdrlgzc3z",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "xz",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
+          "type": [
+            "build",
+            "link",
+            "run"
+          ]
+        }
+      ],
+      "hash": "ubcosx642s4ij4zxbgibddiujkkdhzpg"
+    },
+    "qttunzcfol62k7h2cmggzyjxzndflrtr": {
+      "name": "bzip2",
+      "version": "1.0.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "debug": false,
+        "pic": false,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "qttunzcfol62k7h2cmggzyjxzndflrtr"
+    },
+    "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw": {
+      "name": "gnuconfig",
+      "version": "2021-08-14",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw"
+    },
+    "j6cq3hqfnixurehkivdxjccx4qz3vjmj": {
+      "name": "libiconv",
+      "version": "1.16",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "libs": [
+          "shared",
+          "static"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "f7ddwkg3xz432jsog55ne4ovqauofgjm"
+    },
+    "cecuuzo2pal6gtgmqbpccyuocqvnnz7x": {
+      "name": "libxml2",
+      "version": "2.9.12",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "python": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libiconv",
+          "build_hash": "j6cq3hqfnixurehkivdxjccx4qz3vjmj",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xz",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "azl36g7ippyqmq6ky7dhanlwpxn4q5k7"
+    },
+    "ek6vbb3dbwuniaumx4hvugejpta4hrft": {
+      "name": "pkgconf",
+      "version": "1.4.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft"
+    },
+    "l435jythdwa4jj4dcii2x7a4tyf7r6o6": {
+      "name": "xz",
+      "version": "5.2.4",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "libs": [
+          "shared",
+          "static"
+        ],
+        "pic": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6"
+    },
+    "svkt7nj6p43zt2fng4wjnaobgaz7ukim": {
+      "name": "zlib",
+      "version": "1.2.11",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "optimize": true,
+        "pic": true,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim"
+    },
+    "jdycnd7bz2adljkpz23h35ueg3bngxmd": {
+      "name": "ncurses",
+      "version": "6.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "abi": "none",
+        "symlinks": false,
+        "termlib": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "4nukdmjcdsltvcbf7j6ckby2wu36unae"
+    },
+    "hwtbsj5rcvolzpefsxdyojmgdrlgzc3z": {
+      "name": "tar",
+      "version": "1.30",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "hwtbsj5rcvolzpefsxdyojmgdrlgzc3z"
+    },
+    "eknu4exruo62v3wkvpjspwgsfzgobtnu": {
+      "name": "cmake",
+      "version": "3.21.4",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_type": "Release",
+        "doc": false,
+        "ncurses": true,
+        "openssl": false,
+        "ownlibs": true,
+        "qt": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "5nvf6a7d4ghfl2eeyj6mfz66piafdhmp"
+    },
+    "rmib62imnzxz76vdihixrytcpma27abt": {
+      "name": "environment-modules",
+      "version": "5.0.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "X": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "tcl",
+          "build_hash": "oliyfmcxva4dgbz6bk5qtd5lzvvoxypi",
+          "type": [
+            "build",
+            "link",
+            "run"
+          ]
+        }
+      ],
+      "hash": "uxhf63f7hzilapxw6px2afnydrzilrgp"
+    },
+    "oliyfmcxva4dgbz6bk5qtd5lzvvoxypi": {
+      "name": "tcl",
+      "version": "8.6.11",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "fxa636dxtfzqgvhku4wpt4eecdugzytg"
+    },
+    "dlezea6xvspmz4eekzhxen2rqj7p57jj": {
+      "name": "git",
+      "version": "2.31.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "man": true,
+        "nls": true,
+        "perl": true,
+        "svn": false,
+        "tcltk": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "autoconf",
+          "build_hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "automake",
+          "build_hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "curl",
+          "build_hash": "m7v3pjnz7ko3nzsfh7afh73ozkmcyeac",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "expat",
+          "build_hash": "tug5o4q64mfosk274qzfpzavd25tfqta",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gettext",
+          "build_hash": "ujvhxbu6me6lgzrqun2spkbvxf3spnef",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libiconv",
+          "build_hash": "j6cq3hqfnixurehkivdxjccx4qz3vjmj",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libidn2",
+          "build_hash": "ldw7ewwxdooqa5bhhhdtcv2ngx67yxn6",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "m4",
+          "build_hash": "rxmh3f22uaxzdd53xbs737ybh5v3vsjs",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "openssh",
+          "build_hash": "nvwx3r3j5pzx3bpqxrw2kw7n2qy3vtj5",
+          "type": [
+            "run"
+          ]
+        },
+        {
+          "name": "openssl",
+          "build_hash": "kc6d6653yqzjrvvmja3y3kik2iokgsta",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pcre2",
+          "build_hash": "zhvlwjrtgjondraw6qonlwyf7klm57mo",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "perl",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "tk",
+          "build_hash": "xwzmasdowei75evcze3tragu3e3pu2tq",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "acjhdhdgj5pas5f4ffufggoikvncydlv"
+    },
+    "d7ypgnca7cxtin5jo7jes74x5occmzj7": {
+      "name": "autoconf",
+      "version": "2.69",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "patches": [
+          "7793209b33013dc0f81208718c68440c5aae80e7a1c4b8d336e382525af791a7"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "patches": [
+        "7793209b33013dc0f81208718c68440c5aae80e7a1c4b8d336e382525af791a7"
+      ],
+      "hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7"
+    },
+    "ub2l4t5pe7wwykosi4p4bme3eoz72jpa": {
+      "name": "automake",
+      "version": "1.16.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa"
+    },
+    "m7v3pjnz7ko3nzsfh7afh73ozkmcyeac": {
+      "name": "curl",
+      "version": "7.61.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "gssapi": true,
+        "ldap": true,
+        "libidn2": false,
+        "librtmp": false,
+        "libssh": false,
+        "libssh2": false,
+        "nghttp2": true,
+        "tls": [
+          "openssl"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "m7v3pjnz7ko3nzsfh7afh73ozkmcyeac"
+    },
+    "tug5o4q64mfosk274qzfpzavd25tfqta": {
+      "name": "expat",
+      "version": "2.4.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "libbsd": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libbsd",
+          "build_hash": "d7umbbxbtpxopyzt6hmznthmnhuabp7m",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "dzzr6bi74qo2pwhasfpatz526pw6izkz"
+    },
+    "d7umbbxbtpxopyzt6hmznthmnhuabp7m": {
+      "name": "libbsd",
+      "version": "0.11.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libmd",
+          "build_hash": "ogdw5cacqa2tmpvkjtbmnxlrzheqssbc",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "qm7vhdlfbobm4ug2ami5skmv4uffogeg"
+    },
+    "ogdw5cacqa2tmpvkjtbmnxlrzheqssbc": {
+      "name": "libmd",
+      "version": "1.0.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "zwax5ywzpj76eecqlxdb76oayadk53la"
+    },
+    "ldw7ewwxdooqa5bhhhdtcv2ngx67yxn6": {
+      "name": "libidn2",
+      "version": "2.3.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libunistring",
+          "build_hash": "n5rtd4aidvkcrwobf4byg2puv72z4fwu",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "yzbkq3z4m7tk3labw6ap6umb4dd3fbjf"
+    },
+    "n5rtd4aidvkcrwobf4byg2puv72z4fwu": {
+      "name": "libunistring",
+      "version": "0.9.10",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libiconv",
+          "build_hash": "j6cq3hqfnixurehkivdxjccx4qz3vjmj",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "p2qbsdawi3nqxxytqayrkh7zqldinotz"
+    },
+    "yeww7cne3digfx24z2hltsojkhylad24": {
+      "name": "libtool",
+      "version": "2.4.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "yeww7cne3digfx24z2hltsojkhylad24"
+    },
+    "rxmh3f22uaxzdd53xbs737ybh5v3vsjs": {
+      "name": "m4",
+      "version": "1.4.18",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "patches": [
+          "3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00",
+          "fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8"
+        ],
+        "sigsegv": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "patches": [
+        "3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00",
+        "fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8"
+      ],
+      "hash": "rxmh3f22uaxzdd53xbs737ybh5v3vsjs"
+    },
+    "nvwx3r3j5pzx3bpqxrw2kw7n2qy3vtj5": {
+      "name": "openssh",
+      "version": "8.0p1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "nvwx3r3j5pzx3bpqxrw2kw7n2qy3vtj5"
+    },
+    "kc6d6653yqzjrvvmja3y3kik2iokgsta": {
+      "name": "openssl",
+      "version": "1.1.1g",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "certs": "system",
+        "docs": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "kc6d6653yqzjrvvmja3y3kik2iokgsta"
+    },
+    "zhvlwjrtgjondraw6qonlwyf7klm57mo": {
+      "name": "pcre2",
+      "version": "10.36",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "jit": false,
+        "multibyte": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "6gor2jwp46ow4ybxb4cfo6mikodlilux"
+    },
+    "n24dg45g7npnlmdff4rsxg2a4ikj74uu": {
+      "name": "perl",
+      "version": "5.26.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cpanm": false,
+        "patches": [
+          "8cf4302ca8b480c60ccdcaa29ec53d9d50a71d4baf469ac8c6fca00ca31e58a2"
+        ],
+        "shared": true,
+        "threads": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "patches": [
+        "8cf4302ca8b480c60ccdcaa29ec53d9d50a71d4baf469ac8c6fca00ca31e58a2"
+      ],
+      "hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu"
+    },
+    "xwzmasdowei75evcze3tragu3e3pu2tq": {
+      "name": "tk",
+      "version": "8.6.11",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "xft": true,
+        "xss": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libx11",
+          "build_hash": "2jxw5x6hi65n6kd2nvvc6fhrde42zkif",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxft",
+          "build_hash": "gbooyescgexmsddktz2wu772zftzps7c",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxscrnsaver",
+          "build_hash": "ynua47gsubwa6yp5wmvi36kpsl5k4rin",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "tcl",
+          "build_hash": "oliyfmcxva4dgbz6bk5qtd5lzvvoxypi",
+          "type": [
+            "build",
+            "link",
+            "run"
+          ]
+        }
+      ],
+      "hash": "6obxuhwjetf6e4uwcltkv6dorm7rwlf7"
+    },
+    "2jxw5x6hi65n6kd2nvvc6fhrde42zkif": {
+      "name": "libx11",
+      "version": "1.7.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "inputproto",
+          "build_hash": "xfvgxy3lvm663nrzjvmnoepd5zau2svb",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "kbproto",
+          "build_hash": "cn6sr5uqz5fv3u5krk57lyj72lvg4par",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxcb",
+          "build_hash": "2t6ibdtsky3tqeoywvpz2o3bj47o44gd",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "perl",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xextproto",
+          "build_hash": "iltsuoa5ihccuyndr6sxbrp4g7iy3gfo",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "xtrans",
+          "build_hash": "n4biomm34gbdg2cqliyfzf6rtqqwl2cl",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "7zbwevyopinhd6cmqwrdu6r7uge2fbna"
+    },
+    "xfvgxy3lvm663nrzjvmnoepd5zau2svb": {
+      "name": "inputproto",
+      "version": "2.3.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "jx3denvl26tfzt6m2l5izaaw3qybyxac"
+    },
+    "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq": {
+      "name": "util-macros",
+      "version": "1.19.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "pj73v66xon3cgdndcwblzr3ydeprepce"
+    },
+    "cn6sr5uqz5fv3u5krk57lyj72lvg4par": {
+      "name": "kbproto",
+      "version": "1.0.7",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "ojkfxwhownlgkagut5xh4qrrrcjgfeje"
+    },
+    "2t6ibdtsky3tqeoywvpz2o3bj47o44gd": {
+      "name": "libxcb",
+      "version": "1.14",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libpthread-stubs",
+          "build_hash": "vxquklcrvzgsgd4nwsxikaqhlafq62tr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxau",
+          "build_hash": "cb52wipl66pwino4w4w2q744mitggsaz",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxdmcp",
+          "build_hash": "blwqyzp2tcwjq3l7utswet3m6kdtcclb",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xcb-proto",
+          "build_hash": "uqrfuib637jitpxaz6p36ejgtdm53fbu",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "v4dotgtzujbz2luihbndut55vlathon4"
+    },
+    "vxquklcrvzgsgd4nwsxikaqhlafq62tr": {
+      "name": "libpthread-stubs",
+      "version": "0.4",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "balmcpt2hrrvl2xjyfhhfeiidgm47nnh"
+    },
+    "cb52wipl66pwino4w4w2q744mitggsaz": {
+      "name": "libxau",
+      "version": "1.0.8",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "aef5a5joqmbtxjxbqaahmhhku3rgsjgz"
+    },
+    "6q2kctjseskhfxcu2hxukybuyqrdetr2": {
+      "name": "xproto",
+      "version": "7.0.31",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "f54ncyyjhn2o6dfnjczprkf3m3iszusi"
+    },
+    "blwqyzp2tcwjq3l7utswet3m6kdtcclb": {
+      "name": "libxdmcp",
+      "version": "1.1.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libbsd",
+          "build_hash": "d7umbbxbtpxopyzt6hmznthmnhuabp7m",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "ufovhihc5hmqu2mjsduc3rchkcdqg5hr"
+    },
+    "uqrfuib637jitpxaz6p36ejgtdm53fbu": {
+      "name": "xcb-proto",
+      "version": "1.14.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "qtqq2gyw5f6syllbndyz6fqxosxy73fv"
+    },
+    "iltsuoa5ihccuyndr6sxbrp4g7iy3gfo": {
+      "name": "xextproto",
+      "version": "7.3.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "y6nqy7zf3iveqg2zd3f5knbrvgjbtjih"
+    },
+    "n4biomm34gbdg2cqliyfzf6rtqqwl2cl": {
+      "name": "xtrans",
+      "version": "1.3.5",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "tekquy6mk37wvx7j4cok27lkwphddkeo"
+    },
+    "gbooyescgexmsddktz2wu772zftzps7c": {
+      "name": "libxft",
+      "version": "2.3.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "fontconfig",
+          "build_hash": "ev5cjxazz3qbve4ux4zvzh6erj5ywhhs",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "freetype",
+          "build_hash": "jhck42bgt276f4ho6frr4dwm3ztvtuqe",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libx11",
+          "build_hash": "2jxw5x6hi65n6kd2nvvc6fhrde42zkif",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxrender",
+          "build_hash": "bchumb3o2pvf6dynmllxi4eaq4cstbhl",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "x37nhbdnipufzbmn22db5orl4pyib6gp"
+    },
+    "ev5cjxazz3qbve4ux4zvzh6erj5ywhhs": {
+      "name": "fontconfig",
+      "version": "2.13.94",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "font-util",
+          "build_hash": "aet34xeusf3hsg3sojtv7nlxfwtnx5df",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "freetype",
+          "build_hash": "jhck42bgt276f4ho6frr4dwm3ztvtuqe",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gperf",
+          "build_hash": "gfu7pjugfcj5f6jhicqlqv6ozr5p7tza",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libxml2",
+          "build_hash": "cecuuzo2pal6gtgmqbpccyuocqvnnz7x",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "clglqatpruxvapsuunivficsqp3ehd7q",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-linux-uuid",
+          "build_hash": "d6fsf7b27m5seoc65zyuu3kxg2xwtg2l",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "xrxcht7hnaaavsaiyg4hk3i6gggjzj44"
+    },
+    "aet34xeusf3hsg3sojtv7nlxfwtnx5df": {
+      "name": "font-util",
+      "version": "1.3.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "fonts": [
+          "encodings",
+          "font-adobe-100dpi",
+          "font-adobe-75dpi",
+          "font-adobe-utopia-100dpi",
+          "font-adobe-utopia-75dpi",
+          "font-adobe-utopia-type1",
+          "font-alias",
+          "font-arabic-misc",
+          "font-bh-100dpi",
+          "font-bh-75dpi",
+          "font-bh-lucidatypewriter-100dpi",
+          "font-bh-lucidatypewriter-75dpi",
+          "font-bh-type1",
+          "font-bitstream-100dpi",
+          "font-bitstream-75dpi",
+          "font-bitstream-speedo",
+          "font-bitstream-type1",
+          "font-cronyx-cyrillic",
+          "font-cursor-misc",
+          "font-daewoo-misc",
+          "font-dec-misc",
+          "font-ibm-type1",
+          "font-isas-misc",
+          "font-jis-misc",
+          "font-micro-misc",
+          "font-misc-cyrillic",
+          "font-misc-ethiopic",
+          "font-misc-meltho",
+          "font-misc-misc",
+          "font-mutt-misc",
+          "font-schumacher-misc",
+          "font-screen-cyrillic",
+          "font-sun-misc",
+          "font-winitzki-cyrillic",
+          "font-xfree86-type1"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "autoconf",
+          "build_hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "automake",
+          "build_hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "bdftopcf",
+          "build_hash": "v3zzlq7dcvpw2dxpychth23hnckj4jqc",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "mkfontdir",
+          "build_hash": "rpzo6tntfed2rtqdnx74yw6fuxgd2mol",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "mkfontscale",
+          "build_hash": "fpkqrmcgheg6aoxbjyjhqldmk6nfkoic",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "h7ni6qocidapiijeg5hqpsulmqhjyvmp"
+    },
+    "v3zzlq7dcvpw2dxpychth23hnckj4jqc": {
+      "name": "bdftopcf",
+      "version": "1.0.5",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "fontsproto",
+          "build_hash": "kt43kidch4fwmsm2f2xknjg55h5hpu7t",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libxfont",
+          "build_hash": "i35xddytz3les5qdftssskt73u2xgqks",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "riwerg2qzrgfb6j4bpum3fzcant6d7xq"
+    },
+    "kt43kidch4fwmsm2f2xknjg55h5hpu7t": {
+      "name": "fontsproto",
+      "version": "2.1.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "fqowimpytrksctg4jpsiviynbzgtq7ic"
+    },
+    "i35xddytz3les5qdftssskt73u2xgqks": {
+      "name": "libxfont",
+      "version": "1.5.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "fontsproto",
+          "build_hash": "kt43kidch4fwmsm2f2xknjg55h5hpu7t",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "freetype",
+          "build_hash": "jhck42bgt276f4ho6frr4dwm3ztvtuqe",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libfontenc",
+          "build_hash": "uyqkogkobtr5u57332utx4vngyg7ah7h",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "xtrans",
+          "build_hash": "n4biomm34gbdg2cqliyfzf6rtqqwl2cl",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "rfvc74dg2qyqw4jy25phd7zueknj5tsq"
+    },
+    "jhck42bgt276f4ho6frr4dwm3ztvtuqe": {
+      "name": "freetype",
+      "version": "2.11.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "bzip2",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libpng",
+          "build_hash": "a6su7tthr4nohen6nijthljry2rveqgq",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "kltrsccpue74w5qr66aenaswjj5k2344"
+    },
+    "a6su7tthr4nohen6nijthljry2rveqgq": {
+      "name": "libpng",
+      "version": "1.6.37",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "hk6uxiv24q7w577qezpon6dde4bu4acl"
+    },
+    "uyqkogkobtr5u57332utx4vngyg7ah7h": {
+      "name": "libfontenc",
+      "version": "1.1.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "izb5o344f3mvxdcpcgiq6y4g6pfnzhtj"
+    },
+    "rpzo6tntfed2rtqdnx74yw6fuxgd2mol": {
+      "name": "mkfontdir",
+      "version": "1.0.7",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "mkfontscale",
+          "build_hash": "fpkqrmcgheg6aoxbjyjhqldmk6nfkoic",
+          "type": [
+            "run"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "4ehgiloae5y4myau34jwydlikgqgvcuh"
+    },
+    "fpkqrmcgheg6aoxbjyjhqldmk6nfkoic": {
+      "name": "mkfontscale",
+      "version": "1.1.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "freetype",
+          "build_hash": "jhck42bgt276f4ho6frr4dwm3ztvtuqe",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libfontenc",
+          "build_hash": "uyqkogkobtr5u57332utx4vngyg7ah7h",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "bfowf4vvsdhkr3jwh2xeezigkukpw3nk"
+    },
+    "gfu7pjugfcj5f6jhicqlqv6ozr5p7tza": {
+      "name": "gperf",
+      "version": "3.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "fajgnzgqluxikyhyz7f4b4y2nlaoeaae"
+    },
+    "clglqatpruxvapsuunivficsqp3ehd7q": {
+      "name": "python",
+      "version": "3.9.9",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "bz2": true,
+        "ctypes": true,
+        "dbm": true,
+        "debug": false,
+        "ensurepip": true,
+        "libxml2": true,
+        "lzma": true,
+        "nis": false,
+        "optimizations": false,
+        "patches": [
+          "0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87",
+          "4c2457325f2b608b1b6a2c63087df8c26e07db3e3d493caf36a56f0ecf6fb768",
+          "f2fd060afc4b4618fe8104c4c5d771f36dc55b1db5a4623785a4ea707ec72fb4"
+        ],
+        "pic": true,
+        "pyexpat": true,
+        "pythoncmd": true,
+        "readline": true,
+        "shared": true,
+        "sqlite3": true,
+        "ssl": true,
+        "tix": false,
+        "tkinter": false,
+        "ucs4": false,
+        "uuid": true,
+        "zlib": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "patches": [
+        "0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87",
+        "f2fd060afc4b4618fe8104c4c5d771f36dc55b1db5a4623785a4ea707ec72fb4",
+        "4c2457325f2b608b1b6a2c63087df8c26e07db3e3d493caf36a56f0ecf6fb768"
+      ],
+      "dependencies": [
+        {
+          "name": "bzip2",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "expat",
+          "build_hash": "tug5o4q64mfosk274qzfpzavd25tfqta",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gdbm",
+          "build_hash": "dqqymkpiwldpi3kiw572gc7ox7zjdom2",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gettext",
+          "build_hash": "ujvhxbu6me6lgzrqun2spkbvxf3spnef",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libffi",
+          "build_hash": "x7detf2yjqbxzeby7iinyv5dv3gios6i",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "openssl",
+          "build_hash": "kc6d6653yqzjrvvmja3y3kik2iokgsta",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "readline",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "sqlite",
+          "build_hash": "xgkklpfjrw3o244mrp5j46jlcafk3yp7",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "util-linux-uuid",
+          "build_hash": "d6fsf7b27m5seoc65zyuu3kxg2xwtg2l",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "xz",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "rhjfj57uiqvdgbomeaqgxj5tm35sghyh"
+    },
+    "dqqymkpiwldpi3kiw572gc7ox7zjdom2": {
+      "name": "gdbm",
+      "version": "1.22",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "readline",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "wuz3crsgnt6euln777shbar5uian6qkw"
+    },
+    "c54a46q4ccrmell2ffp5qwraqjctpsh6": {
+      "name": "readline",
+      "version": "8.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "zvgnpixvtnomw3uyjfon5fe7z4bmgxlt"
+    },
+    "x7detf2yjqbxzeby7iinyv5dv3gios6i": {
+      "name": "libffi",
+      "version": "3.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "patches": [
+          "26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "patches": [
+        "26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0"
+      ],
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "soh3gsazxkkeoe4pxecbq4oi3i6xs27b"
+    },
+    "xgkklpfjrw3o244mrp5j46jlcafk3yp7": {
+      "name": "sqlite",
+      "version": "3.37.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "column_metadata": true,
+        "dynamic_extensions": true,
+        "fts": true,
+        "functions": false,
+        "rtree": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "readline",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "prid4guriggzrxkynlqzo7mqsaeingdy"
+    },
+    "d6fsf7b27m5seoc65zyuu3kxg2xwtg2l": {
+      "name": "util-linux-uuid",
+      "version": "2.36.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "nyx42rx22ugrxqaxgcx7ftjqg4mhuc3a"
+    },
+    "bchumb3o2pvf6dynmllxi4eaq4cstbhl": {
+      "name": "libxrender",
+      "version": "0.9.10",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libx11",
+          "build_hash": "2jxw5x6hi65n6kd2nvvc6fhrde42zkif",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "renderproto",
+          "build_hash": "w3hisiajd3qz3xbelygctucxqj74gzar",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "3ema2nr7tx47k6it6k4klykrm45e6fi2"
+    },
+    "w3hisiajd3qz3xbelygctucxqj74gzar": {
+      "name": "renderproto",
+      "version": "0.11.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "csel2tqhkhcnc2y62nf6uzxzy2dfzmf7"
+    },
+    "ynua47gsubwa6yp5wmvi36kpsl5k4rin": {
+      "name": "libxscrnsaver",
+      "version": "1.2.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libx11",
+          "build_hash": "2jxw5x6hi65n6kd2nvvc6fhrde42zkif",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxext",
+          "build_hash": "rk7ja2q7gahpkkyplbnoxipnhhztjp6o",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "scrnsaverproto",
+          "build_hash": "krftba3ki6el6lpupc6i2pa6gfkncoj7",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xextproto",
+          "build_hash": "iltsuoa5ihccuyndr6sxbrp4g7iy3gfo",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "s3mqcags6trq73jiprhqjzww6k5y6p5e"
+    },
+    "rk7ja2q7gahpkkyplbnoxipnhhztjp6o": {
+      "name": "libxext",
+      "version": "1.3.3",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libx11",
+          "build_hash": "2jxw5x6hi65n6kd2nvvc6fhrde42zkif",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "xextproto",
+          "build_hash": "iltsuoa5ihccuyndr6sxbrp4g7iy3gfo",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "xproto",
+          "build_hash": "6q2kctjseskhfxcu2hxukybuyqrdetr2",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "lgvvt7xkkt3bs5rpcexzrhrgkea24w6x"
+    },
+    "krftba3ki6el6lpupc6i2pa6gfkncoj7": {
+      "name": "scrnsaverproto",
+      "version": "1.2.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "2xuaenfvqa3u6j77yavk5r5imcgny4ic"
+    },
+    "qr2sc6zwxcbsigxgtshj2dcesiej4hi3": {
+      "name": "htop",
+      "version": "3.1.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "autoconf",
+          "build_hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "automake",
+          "build_hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "clglqatpruxvapsuunivficsqp3ehd7q",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "5dmmhqovf2hmhwxqsrn6ljwc5rc2yn3e"
+    },
+    "ar3d3wbouqywl2xcyxja36rnygag5gp4": {
+      "name": "lmod",
+      "version": "8.6.5",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "auto_swap": true,
+        "redirect": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "lua",
+          "build_hash": "xfjnjftj2edfhzcys35hot5e7emusod7",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "lua-luafilesystem",
+          "build_hash": "thnae5snknezfj3xeorvp7ibohtlht5v",
+          "type": [
+            "build",
+            "run"
+          ]
+        },
+        {
+          "name": "lua-luaposix",
+          "build_hash": "atujbsbd4bf5ohoptlrxgnk2n2llcuee",
+          "type": [
+            "build",
+            "run"
+          ]
+        },
+        {
+          "name": "tcl",
+          "build_hash": "oliyfmcxva4dgbz6bk5qtd5lzvvoxypi",
+          "type": [
+            "build",
+            "link",
+            "run"
+          ]
+        }
+      ],
+      "hash": "yd4drdweytqbjpgyrph6yp4s66y4ljhf"
+    },
+    "xfjnjftj2edfhzcys35hot5e7emusod7": {
+      "name": "lua",
+      "version": "5.3.5",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "pcfile": false,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "readline",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "unzip",
+          "build_hash": "p6ye4q56vh7vgdv4a4wdyccv263usw62",
+          "type": [
+            "run"
+          ]
+        }
+      ],
+      "hash": "u4ukvklpuffyhtdnczuv3uyow6b5tyhk"
+    },
+    "p6ye4q56vh7vgdv4a4wdyccv263usw62": {
+      "name": "unzip",
+      "version": "6.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "hash": "p6ye4q56vh7vgdv4a4wdyccv263usw62"
+    },
+    "thnae5snknezfj3xeorvp7ibohtlht5v": {
+      "name": "lua-luafilesystem",
+      "version": "1_7_0_2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "git",
+          "build_hash": "ena3ndihwdibk3okoat6xh3ejrcb5upi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "lua",
+          "build_hash": "xfjnjftj2edfhzcys35hot5e7emusod7",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "j6c2gwx67mmspz7fyfu4xt2lyz5wwlag"
+    },
+    "ena3ndihwdibk3okoat6xh3ejrcb5upi": {
+      "name": "git",
+      "version": "2.27.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "man": true,
+        "nls": true,
+        "perl": true,
+        "svn": false,
+        "tcltk": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "ena3ndihwdibk3okoat6xh3ejrcb5upi"
+    },
+    "atujbsbd4bf5ohoptlrxgnk2n2llcuee": {
+      "name": "lua-luaposix",
+      "version": "35.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "lua",
+          "build_hash": "xfjnjftj2edfhzcys35hot5e7emusod7",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "e5aoxk5dgt3zybuq7umtzyyfyxy7pha5"
+    },
+    "trwtsali3paxsmnxi5jabisrrynvfrye": {
+      "name": "gcc",
+      "version": "10.2.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "binutils": false,
+        "bootstrap": true,
+        "graphite": false,
+        "languages": [
+          "c",
+          "c++",
+          "fortran"
+        ],
+        "nvptx": false,
+        "patches": [
+          "28c5ab3b564d83dd7e6e35b9c683141a4cb57ee886c5367e54a0828538b3c789",
+          "2c18531a23623596e1daf6f0dd963cf72c208945ecad90515640c3ab23991159",
+          "eaa00c91e08a5e767f023911a49bc1b2d1a3eea38703b745ab260f90e8da41aa"
+        ],
+        "piclibs": false,
+        "strip": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "patches": [
+        "eaa00c91e08a5e767f023911a49bc1b2d1a3eea38703b745ab260f90e8da41aa",
+        "2c18531a23623596e1daf6f0dd963cf72c208945ecad90515640c3ab23991159",
+        "28c5ab3b564d83dd7e6e35b9c683141a4cb57ee886c5367e54a0828538b3c789"
+      ],
+      "dependencies": [
+        {
+          "name": "diffutils",
+          "build_hash": "w22zojtjplqetif6uljnaqnkjhks5roi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gmp",
+          "build_hash": "app2dg6fof5h3cqmwr6zomizzki7hvw5",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "mpc",
+          "build_hash": "vxhhzokkjx4tot5d6s7i7vbehuxtnixh",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "mpfr",
+          "build_hash": "vvghp45745tqt4phc5j6svzqjje7ja6g",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zstd",
+          "build_hash": "cutf2bjtikdjjkxizhikhoxxj2zseywg",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "7v3qnmdghcdetvzoyoxzqkkmaer44vsi"
+    },
+    "app2dg6fof5h3cqmwr6zomizzki7hvw5": {
+      "name": "gmp",
+      "version": "6.2.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "autoconf",
+          "build_hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "automake",
+          "build_hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "m4",
+          "build_hash": "rxmh3f22uaxzdd53xbs737ybh5v3vsjs",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "2vz5bscibuzxk3k4m756rso7vpnncpu2"
+    },
+    "vxhhzokkjx4tot5d6s7i7vbehuxtnixh": {
+      "name": "mpc",
+      "version": "1.1.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gmp",
+          "build_hash": "app2dg6fof5h3cqmwr6zomizzki7hvw5",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "mpfr",
+          "build_hash": "vvghp45745tqt4phc5j6svzqjje7ja6g",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "k6yqti4xbjmfkcdjoti6o2lmkwg6on63"
+    },
+    "vvghp45745tqt4phc5j6svzqjje7ja6g": {
+      "name": "mpfr",
+      "version": "4.1.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "autoconf",
+          "build_hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "autoconf-archive",
+          "build_hash": "tiwsgmcubcqwenxbcvqdq6hc4d3i6jjo",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "automake",
+          "build_hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gmp",
+          "build_hash": "app2dg6fof5h3cqmwr6zomizzki7hvw5",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "m4",
+          "build_hash": "rxmh3f22uaxzdd53xbs737ybh5v3vsjs",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "texinfo",
+          "build_hash": "vdklghur7xkiwwcjcligwefuc6z4ofqi",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "b5x5p5alas4pf22nc7tnkyohhthoglai"
+    },
+    "tiwsgmcubcqwenxbcvqdq6hc4d3i6jjo": {
+      "name": "autoconf-archive",
+      "version": "2019.01.06",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "fchkbj6acew6ulrxv2xw6czsjdvtzrhz"
+    },
+    "vdklghur7xkiwwcjcligwefuc6z4ofqi": {
+      "name": "texinfo",
+      "version": "6.5",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "patches": [
+          "12f6edb0c6b270b8c8dba2ce17998c580db01182d871ee32b7b6e4129bd1d23a",
+          "1732115f651cff98989cb0215d8f64da5e0f7911ebf0c13b064920f088f2ffe1"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "patches": [
+        "1732115f651cff98989cb0215d8f64da5e0f7911ebf0c13b064920f088f2ffe1",
+        "12f6edb0c6b270b8c8dba2ce17998c580db01182d871ee32b7b6e4129bd1d23a"
+      ],
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "perl",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "zygdne5xdyo5gvjqm2qtywkrxl4nush2"
+    },
+    "cutf2bjtikdjjkxizhikhoxxj2zseywg": {
+      "name": "zstd",
+      "version": "1.5.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "programs": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "hash": "cutf2bjtikdjjkxizhikhoxxj2zseywg"
+    },
+    "xhd7s72xbtlcg4u2lhdwyxaqzsvo3fxg": {
+      "name": "gcc",
+      "version": "11.2.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "binutils": false,
+        "bootstrap": true,
+        "graphite": false,
+        "languages": [
+          "c",
+          "c++",
+          "fortran"
+        ],
+        "nvptx": false,
+        "piclibs": false,
+        "strip": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "diffutils",
+          "build_hash": "w22zojtjplqetif6uljnaqnkjhks5roi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gmp",
+          "build_hash": "app2dg6fof5h3cqmwr6zomizzki7hvw5",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "mpc",
+          "build_hash": "vxhhzokkjx4tot5d6s7i7vbehuxtnixh",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "mpfr",
+          "build_hash": "vvghp45745tqt4phc5j6svzqjje7ja6g",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zstd",
+          "build_hash": "cutf2bjtikdjjkxizhikhoxxj2zseywg",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "nr75fjzg3d6bwvha57m6ils2xwmxsv4t"
+    },
+    "vs25drbub6lb2nd3pzvbt4r2oh5ztvye": {
+      "name": "openmpi",
+      "version": "4.1.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "10.2.0"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "atomics": false,
+        "cuda": false,
+        "cxx": false,
+        "cxx_exceptions": false,
+        "fabrics": [
+          "knem",
+          "ucx"
+        ],
+        "gpfs": true,
+        "internal-hwloc": false,
+        "java": false,
+        "legacylaunchers": true,
+        "lustre": false,
+        "memchecker": false,
+        "pmi": false,
+        "pmix": true,
+        "romio": true,
+        "schedulers": [
+          "slurm"
+        ],
+        "singularity": false,
+        "sqlite3": false,
+        "static": true,
+        "thread_multiple": true,
+        "vt": true,
+        "wrapper-rpath": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "hwloc",
+          "build_hash": "qwppzyhmx7rki3mderhbkujuwln4nq3t",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "knem",
+          "build_hash": "l3rpurzqe7yz3skhknvftycgbzqc7smr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libevent",
+          "build_hash": "dki6rviu37mychmkpqpjp7ksnivuvnft",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "numactl",
+          "build_hash": "tq3fecgvuz4gmicow4i3c7qo5wr762oq",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "openssh",
+          "build_hash": "nvwx3r3j5pzx3bpqxrw2kw7n2qy3vtj5",
+          "type": [
+            "run"
+          ]
+        },
+        {
+          "name": "perl",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pmix",
+          "build_hash": "6cdyzg6qiglhsjjvlqacmtaljx5xpo4d",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "slurm",
+          "build_hash": "abqwiu3iethovvge54dwpr5ud2vm32b4",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "ucx",
+          "build_hash": "pij2izsmjswxmdpy7fklyrp2w6y55okv",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "kjtlydlz6dcqmgw5t3cbiseke7v7d4bf"
+    },
+    "qwppzyhmx7rki3mderhbkujuwln4nq3t": {
+      "name": "hwloc",
+      "version": "2.7.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cairo": false,
+        "cuda": false,
+        "gl": false,
+        "libudev": false,
+        "libxml2": true,
+        "netloc": false,
+        "nvml": false,
+        "opencl": false,
+        "pci": true,
+        "rocm": false,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libpciaccess",
+          "build_hash": "fhxakixcznk3bgf7ok6s3ge5wvmbot6s",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libxml2",
+          "build_hash": "cecuuzo2pal6gtgmqbpccyuocqvnnz7x",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "ncurses",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "avq4rpfgwf4l4gc5n47cshst2vk7dlg4"
+    },
+    "fhxakixcznk3bgf7ok6s3ge5wvmbot6s": {
+      "name": "libpciaccess",
+      "version": "0.16",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "util-macros",
+          "build_hash": "7g7nnbccaxzkkwxtvgcd4q3skklnkgsq",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "i2vt4lachaph7z47m6ia7oia3yklgfep"
+    },
+    "l3rpurzqe7yz3skhknvftycgbzqc7smr": {
+      "name": "knem",
+      "version": "1.1.4",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "hwloc": true,
+        "patches": [
+          "78885a02d6f031a793db6a7190549f8d64c8606b353051d65f8e3f802b801902"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "patches": [
+        "78885a02d6f031a793db6a7190549f8d64c8606b353051d65f8e3f802b801902"
+      ],
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "hwloc",
+          "build_hash": "qwppzyhmx7rki3mderhbkujuwln4nq3t",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "y7khioivm5f5jdysrbafi6ghxb45rwbe"
+    },
+    "dki6rviu37mychmkpqpjp7ksnivuvnft": {
+      "name": "libevent",
+      "version": "2.1.8",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "openssl": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "openssl",
+          "build_hash": "kc6d6653yqzjrvvmja3y3kik2iokgsta",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "ynoq4yxxzbvvio3kx7oh7bq6vgxfaost"
+    },
+    "tq3fecgvuz4gmicow4i3c7qo5wr762oq": {
+      "name": "numactl",
+      "version": "2.0.14",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "patches": [
+          "4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94",
+          "62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006",
+          "ff37630df599cfabf0740518b91ec8daaf18e8f288b19adaae5364dc1f6b2296"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "patches": [
+        "4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94",
+        "62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006",
+        "ff37630df599cfabf0740518b91ec8daaf18e8f288b19adaae5364dc1f6b2296"
+      ],
+      "dependencies": [
+        {
+          "name": "autoconf",
+          "build_hash": "d7ypgnca7cxtin5jo7jes74x5occmzj7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "automake",
+          "build_hash": "ub2l4t5pe7wwykosi4p4bme3eoz72jpa",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "m4",
+          "build_hash": "rxmh3f22uaxzdd53xbs737ybh5v3vsjs",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "ey3xdfypdgbgapxz37c6xotpbfhuzom4"
+    },
+    "6cdyzg6qiglhsjjvlqacmtaljx5xpo4d": {
+      "name": "pmix",
+      "version": "3.2.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "docs": false,
+        "pmi_backwards_compatibility": true,
+        "restful": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "hwloc",
+          "build_hash": "qwppzyhmx7rki3mderhbkujuwln4nq3t",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libevent",
+          "build_hash": "dki6rviu37mychmkpqpjp7ksnivuvnft",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "qvha4skbhwyxu7wyfhnxjaguj7ebsnqw"
+    },
+    "abqwiu3iethovvge54dwpr5ud2vm32b4": {
+      "name": "slurm",
+      "version": "19.05.8-Bull.1.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "gtk": false,
+        "hdf5": false,
+        "hwloc": false,
+        "mariadb": false,
+        "pmix": false,
+        "readline": true,
+        "restd": false,
+        "sysconfdir": "PREFIX/etc",
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "abqwiu3iethovvge54dwpr5ud2vm32b4"
+    },
+    "pij2izsmjswxmdpy7fklyrp2w6y55okv": {
+      "name": "ucx",
+      "version": "1.11.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "assertions": false,
+        "cm": true,
+        "cma": true,
+        "cuda": false,
+        "dc": true,
+        "debug": false,
+        "dm": true,
+        "gdrcopy": false,
+        "ib-hw-tm": true,
+        "java": false,
+        "knem": true,
+        "logging": false,
+        "mlx5-dv": true,
+        "mofed": true,
+        "optimizations": true,
+        "parameter_checking": false,
+        "pic": true,
+        "rc": true,
+        "rocm": false,
+        "thread_multiple": true,
+        "ud": true,
+        "xpmem": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "knem",
+          "build_hash": "l3rpurzqe7yz3skhknvftycgbzqc7smr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "mofed",
+          "build_hash": "ois2rkfrgptmlmif2r7pac6yoeadkted",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "numactl",
+          "build_hash": "tq3fecgvuz4gmicow4i3c7qo5wr762oq",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "rdma-core",
+          "build_hash": "cbt6xirr4z2dk4vvcmgqrvbz5hgtefat",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "rkdfzymlhumwbbyvmik2ywwl6aq2rwgd"
+    },
+    "ois2rkfrgptmlmif2r7pac6yoeadkted": {
+      "name": "mofed",
+      "version": "OFED-internal-5.2-1.0.4",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "ois2rkfrgptmlmif2r7pac6yoeadkted"
+    },
+    "cbt6xirr4z2dk4vvcmgqrvbz5hgtefat": {
+      "name": "rdma-core",
+      "version": "34.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_type": "RelWithDebInfo",
+        "ipo": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "cmake",
+          "build_hash": "p56rn2mhxvoqqmaiuj7og4hf7dyp37g4",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libnl",
+          "build_hash": "d2pngo3l2j5xic246mqm6q3byc7atjs7",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-docutils",
+          "build_hash": "t4mewmmxfcmuywthzvovoxjnvbhxfmxw",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "viy3eyllvyt2qsgnvquxisrhwo2rdn3q"
+    },
+    "p56rn2mhxvoqqmaiuj7og4hf7dyp37g4": {
+      "name": "cmake",
+      "version": "3.18.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_type": "Release",
+        "doc": false,
+        "ncurses": true,
+        "openssl": true,
+        "ownlibs": true,
+        "patches": [
+          "bf695e3febb222da2ed94b3beea600650e4318975da90e4a71d6f31a6d5d8c3d"
+        ],
+        "qt": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "patches": [
+        "bf695e3febb222da2ed94b3beea600650e4318975da90e4a71d6f31a6d5d8c3d"
+      ],
+      "hash": "p56rn2mhxvoqqmaiuj7og4hf7dyp37g4"
+    },
+    "d2pngo3l2j5xic246mqm6q3byc7atjs7": {
+      "name": "libnl",
+      "version": "3.3.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "bison",
+          "build_hash": "is5n3vha7qqlzvl3ltvhs5e5433g4gsn",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "flex",
+          "build_hash": "q2kzdpjqzeqdis2z3ios475hv4775hqo",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "m4",
+          "build_hash": "rxmh3f22uaxzdd53xbs737ybh5v3vsjs",
+          "type": [
+            "build"
+          ]
+        }
+      ],
+      "hash": "vfy2hqt2mr5tndsaj6fyqngk454aubr2"
+    },
+    "is5n3vha7qqlzvl3ltvhs5e5433g4gsn": {
+      "name": "bison",
+      "version": "3.0.4",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "patches": [
+          "b72914fe38e54a6fc25f29019e0a0786705c4f61ce20d414cc2010c8d62448c7"
+        ],
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "patches": [
+        "b72914fe38e54a6fc25f29019e0a0786705c4f61ce20d414cc2010c8d62448c7"
+      ],
+      "hash": "is5n3vha7qqlzvl3ltvhs5e5433g4gsn"
+    },
+    "q2kzdpjqzeqdis2z3ios475hv4775hqo": {
+      "name": "flex",
+      "version": "2.6.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "lex": true,
+        "nls": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "q2kzdpjqzeqdis2z3ios475hv4775hqo"
+    },
+    "t4mewmmxfcmuywthzvovoxjnvbhxfmxw": {
+      "name": "py-docutils",
+      "version": "0.18",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "py-pip",
+          "build_hash": "kfy2nyy7iucibuxgm3xxy3ioqs5quvw5",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-setuptools",
+          "build_hash": "ty363w7y6lgv7jzao2jdyykghezsrosd",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "5gtgggw6ziygxghujxqtyusl4a2a5qtm",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "clglqatpruxvapsuunivficsqp3ehd7q",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "qmqneufvdf6idyd7by2pjnt2wt4izgab"
+    },
+    "kfy2nyy7iucibuxgm3xxy3ioqs5quvw5": {
+      "name": "py-pip",
+      "version": "21.3.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "python",
+          "build_hash": "clglqatpruxvapsuunivficsqp3ehd7q",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "dswy5voysytuqhwm2xiyx5kxty4hg6ww"
+    },
+    "ty363w7y6lgv7jzao2jdyykghezsrosd": {
+      "name": "py-setuptools",
+      "version": "59.4.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "py-pip",
+          "build_hash": "kfy2nyy7iucibuxgm3xxy3ioqs5quvw5",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "5gtgggw6ziygxghujxqtyusl4a2a5qtm",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "clglqatpruxvapsuunivficsqp3ehd7q",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "xuetj57hud42mqdpw7h245ga3lepi3wn"
+    },
+    "5gtgggw6ziygxghujxqtyusl4a2a5qtm": {
+      "name": "py-wheel",
+      "version": "0.37.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "py-pip",
+          "build_hash": "kfy2nyy7iucibuxgm3xxy3ioqs5quvw5",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "clglqatpruxvapsuunivficsqp3ehd7q",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "ere45wf266233w75kuioejryy7l26o4f"
+    },
+    "5onwnvwz77mpr7xserirsyc7rsxhook3": {
+      "name": "openmpi",
+      "version": "4.1.2",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "11.2.0"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "atomics": false,
+        "cuda": false,
+        "cxx": false,
+        "cxx_exceptions": false,
+        "fabrics": [
+          "knem",
+          "ucx"
+        ],
+        "gpfs": true,
+        "internal-hwloc": false,
+        "java": false,
+        "legacylaunchers": true,
+        "lustre": false,
+        "memchecker": false,
+        "pmi": false,
+        "pmix": true,
+        "romio": true,
+        "schedulers": [
+          "slurm"
+        ],
+        "singularity": false,
+        "sqlite3": false,
+        "static": true,
+        "thread_multiple": true,
+        "vt": true,
+        "wrapper-rpath": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "hwloc",
+          "build_hash": "qwppzyhmx7rki3mderhbkujuwln4nq3t",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "knem",
+          "build_hash": "l3rpurzqe7yz3skhknvftycgbzqc7smr",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "libevent",
+          "build_hash": "dki6rviu37mychmkpqpjp7ksnivuvnft",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "numactl",
+          "build_hash": "tq3fecgvuz4gmicow4i3c7qo5wr762oq",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "openssh",
+          "build_hash": "nvwx3r3j5pzx3bpqxrw2kw7n2qy3vtj5",
+          "type": [
+            "run"
+          ]
+        },
+        {
+          "name": "perl",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "pmix",
+          "build_hash": "6cdyzg6qiglhsjjvlqacmtaljx5xpo4d",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "slurm",
+          "build_hash": "abqwiu3iethovvge54dwpr5ud2vm32b4",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "ucx",
+          "build_hash": "pij2izsmjswxmdpy7fklyrp2w6y55okv",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "7lnxqhn2cfpry5evllrhmaiid5tdlw4g"
+    },
+    "mdgyzpgplesb4qxshekoirlyndyzj37r": {
+      "name": "osu-micro-benchmarks",
+      "version": "5.7.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "10.2.0"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cuda": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "openmpi",
+          "build_hash": "vs25drbub6lb2nd3pzvbt4r2oh5ztvye",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "zxizzou3f5zolz5g4rdydv2ogh7eud7t"
+    },
+    "6emfo3q74jtmx3bhuz2j7n7u32kiy3du": {
+      "name": "osu-micro-benchmarks",
+      "version": "5.7.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "11.2.0"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cuda": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gnuconfig",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "openmpi",
+          "build_hash": "5onwnvwz77mpr7xserirsyc7rsxhook3",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "kh4oyosmzcohpvgxfc3zwanojaqwiudt"
+    }
+  }
+}
