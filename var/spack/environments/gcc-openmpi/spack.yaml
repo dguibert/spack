@@ -8,36 +8,10 @@ spack:
   mirrors:
     software-mirror: file://software/spack/mirror
   modules:
-    prefix_inspections:
-      lib:
-      - LIBRARY_PATH
-      - LD_LIBRARY_PATH
-      lib64:
-      - LIBRARY_PATH
-      - LD_LIBRARY_PATH
-      ? ''
-      : - CMAKE_PREFIX_PATH
     default:
-      enable:
-      - lmod
-      roots:
-        tcl: $SPACK_ROOT/tcl/modules
-        lmod: $SPACK_ROOT/lmod/modules
-      tcl:
-        hash_length: 0
-        projections:
-          all: '{name}/{version}-{compiler.name}-{compiler.version}'
-          ^mpi: '{name}/{version}-{^mpi.name}-{^mpi.version}-{compiler.name}-{compiler.version}'
-        all:
-          prerequisites: direct
       lmod:
-        hash_length: 0
         core_compilers:
         - gcc@8.4.1
-        hierarchy:
-        - mpi
-        all:
-          autoload: direct
   packages:
     autoconf:
       externals:
