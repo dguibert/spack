@@ -4,6 +4,7 @@ spack:
   #    install_tree: /software/spack/v0.13.2-9600-g5f36801aa7-2925a5e/software/spack/opt/spack
   config:
     install_missing_compilers: true
+    source_cache: /software/spack/mirror
   mirrors:
     software-mirror: file://software/spack/mirror
   modules:
