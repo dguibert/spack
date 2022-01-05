@@ -19,6 +19,7 @@ class PyFastaq(PythonPackage):
     version('3.13.0',         sha256='e0652b0d8e169a0a49f7d172b146098f4f87ec95d3e30519a8d99af685e6c0bb')
     version('3.12.1',         sha256='deefb2b2956d9f58b24a079c315099d3576df9cd7c26aaea7f1c9aa9437d02f8')
 
+    depends_on('py-setuptools', type='build')
     depends_on('samtools', type='run')
     depends_on('gzip', type='run')
 
