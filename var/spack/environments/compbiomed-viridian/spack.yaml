@@ -183,5 +183,20 @@ spack:
     # for py-pysam setuptools>=58 breaks support for use_2to3
     # https://setuptools.readthedocs.io/en/latest/history.html#v58-0-0
   - py-viridian@main ^py-pysam@0.18.0 ^py-setuptools@57.4.0
+  - py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0
   view: false
   concretization: separately
+  compilers:
+  - compiler:
+      spec: gcc@8.4.1
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: rhel8
+      target: aarch64
+      modules: []
+      environment: {}
+      extra_rpaths: []

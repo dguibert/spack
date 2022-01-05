@@ -13,10 +13,6 @@ class PyViridian(PythonPackage):
 
     url      = "https://github.com/iqbal-lab-org/viridian/archive/refs/tags/v0.1.0.tar.gz"
 
-    # FIXME: Add a list of GitHub accounts to
-    # notify when the package is updated.
-    # maintainers = ['github_user1', 'github_user2']
-
     version('main', git='https://github.com/iqbal-lab-org/viridian', branch='main', numeric_equivalent='>')
     version('0.1.0', sha256='b319a4dc6d6510a9bd4cb6248c38d38f2d11c02eed7eb5645fe48d683c3c1e9f')
 
