@@ -28,6 +28,10 @@ def setup_parser(subparser):
         '--known-targets', action='store_true',
         help='show a list of all known targets and exit'
     )
+    subparser.add_argument(
+        '--list-ancestors', action='store_true', default=False,
+        help='print ancestors')
+
     parts = subparser.add_mutually_exclusive_group()
     parts2 = subparser.add_mutually_exclusive_group()
     parts.add_argument(
@@ -45,7 +49,6 @@ def setup_parser(subparser):
     parts2.add_argument(
         '-b', '--backend', action='store_true', default=False,
         help='print backend')
-
 
 def display_targets(targets):
     """Prints a human readable list of the targets passed as argument."""
@@ -84,6 +87,12 @@ def arch(parser, args):
 
     if args.known_targets:
         display_targets(archspec.cpu.TARGETS)
+        return
+
+    if args.list_ancestors:
+        print(archspec.cpu.host().name)
+        for m in archspec.cpu.TARGETS[archspec.cpu.host().name].ancestors:
+          print(m.name)
         return
 
     os_args, target_args = 'default_os', 'default_target'
