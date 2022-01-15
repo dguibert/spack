@@ -168,7 +168,7 @@ spack:
         prefix: /usr
     all:
       target: [x86_64, aarch64]
-      compiler: [gcc@8.4.1 nvhpc@21.2 nvhpc@21.7 nvhpc@21.11 aocc@3.2.0]
+      compiler: [gcc@8.4.1]
     nvhpc:
       variants:
       - ~mpi
@@ -179,49 +179,82 @@ spack:
       - +license-agreed
     openmpi:
       variants:
-      - fabrics=knem,ucx # comma not handle
+      - fabrics='knem,ucx' # comma not handle
       - +legacylaunchers
       - +pmix
       - schedulers=slurm
       - +thread_multiple
-        #compiler:
-        #- gcc@11.2.0   # https://github.com/spack/spack/issues/21660, https://github.com/spack/spack/issues/1371
+  definitions:
+  - compilers:
+    - gcc@10.2.0
+    - gcc@11.2.0
+    - gcc@11.2.0+nvptx
+    - aocc@3.2.0
+    - nvhpc@21.2
+    - nvhpc@21.7
+  - mpis_with_compilers:
+    - gcc@10.2.0 ^openmpi fabrics='knem,ucx' %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+    - aocc@3.2.0 ^openmpi fabrics='knem,ucx' %aocc@3.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+    - nvhpc@21.2 ^openmpi fabrics='knem,ucx' %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+    - nvhpc@21.7 ^openmpi fabrics='knem,ucx' %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - mpis:
+    - openmpi fabrics='knem,ucx' %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+    - openmpi fabrics='knem,ucx' %aocc@3.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+    - openmpi fabrics='knem,ucx' %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+    - openmpi fabrics='knem,ucx' %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - mpi_packages:
+    - osu-micro-benchmarks
+    - netcdf-fortran ^hdf5+fortran+mpi ^netcdf-c+mpi
+  - seq_packages: []
+    #- netcdf-fortran ^netcdf-c~mpi ^hdf5+fortran~mpi
   specs:
-  - aocc@3.2.0
   - binutils
   - cmake@3.21.4%gcc@8.4.1
   - environment-modules
-  - gcc@10.2.0
-  - gcc@11.2.0
-  - gcc@11.2.0+nvptx
+  - git+tcltk
+  - htop
   - likwid@5.0.1+accessdaemon%gcc ^lua%gcc ^perl%gcc ^unzip%gcc
   - likwid+accessdaemon%gcc ^lua%gcc ^perl%gcc ^unzip%gcc
   - lmod ^lua-luaposix@33.4.0
-  - nvhpc@21.2
-  - nvhpc@21.7
-  - netcdf-fortran%nvhpc@21.7 ^hdf5+fortran%nvhpc@21.7 ^netcdf-c%nvhpc@21.7 ^autoconf%gcc
-    ^automake%gcc ^cmake%gcc ^cuda%gcc ^gdrcopy%gcc ^hwloc%gcc ^libevent%gcc ^libtool%gcc
-    ^libxml2%gcc ^m4%gcc ^numactl%gcc ^openmpi fabrics=knem,ucx ^openssh%gcc ^rdma-core%gcc
-    ^ucx%gcc ^zlib%gcc
-  - netcdf-fortran%nvhpc@21.7 ^hdf5+fortran~mpi%nvhpc@21.7 ^netcdf-c~mpi%nvhpc@21.7
-    ^zlib%gcc ^m4%gcc ^cmake%gcc
-  - intel-mkl@2019.5.281
-  - openmpi fabrics=knem,ucx %aocc@3.2.0 ^ucx%aocc@3.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
-    ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
-    ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-  - openmpi fabrics=knem,ucx %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
-    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
-    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-  - openmpi fabrics=knem,ucx %gcc@11.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
-    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
-    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-  - openmpi fabrics=knem,ucx %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
-    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
-    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-  - openmpi fabrics=knem,ucx %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
-    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
-    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-  - aocc@3.2.0
+  - $compilers
+  - $mpis
+  - matrix:
+    - [osu-micro-benchmarks]
+    - [$%mpis_with_compilers]
+  - netcdf-fortran%gcc@10.2.0 ^netcdf-c%gcc ^hdf5%gcc ^openmpi fabrics='knem,ucx'
+    %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  
+# FAILS to build
+#  - netcdf-fortran%aocc@3.2.0 ^netcdf-c%aocc ^hdf5%aocc ^openmpi fabrics='knem,ucx'
+#    %aocc@3.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+#    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+#    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - netcdf-fortran%nvhpc@21.2 ^netcdf-c%nvhpc ^hdf5%nvhpc ^openmpi fabrics='knem,ucx'
+    %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - netcdf-fortran%nvhpc@21.7 ^netcdf-c%nvhpc ^hdf5%nvhpc ^openmpi fabrics='knem,ucx'
+    %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
   view: false
   concretization: separately
   compilers:
