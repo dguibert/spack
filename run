@@ -1,0 +1,108 @@
+#!/bin/sh -e
+
+${VERBOSE:-false} && set -x
+
+current_dir=`dirname $0`
+#. $current_dir/env
+
+generate_module_lua() {
+	local f=$1
+	local t=$2
+	local os=$3
+	local arch=$4
+
+	f=$SPACK_ROOT/share/spack/lmod/modules/modules/$arch/current.lua
+	if [[ -e $f ]] ; then
+		continue
+	else
+		mods=$(realpath $d/linux-$os-$arch)
+		if [[ -e $mods ]]; then
+			echo "Creating $f"
+			# generate one based on our template
+			date=$(date -d now)
+			mkdir -p $(dirname $f)
+			sed "s:@MODS@:$mods:g;s!@DATE@!$date!g" $current_dir/modules.lua.in > $f
+		fi
+	fi
+}
+
+site=$(hostname -s)
+
+case "$site" in
+  spartan*)
+    site=spartan
+  ;;
+  genji*)
+    site=genji ;;
+esac
+
+if [[ $# -eq 0 ]] ; then
+	cmd=help
+else
+	cmd="$1"
+	shift
+fi
+case "$cmd" in
+	(build)
+		env=${1:-software-$(uname -m)};
+		spack env activate -p $env
+		export SPACK_GIT_VERSION=$(git describe --always --dirty)
+		spack config --scope site add modules:defaults:roots:lmod:$SPACK_ROOT/share/spack/lmod/$SPACK_GIT_VERSION
+		spack -d concretize -f
+		spack -d install
+		spack -d module lmod refresh --yes-to-all --upstream-modules
+		spack config --scope site rm modules:defaults:roots
+		;;
+	(release)
+		if ! git diff-index --quiet HEAD -- ; then
+			echo "Local modifications: refusing to release"
+			exit 1
+		fi
+		for env in "$@" ; do
+			case "$env" in
+				(*)
+					$0 build $env
+					l=$env-$SPACK_GIT_VERSION
+					git tag $site/${l} HEAD
+					;;
+			esac
+		done
+		;& # fall-thru
+	(modules)
+		# versionned modules
+		for d in $SPACK_ROOT/share/spack/lmod/v*; do
+			basename=$(basename $d)
+			t=$(stat -c %Z $d/)
+			os=$(spack arch -o)
+			for arch in $(spack arch --list-ancestors | tac); do
+				generate_module_lua $SPACK_ROOT/share/spack/lmod/modules/modules/$arch/$basename.lua $t $os $arch
+			done
+		done
+		# current packages
+		d=$SPACK_ROOT/share/spack/lmod
+		os=$(spack arch -o)
+		for arch in $(spack arch --list-ancestors | tac); do
+			generate_module_lua $SPACK_ROOT/share/spack/lmod/modules/modules/$arch/current.lua $t $os $arch
+		done
+		;;
+	(*)
+		if [[ $cmd != help ]] ; then
+			echo "Unknown command"
+		fi
+
+		cat <<EOF
+Usage: $0 COMMAND
+
+Commands:
+
+  build        Build modules
+  release      Publish a release profile for...
+    software-x86_64  /software-like env on x86_64 cpus
+    software-aarch64 /software-like env on aarch64 cpus
+    any environment name: $(spack env list)
+    modules    nixpack lmod modules (default)
+  modules      Update meta-modules in /software/spack/lmod from releases
+
+EOF
+esac
+
