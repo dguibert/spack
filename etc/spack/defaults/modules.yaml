@@ -44,9 +44,18 @@ modules:
     #  lmod:   $spack/share/spack/lmod
     # What type of modules to use
     enable:
-      - tcl
+      - lmod
 
     # Default configurations if lmod is enabled
     lmod:
+      hash_length: 0
+      core_specs:
+        - 'python'
       hierarchy:
-        - mpi
+      - mpi
+      all:
+        autoload: direct
+        suffixes:
+          ^cuda: cuda
+          ^nvptx: nvptx
+
