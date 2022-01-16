@@ -11,8 +11,8 @@ generate_module_lua() {
 	local os=$3
 	local arch=$4
 
-	f=$SPACK_ROOT/share/spack/lmod/modules/modules/$arch/current.lua
 	if [[ -e $f ]] ; then
+		echo "Already existing $f"
 		continue
 	else
 		mods=$(realpath $d/linux-$os-$arch)
@@ -46,18 +46,21 @@ case "$cmd" in
 	(build)
 		env=${1:-software-$(uname -m)};
 		spack env activate -p $env
-		export SPACK_GIT_VERSION=$(git describe --always --dirty)
-		spack config --scope site add modules:defaults:roots:lmod:$SPACK_ROOT/share/spack/lmod/$SPACK_GIT_VERSION
+		export SPACK_GIT_VERSION=${SPACK_GIT_VERSION:-$(git describe --always --dirty)}
+		echo $SPACK_GIT_VERSION
+		spack config --scope site add modules:default:roots:lmod:$SPACK_ROOT/share/spack/lmod/$SPACK_GIT_VERSION
 		spack -d concretize -f
 		spack -d install
 		spack -d module lmod refresh --yes-to-all --upstream-modules
-		spack config --scope site rm modules:defaults:roots
+		spack config --scope site rm modules:default:roots
 		;;
 	(release)
 		if ! git diff-index --quiet HEAD -- ; then
 			echo "Local modifications: refusing to release"
 			exit 1
 		fi
+		export SPACK_GIT_VERSION=$(git describe --always --dirty)
+		echo $SPACK_GIT_VERSION
 		for env in "$@" ; do
 			case "$env" in
 				(*)
