@@ -12,6 +12,8 @@ spack:
       lmod:
         core_compilers:
         - gcc@8.4.1
+    defaults:
+      roots: {}
   packages:
     autoconf:
       externals:
@@ -172,23 +174,33 @@ spack:
       - +license-agreed
     openmpi:
       variants:
-      - fabrics=knem,ucx # comma not handle
+      - fabrics='knem,ucx' # comma not handle
       - +legacylaunchers
       - +pmix
       - schedulers=slurm
       - +thread_multiple
-        #compiler:
-        #- gcc@11.2.0   # https://github.com/spack/spack/issues/21660, https://github.com/spack/spack/issues/1371
+  definitions:
+  - compilers:
+    - gcc@11.2.0
+  - mpis_with_compilers:
+    - gcc@11.2.0 ^openmpi fabrics='knem,ucx' %gcc@11.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+  - mpis:
+    - openmpi fabrics='knem,ucx' %gcc@11.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
   specs:
   - cmake%gcc@8.4.1
   - environment-modules
   - lmod ^lua-luaposix@33.4.0
-  - gcc@11.2.0
-  - openmpi fabrics=knem,ucx %gcc@11.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
-    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
-    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
   - hip@4.3.1
   - hipfft@4.3.1 ^rocfft@4.3.1 amdgpu_target=gfx906,gfx908
+  - $compilers
+  - $mpis
+  - matrix:
+    - [osu-micro-benchmarks]
+    - [$%mpis_with_compilers]
   view: false
   concretization: separately
   compilers:
