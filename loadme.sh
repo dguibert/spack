@@ -10,9 +10,11 @@ source $SPACK_ROOT/share/spack/setup-env.sh
 . $(spack location -i lmod arch=$(uname -p))/lmod/lmod/init/profile
 source $SPACK_ROOT/share/spack/setup-env.sh
 #module use $SPACK_ROOT/share/spack/lmod/linux-$(spack arch -o)-$(uname -p)/Core
-os=$(spack arch -o)
-for arch in $(spack arch --list-ancestors | tac); do
-module use $SPACK_ROOT/share/spack/lmod/linux-${os}-${arch}/Core
-done
+
+module use $SPACK_ROOT/share/spack/lmod/modules
+#os=$(spack arch -o)
+#for arch in $(spack arch --list-ancestors | tac); do
+#module use $SPACK_ROOT/share/spack/lmod/linux-${os}-${arch}/Core
+#done
 module av
 
