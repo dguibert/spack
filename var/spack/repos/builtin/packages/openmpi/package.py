@@ -186,6 +186,7 @@ class Openmpi(AutotoolsPackage, CudaPackage):
 
     patch('nvhpc-libtool.patch', when='@main %nvhpc')
     patch('nvhpc-configure.patch', when='%nvhpc')
+    patch('nvhpc-avx.patch', when='%nvhpc@:21.9')
 
     # Fix MPI_Sizeof() in the "mpi" Fortran module for compilers that do not
     # support "IGNORE TKR" functionality (e.g. NAG).
@@ -281,6 +282,11 @@ class Openmpi(AutotoolsPackage, CudaPackage):
     depends_on('automake @1.13.4:', type='build', when='@main')
     depends_on('libtool @2.4.2:',   type='build', when='@main')
     depends_on('m4',                type='build', when='@main')
+
+    depends_on('autoconf', type='build', when='%nvhpc')
+    depends_on('automake', type='build', when='%nvhpc')
+    depends_on('libtool',  type='build', when='%nvhpc')
+    depends_on('m4',       type='build', when='%nvhpc')
 
     depends_on('perl',     type='build')
     depends_on('pkgconfig', type='build')
@@ -667,6 +673,16 @@ class Openmpi(AutotoolsPackage, CudaPackage):
         perl = which('perl')
         perl('autogen.pl')
 
+    @when('%nvhpc')
+    def autoreconf(self, spec, prefix):
+        autogen = which('./autogen.pl')
+        autogen('--force')
+
+    def setup_build_environment(self, env):
+        if '~gpfs' in self.spec:
+            env.set('ac_cv_header_gpfs_h', 'no')
+            env.set('ac_cv_header_gpfs_fcntl_h', 'no')
+
     def configure_args(self):
         spec = self.spec
         config_args = [
@@ -793,6 +809,13 @@ class Openmpi(AutotoolsPackage, CudaPackage):
                     config_args.append('CFLAGS=-D__LP64__')
         elif spec.satisfies('@1.7:'):
             config_args.append('--without-cuda')
+
+        if spec.satisfies('%nvhpc'):
+            config_args.append('CFLAGS=%s' % self.compiler.cc_pic_flag)
+            config_args.append('FFLAGS=%s' % self.compiler.fc_pic_flag)
+            config_args.append('CPPFLAGS=%s' % self.compiler.cc_pic_flag)
+            config_args.append('FCFLAGS=%s' % self.compiler.fc_pic_flag)
+            config_args.append('--enable-mca-no-build=op-avx')
 
         if spec.satisfies('%nvhpc@:20.11'):
             # Workaround compiler issues
