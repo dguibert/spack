@@ -35,6 +35,8 @@ class Likwid(Package):
     version('4.3.1', sha256='4b40a96717da54514274d166f9b71928545468091c939c1d74109733279eaeb1')
     version('4.3.0', sha256='86fc5f82c80fcff1a643394627839ec79f1ca2bcfad30000eb7018da592588b4')
 
+    variant('accessdaemon', default=False, description='with likwid-accessD')
+
     patch('https://github.com/RRZE-HPC/likwid/commit/e0332ace8fe8ca7dcd4b4477a25e37944f173a5c.patch',
           when='@5.0.1',
           sha256='c3b8f939a46b425665577ce764d4fba080a23cab5999c53db71655fd54d7e0b1')
