@@ -796,6 +796,7 @@ class Openmpi(AutotoolsPackage):
             config_args.append('FFLAGS=%s' % self.compiler.fc_pic_flag)
             config_args.append('CPPFLAGS=%s' % self.compiler.cc_pic_flag)
             config_args.append('FCFLAGS=%s' % self.compiler.fc_pic_flag)
+            config_args.append('--enable-mca-no-build=op-avx')
 
         if spec.satisfies('%nvhpc@:20.11'):
             # Workaround compiler issues
