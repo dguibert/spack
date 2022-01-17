@@ -12,8 +12,6 @@ spack:
       lmod:
         core_compilers:
         - gcc@8.4.1
-      roots:
-        lmod: /home_nfs/bguibertd/software-cepp-spack/spack/share/spack/lmod/v0.13.2-11466-g874c9aff7a-dirty
   packages:
     openssl:
       externals:
