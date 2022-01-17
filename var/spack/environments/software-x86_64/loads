@@ -1,0 +1,50 @@
+# binutils@2.37%gcc@8.4.1~gas~gold~headers~interwork~ld~libiberty~lto+nls+plugins libs=shared,static arch=linux-rhel8-x86_64
+module load binutils/2.37
+# cmake@3.21.4%gcc@8.4.1~doc+ncurses+openssl+ownlibs~qt build_type=Release arch=linux-rhel8-x86_64
+module load cmake/3.21.4
+# environment-modules@5.0.1%gcc@8.4.1+X arch=linux-rhel8-x86_64
+module load environment-modules/5.0.1
+# git@2.31.1%gcc@8.4.1+man+nls+perl~svn+tcltk arch=linux-rhel8-x86_64
+module load git/2.31.1
+# htop@3.1.1%gcc@8.4.1 arch=linux-rhel8-x86_64
+module load htop/3.1.1
+# likwid@5.0.1%gcc@8.4.1+accessdaemon~cuda+fortran patches=c3b8f939a46b425665577ce764d4fba080a23cab5999c53db71655fd54d7e0b1 arch=linux-rhel8-x86_64
+module load likwid/5.0.1
+# likwid@5.2.1%gcc@8.4.1+accessdaemon~cuda+fortran arch=linux-rhel8-x86_64
+module load likwid/5.2.1
+# lmod@8.5.27%gcc@8.4.1+auto_swap~redirect arch=linux-rhel8-x86_64
+module load lmod/8.5.27
+# gcc@10.2.0%gcc@8.4.1~binutils+bootstrap~graphite~nvptx~piclibs~strip languages=c,c++,fortran patches=28c5ab3b564d83dd7e6e35b9c683141a4cb57ee886c5367e54a0828538b3c789,2c18531a23623596e1daf6f0dd963cf72c208945ecad90515640c3ab23991159,eaa00c91e08a5e767f023911a49bc1b2d1a3eea38703b745ab260f90e8da41aa arch=linux-rhel8-x86_64
+module load gcc/10.2.0
+# gcc@11.2.0%gcc@8.4.1~binutils+bootstrap~graphite~nvptx~piclibs~strip languages=c,c++,fortran arch=linux-rhel8-x86_64
+module load gcc/11.2.0
+# gcc@11.2.0%gcc@8.4.1~binutils~bootstrap~graphite+nvptx~piclibs~strip languages=c,c++,fortran arch=linux-rhel8-x86_64
+module load gcc/11.2.0-cuda
+# aocc@3.2.0%gcc@8.4.1+license-agreed arch=linux-rhel8-x86_64
+module load aocc/3.2.0
+# nvhpc@21.2%gcc@8.4.1~blas~lapack~mpi install_type=single arch=linux-rhel8-x86_64
+module load nvhpc/21.2
+# nvhpc@21.7%gcc@8.4.1~blas~lapack~mpi install_type=single arch=linux-rhel8-x86_64
+module load nvhpc/21.7
+# openmpi@4.1.2%gcc@10.2.0~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java+legacylaunchers~lustre~memchecker~pmi+pmix+romio~singularity~sqlite3+static+thread_multiple+vt+wrapper-rpath fabrics=knem,ucx schedulers=slurm arch=linux-rhel8-x86_64
+module load openmpi/4.1.2
+# openmpi@4.1.2%aocc@3.2.0~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java+legacylaunchers~lustre~memchecker~pmi+pmix+romio~singularity~sqlite3+static+thread_multiple+vt+wrapper-rpath fabrics=knem,ucx schedulers=slurm arch=linux-rhel8-x86_64
+module load openmpi/4.1.2
+# openmpi@4.1.2%nvhpc@21.2~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java+legacylaunchers~lustre~memchecker~pmi+pmix+romio~singularity~sqlite3+static+thread_multiple+vt+wrapper-rpath fabrics=knem,ucx patches=fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=slurm arch=linux-rhel8-x86_64
+module load openmpi/4.1.2
+# openmpi@4.1.2%nvhpc@21.7~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java+legacylaunchers~lustre~memchecker~pmi+pmix+romio~singularity~sqlite3+static+thread_multiple+vt+wrapper-rpath fabrics=knem,ucx patches=fba0d3a784a9723338722b48024a22bb32f6a951db841a4e9f08930a93f41d7a schedulers=slurm arch=linux-rhel8-x86_64
+module load openmpi/4.1.2
+# osu-micro-benchmarks@5.7.1%gcc@10.2.0~cuda arch=linux-rhel8-x86_64
+module load osu-micro-benchmarks/5.7.1
+# osu-micro-benchmarks@5.7.1%aocc@3.2.0~cuda arch=linux-rhel8-x86_64
+module load osu-micro-benchmarks/5.7.1
+# osu-micro-benchmarks@5.7.1%nvhpc@21.2~cuda arch=linux-rhel8-x86_64
+module load osu-micro-benchmarks/5.7.1
+# osu-micro-benchmarks@5.7.1%nvhpc@21.7~cuda arch=linux-rhel8-x86_64
+module load osu-micro-benchmarks/5.7.1
+# netcdf-fortran@4.5.3%gcc@10.2.0~doc+pic+shared arch=linux-rhel8-x86_64
+module load netcdf-fortran/4.5.3
+# netcdf-fortran@4.5.3%nvhpc@21.2~doc+pic+shared arch=linux-rhel8-x86_64
+module load netcdf-fortran/4.5.3
+# netcdf-fortran@4.5.3%nvhpc@21.7~doc+pic+shared arch=linux-rhel8-x86_64
+module load netcdf-fortran/4.5.3
