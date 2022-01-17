@@ -12,6 +12,8 @@ spack:
       lmod:
         core_compilers:
         - gcc@8.4.1
+      roots:
+        lmod: /home_nfs/bguibertd/software-cepp-spack/spack/share/spack/lmod/v0.13.2-11466-g874c9aff7a-dirty
   packages:
     openssl:
       externals:
@@ -223,13 +225,26 @@ spack:
       - +thread_multiple
   definitions:
   - compilers:
+    - aocc@3.2.0
     - gcc@10.2.0
     - gcc@11.2.0
     - gcc@11.2.0+nvptx
-    - aocc@3.2.0
-    - nvhpc@21.2
+    - intel-oneapi-compilers@2022.0.1
+    - nvhpc@21.11
     - nvhpc@21.7
-  - mpis_with_compilers:
+    - nvhpc@21.9
+    - nvhpc@22.1
+  - compiler_specs:
+    - aocc@3.2.0
+    - gcc@10.2.0
+    - gcc@11.2.0
+    - gcc@11.2.0+nvptx
+    - oneapi@2022.0.0
+    - nvhpc@21.11
+    - nvhpc@21.7
+    - nvhpc@21.9
+    - nvhpc@22.1
+  - mpis_with_compiler_specs:
     - gcc@10.2.0 ^openmpi fabrics='knem,ucx' %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
       ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
       ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
@@ -242,14 +257,23 @@ spack:
       ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
       ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
       ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
-    - nvhpc@21.2 ^openmpi fabrics='knem,ucx' %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
-      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
-      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
     - nvhpc@21.7 ^openmpi fabrics='knem,ucx' %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
       ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
       ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
       ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - nvhpc@21.9 ^openmpi fabrics='knem,ucx' %nvhpc@21.9 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - nvhpc@21.11 ^openmpi fabrics='knem,ucx' %nvhpc@21.11 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - nvhpc@22.1 ^openmpi fabrics='knem,ucx' %nvhpc@22.1 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - oneapi@2022.0.0 ^intel-oneapi-mpi@2021.5.0%gcc@8.4.1
   - mpis:
     - openmpi fabrics='knem,ucx' %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
       ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
@@ -263,14 +287,23 @@ spack:
       ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
       ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
       ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
-    - openmpi fabrics='knem,ucx' %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
-      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
-      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
-      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
     - openmpi fabrics='knem,ucx' %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
       ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
       ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
       ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - openmpi fabrics='knem,ucx' %nvhpc@21.9 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - openmpi fabrics='knem,ucx' %nvhpc@21.11 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - openmpi fabrics='knem,ucx' %nvhpc@22.1 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1
+      ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1
+      ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1
+      ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+    - intel-oneapi-mpi@2021.5.0%gcc@8.4.1
   - mpi_packages:
     - osu-micro-benchmarks
     - netcdf-fortran ^hdf5+fortran+mpi ^netcdf-c+mpi
@@ -282,6 +315,11 @@ spack:
   - environment-modules
   - git+tcltk
   - htop ^python+ssl%gcc@8.4.1
+  - intel-oneapi-advisor@2022.0.0
+  - intel-oneapi-inspector@2022.0.0
+  - intel-oneapi-mkl@2022.0.1
+  - intel-oneapi-tbb@2021.5.0
+  - intel-oneapi-vtune@2022.0.0
   - likwid@5.0.1+accessdaemon%gcc ^lua%gcc ^perl%gcc ^unzip%gcc
   - likwid+accessdaemon%gcc ^lua%gcc ^perl%gcc ^unzip%gcc
   - lmod ^lua-luaposix@33.4.0
@@ -289,17 +327,25 @@ spack:
   - $mpis
   - matrix:
     - [osu-micro-benchmarks]
-    - [$%mpis_with_compilers]
+    - [$%mpis_with_compiler_specs]
   - netcdf-fortran%gcc@10.2.0 ^netcdf-c%gcc ^hdf5%gcc ^openmpi fabrics='knem,ucx'
     %gcc@10.2.0 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
     ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
     ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
-  - netcdf-fortran%nvhpc@21.2 ^netcdf-c%nvhpc ^hdf5%nvhpc ^openmpi fabrics='knem,ucx'
-    %nvhpc@21.2 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
-    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
-    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
   - netcdf-fortran%nvhpc@21.7 ^netcdf-c%nvhpc ^hdf5%nvhpc ^openmpi fabrics='knem,ucx'
     %nvhpc@21.7 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+  - netcdf-fortran%nvhpc@21.9 ^netcdf-c%nvhpc@21.9 ^hdf5%nvhpc@21.9 ^openmpi fabrics='knem,ucx'
+    %nvhpc@21.9 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+  - netcdf-fortran%nvhpc@21.11 ^netcdf-c%nvhpc@21.11 ^hdf5%nvhpc@21.11 ^openmpi fabrics='knem,ucx'
+    %nvhpc@21.11 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
+    ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
+    ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
+  - netcdf-fortran%nvhpc@22.1 ^netcdf-c%nvhpc@22.1 ^hdf5%nvhpc@22.1 ^openmpi fabrics='knem,ucx'
+    %nvhpc@22.1 ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1
     ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1
     ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
 # FAILS to build
@@ -399,6 +445,110 @@ spack:
         cflags: null
         cxxflags: null
         fflags: null
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@21.11
+      paths:
+        cc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.11-sie72vzfvbzluqnc64ezu7xvk6wpv7v6/Linux_x86_64/21.11/compilers/bin/nvc
+        cxx: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.11-sie72vzfvbzluqnc64ezu7xvk6wpv7v6/Linux_x86_64/21.11/compilers/bin/nvc++
+        f77: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.11-sie72vzfvbzluqnc64ezu7xvk6wpv7v6/Linux_x86_64/21.11/compilers/bin/nvfortran
+        fc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.11-sie72vzfvbzluqnc64ezu7xvk6wpv7v6/Linux_x86_64/21.11/compilers/bin/nvfortran
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@21.9
+      paths:
+        cc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.9-44iwmzxkhzxu6hrtb3eele4cd4xnm446/Linux_x86_64/21.9/compilers/bin/nvc
+        cxx: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.9-44iwmzxkhzxu6hrtb3eele4cd4xnm446/Linux_x86_64/21.9/compilers/bin/nvc++
+        f77: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.9-44iwmzxkhzxu6hrtb3eele4cd4xnm446/Linux_x86_64/21.9/compilers/bin/nvfortran
+        fc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-21.9-44iwmzxkhzxu6hrtb3eele4cd4xnm446/Linux_x86_64/21.9/compilers/bin/nvfortran
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@22.1
+      paths:
+        cc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-22.1-hjw5nkjhmpjuvhfrexkplg2jhhtlrzoz/Linux_x86_64/22.1/compilers/bin/nvc
+        cxx: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-22.1-hjw5nkjhmpjuvhfrexkplg2jhhtlrzoz/Linux_x86_64/22.1/compilers/bin/nvc++
+        f77: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-22.1-hjw5nkjhmpjuvhfrexkplg2jhhtlrzoz/Linux_x86_64/22.1/compilers/bin/nvfortran
+        fc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/nvhpc-22.1-hjw5nkjhmpjuvhfrexkplg2jhhtlrzoz/Linux_x86_64/22.1/compilers/bin/nvfortran
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: clang@10.0.1
+      paths:
+        cc: /usr/bin/clang
+        cxx: /usr/bin/clang++
+        f77: null
+        fc: null
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: dpcpp@2022.0.0
+      paths:
+        cc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/icx
+        cxx: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/dpcpp
+        f77: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/ifx
+        fc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/ifx
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@8.3.1
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@2021.5.0
+      paths:
+        cc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/intel64/icc
+        cxx: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/intel64/icpc
+        f77: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/intel64/ifort
+        fc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/intel64/ifort
+      flags: {}
+      operating_system: rhel8
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@2022.0.0
+      paths:
+        cc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/icx
+        cxx: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/icpx
+        f77: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/ifx
+        fc: /home_nfs/bguibertd/software-cepp-spack/spack/opt/spack/linux-rhel8-x86_64/gcc-8.4.1/intel-oneapi-compilers-2022.0.1-s67gbcf4754auqzuqrx465m4tc36wbg3/compiler/2022.0.1/linux/bin/ifx
+      flags: {}
       operating_system: rhel8
       target: x86_64
       modules: []
