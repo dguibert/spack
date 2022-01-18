@@ -13,11 +13,6 @@ spack:
         core_compilers:
         - gcc@8.4.1
   packages:
-    openssl:
-      externals:
-      - spec: openssl@1.1.1g
-        prefix: /usr
-      buildable: false
     autoconf:
       externals:
       - spec: autoconf@2.69
@@ -117,6 +112,11 @@ spack:
     openssh:
       externals:
       - spec: openssh@8.0p1
+        prefix: /usr
+      buildable: false
+    openssl:
+      externals:
+      - spec: openssl@1.1.1g
         prefix: /usr
       buildable: false
     perl:
