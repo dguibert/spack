@@ -39,7 +39,7 @@ class Xios(Package):
     depends_on('hdf5+mpi')
     depends_on('mpi')
     depends_on('boost')
-    depends_on('blitz')
+#    depends_on('blitz')
     depends_on('perl', type='build')
     depends_on('perl-uri', type='build')
     depends_on('gmake', type='build')
@@ -105,8 +105,8 @@ OASIS_LIB=""
         param['FC'] = self.compiler.fc
         param['BOOST_INC_DIR'] = spec['boost'].prefix.include
         param['BOOST_LIB_DIR'] = spec['boost'].prefix.lib
-        param['BLITZ_INC_DIR'] = spec['blitz'].prefix.include
-        param['BLITZ_LIB_DIR'] = spec['blitz'].prefix.lib
+        param['BLITZ_INC_DIR'] = '' #spec['blitz'].prefix.include
+        param['BLITZ_LIB_DIR'] = '' #spec['blitz'].prefix.lib
         if spec.satisfies('%apple-clang'):
             param['LIBCXX'] = '-lc++'
         else:
@@ -186,7 +186,7 @@ OASIS_LIB=""
                    '--arch', 'SPACK',
                    '--netcdf_lib', 'netcdf4_par',
                    '--use_extern_boost',
-                   '--use_extern_blitz',
+                   #'--use_extern_blitz',
                    '--job', str(make_jobs)]
 
         self.xios_env()
