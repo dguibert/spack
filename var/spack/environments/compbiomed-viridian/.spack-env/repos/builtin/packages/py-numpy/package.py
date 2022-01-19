@@ -1,4 +1,4 @@
-# Copyright 2013-2021 Lawrence Livermore National Security, LLC and other
+# Copyright 2013-2022 Lawrence Livermore National Security, LLC and other
 # Spack Project Developers. See the top-level COPYRIGHT file for details.
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
@@ -164,7 +164,7 @@ class PyNumpy(PythonPackage):
 
         return (flags, None, None)
 
-    @run_before('build')
+    @run_before('install')
     def set_blas_lapack(self):
         # https://numpy.org/devdocs/user/building.html
         # https://github.com/numpy/numpy/blob/master/site.cfg.example
@@ -341,7 +341,7 @@ class PyNumpy(PythonPackage):
 
         env.set('NPY_LAPACK_ORDER', lapack)
 
-    def build_args(self, spec, prefix):
+    def install_options(self, spec, prefix):
         args = []
 
         # From NumPy 1.10.0 on it's possible to do a parallel build.
