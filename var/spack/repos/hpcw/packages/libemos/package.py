@@ -56,7 +56,10 @@ class Libemos(CMakePackage):
           '-DENABLE_TESTS:BOOL=OFF',
           '-DENABLE_INSTALL_TOOLS:BOOL=OFF',
           '-DECBUILD_TRUST_FLAGS:BOOL=ON',
-          # FIXME ony gcc@10:
-          '-DCMAKE_Fortran_FLAGS=-fallow-argument-mismatch -ffree-line-length-none',
-        ]
+          ]
+        # only gcc@10:
+        if self.spec.satisfies('%gcc@10:'):
+          args.append(
+          '-DCMAKE_Fortran_FLAGS=-fallow-argument-mismatch -ffree-line-length-none'
+          )
         return args

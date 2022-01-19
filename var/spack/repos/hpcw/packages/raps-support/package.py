@@ -49,7 +49,10 @@ class RapsSupport(CMakePackage):
           '-DENABLE_EXAMPLES:BOOL=OFF',
           '-DENABLE_PYTHON:BOOL=OFF',
           '-DENABLE_JPG:BOOL=OFF',
-          # FIXME ony gcc@10:
-          '-DCMAKE_Fortran_FLAGS=-fallow-argument-mismatch',
         ]
+        # only gcc@10:
+        if self.spec.satisfies('%gcc@10:'):
+          args.append(
+          '-DCMAKE_Fortran_FLAGS=-fallow-argument-mismatch -ffree-line-length-none'
+          )
         return args
