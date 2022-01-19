@@ -151,6 +151,7 @@ bld::tool::fflags       %bld::tool::fflags $(IFSAUXINC)
         libs = spec['parmetis'].libs + \
                spec['netcdf-c'].libs + \
                spec['netcdf-fortran'].libs + \
+               spec['hdf5'].libs + \
                spec['lapack:fortran'].libs + \
                spec['blas:fortran'].libs
         param = dict()
@@ -164,11 +165,10 @@ bld::tool::fflags       %bld::tool::fflags $(IFSAUXINC)
         }
 
         if spec.satisfies('%gcc'):
-          param['FC_ARGS']='-g -fbacktrace -fconvert=big-endian'
-          param['FC_FLAGS']='-fallow-argument-mismatch -fallow-invalid-boz'
+          param['FC_ARGS']='-g -fbacktrace -fconvert=big-endian -fallow-argument-mismatch -fallow-invalid-boz'
+          param['FC_FLAGS']=''
         if spec.satisfies('%intel'):
           param['FC_ARGS']='-g -traceback'
-          param['FC_FLAGS']=''
 
         param['OMP']= self.compiler.openmp_flag
 
