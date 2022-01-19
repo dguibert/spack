@@ -6,48 +6,22 @@
   },
   "roots": [
     {
-      "hash": "llbjv2rhznreyskjbfaozpvm2ugaz5ye",
+      "hash": "qxh4j7g346xxsx77xvnvdymsi2au4wyf",
       "spec": "py-viridian@main ^py-pysam@0.18.0 ^py-setuptools@57.4.0"
     },
     {
-      "hash": "ajyaegemtwqn5d7go7f3euudsu5jjdcb",
+      "hash": "2i5ewk7wu4xnacodda5zknywg4b4flyf",
       "spec": "py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0"
     }
   ],
   "concrete_specs": {
-    "llbjv2rhznreyskjbfaozpvm2ugaz5ye": {
+    "qxh4j7g346xxsx77xvnvdymsi2au4wyf": {
       "name": "py-viridian",
       "version": "main",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -65,7 +39,7 @@
       "dependencies": [
         {
           "name": "minimap2",
-          "build_hash": "2sx5trfdxirnh5ycmv653e4hwrro5jcq",
+          "build_hash": "n35lqkeqzqrr5ihb37ydw7dkialkx7j2",
           "type": [
             "build",
             "run"
@@ -73,15 +47,22 @@
         },
         {
           "name": "py-fastaq",
-          "build_hash": "fnqks2bng3ll4njcbdukva7mhekshuwg",
+          "build_hash": "5oc6rqkc6lw4whwunvrdo5zqkqzfe52x",
           "type": [
             "build",
             "link"
           ]
         },
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-pysam",
-          "build_hash": "fsnr3idarllvnej5ecqcufwd2ravmmfd",
+          "build_hash": "aiwulhm4umc6kduejaqhjmfaqwtgz3ry",
           "type": [
             "build",
             "link"
@@ -89,15 +70,22 @@
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
@@ -105,48 +93,22 @@
         },
         {
           "name": "racon",
-          "build_hash": "dsptpw6poyz22i6b3c47thw4fxycir7w",
+          "build_hash": "46v6uk3pgem3o4jmndwpax6eb6x6txjz",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "ja3fgvv6w4jq3zvnyqqli7ewshy5a2qd"
+      "hash": "b2t5eacm4xl72fw2m5a35vkzzicnxk3q"
     },
-    "2sx5trfdxirnh5ycmv653e4hwrro5jcq": {
+    "n35lqkeqzqrr5ihb37ydw7dkialkx7j2": {
       "name": "minimap2",
       "version": "2.14",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -164,14 +126,35 @@
       "dependencies": [
         {
           "name": "py-cython",
-          "build_hash": "rxmkp5zb6nqtcl6nkslz47pted74kppa",
+          "build_hash": "lvzhnkgeyy7st6o2nbep7z5m3cgza6nl",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-setuptools",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
@@ -179,47 +162,21 @@
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "link"
           ]
         }
       ],
-      "hash": "7wds66hzzazbmkwvro3gmm3xdvckzca3"
+      "hash": "j2f5sw7pblmwnuxmlrufuudx457ir42f"
     },
-    "rxmkp5zb6nqtcl6nkslz47pted74kppa": {
+    "lvzhnkgeyy7st6o2nbep7z5m3cgza6nl": {
       "name": "py-cython",
       "version": "0.29.24",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -236,16 +193,30 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "link",
@@ -253,41 +224,15 @@
           ]
         }
       ],
-      "hash": "o4etfcxqmyc5kxazwj7m6bchc54mvdxd"
+      "hash": "gj4hs36sv25runvdky5h3t6hm7kt2zct"
     },
-    "px62ps35zwi6tpyl2zhyzp4idt5hrc6x": {
-      "name": "py-setuptools",
-      "version": "57.4.0",
+    "5ivuyc6zl253owzxvmhay4kaoxdeodqi": {
+      "name": "py-pip",
+      "version": "21.3.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -305,48 +250,22 @@
       "dependencies": [
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "yeirsakfxgwtn7qtz7hqthzhjewxuwkv"
+      "hash": "5nksl3emcv5e6rgnoudnvbnmvq4p5bbu"
     },
-    "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf": {
+    "saj6ianv3nrnietrfxjvinhfpuv4vti7": {
       "name": "python",
       "version": "3.9.9",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -358,6 +277,7 @@
         "ctypes": true,
         "dbm": true,
         "debug": false,
+        "ensurepip": true,
         "libxml2": true,
         "lzma": true,
         "nis": false,
@@ -394,7 +314,7 @@
       "dependencies": [
         {
           "name": "bzip2",
-          "build_hash": "25eoyl7drprofw4qz6q52bgjwifmd6mk",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
           "type": [
             "build",
             "link"
@@ -402,7 +322,7 @@
         },
         {
           "name": "expat",
-          "build_hash": "omzlnp2nh3diwuv2jbmx7yo2fronv4nt",
+          "build_hash": "tug5o4q64mfosk274qzfpzavd25tfqta",
           "type": [
             "build",
             "link"
@@ -410,7 +330,7 @@
         },
         {
           "name": "gdbm",
-          "build_hash": "ziadlu2q2o6tqugwmpumdowtbr3npl7j",
+          "build_hash": "dqqymkpiwldpi3kiw572gc7ox7zjdom2",
           "type": [
             "build",
             "link"
@@ -418,7 +338,7 @@
         },
         {
           "name": "gettext",
-          "build_hash": "bfvbrruv4tusabctp7n5znqjnvyt25xp",
+          "build_hash": "ujvhxbu6me6lgzrqun2spkbvxf3spnef",
           "type": [
             "build",
             "link"
@@ -426,14 +346,14 @@
         },
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "libffi",
-          "build_hash": "2h2ne4vfbfvxzz5posyzomefqmqhg6uq",
+          "build_hash": "x7detf2yjqbxzeby7iinyv5dv3gios6i",
           "type": [
             "build",
             "link"
@@ -441,7 +361,7 @@
         },
         {
           "name": "ncurses",
-          "build_hash": "jxypns2zodr5gpqxxn3xknzsttjvmpz2",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
           "type": [
             "build",
             "link"
@@ -449,7 +369,7 @@
         },
         {
           "name": "openssl",
-          "build_hash": "fdqbu734oilotx6zbtsxtlomxlwk65mt",
+          "build_hash": "otwau6wrrtzgl3zjn7vol4jfq7nw4v55",
           "type": [
             "build",
             "link"
@@ -457,14 +377,14 @@
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         },
         {
           "name": "readline",
-          "build_hash": "qd5taf675yt3jk3qoc7fdd2w5nqtoh75",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
           "type": [
             "build",
             "link"
@@ -472,7 +392,7 @@
         },
         {
           "name": "sqlite",
-          "build_hash": "yninsz2yh7rwq44qhqz4u2kdvwejbs3a",
+          "build_hash": "xgkklpfjrw3o244mrp5j46jlcafk3yp7",
           "type": [
             "build",
             "link"
@@ -480,7 +400,7 @@
         },
         {
           "name": "util-linux-uuid",
-          "build_hash": "5gzkg5o3k3reftaoslgabsbzg7modqpl",
+          "build_hash": "d6fsf7b27m5seoc65zyuu3kxg2xwtg2l",
           "type": [
             "build",
             "link"
@@ -488,7 +408,7 @@
         },
         {
           "name": "xz",
-          "build_hash": "clw63cflsqtmd4awmlfnvmued6jzrsib",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
           "type": [
             "build",
             "link"
@@ -496,48 +416,22 @@
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "o7r3y46r5mifmvdvo5tn5iskpe6aayv7"
+      "hash": "mjv46y3yk3irlwynekyx4akqml2ccfza"
     },
-    "25eoyl7drprofw4qz6q52bgjwifmd6mk": {
+    "qttunzcfol62k7h2cmggzyjxzndflrtr": {
       "name": "bzip2",
       "version": "1.0.6",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -560,41 +454,15 @@
         "module": null,
         "extra_attributes": {}
       },
-      "hash": "25eoyl7drprofw4qz6q52bgjwifmd6mk"
+      "hash": "qttunzcfol62k7h2cmggzyjxzndflrtr"
     },
-    "omzlnp2nh3diwuv2jbmx7yo2fronv4nt": {
+    "tug5o4q64mfosk274qzfpzavd25tfqta": {
       "name": "expat",
       "version": "2.4.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -613,55 +481,29 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "libbsd",
-          "build_hash": "ftyjzauazfgzc33ai2fj4e7a4ftcs5hl",
+          "build_hash": "d7umbbxbtpxopyzt6hmznthmnhuabp7m",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "hwixutl6r2v7weqmbdvaoejmv3hvcrgy"
+      "hash": "dzzr6bi74qo2pwhasfpatz526pw6izkz"
     },
-    "vc4nsylzdw52vnko7gj5j23oggztaddh": {
+    "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw": {
       "name": "gnuconfig",
       "version": "2021-08-14",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -676,41 +518,15 @@
         "ldflags": [],
         "ldlibs": []
       },
-      "hash": "vc4nsylzdw52vnko7gj5j23oggztaddh"
+      "hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw"
     },
-    "ftyjzauazfgzc33ai2fj4e7a4ftcs5hl": {
+    "d7umbbxbtpxopyzt6hmznthmnhuabp7m": {
       "name": "libbsd",
       "version": "0.11.3",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -728,55 +544,29 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "libmd",
-          "build_hash": "dw6z2nfy7nbnn672vtrekkxcywc4rmrx",
+          "build_hash": "ogdw5cacqa2tmpvkjtbmnxlrzheqssbc",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "m2ikpx6kx5yi6yxkni2qzd2bmlgozdc6"
+      "hash": "qm7vhdlfbobm4ug2ami5skmv4uffogeg"
     },
-    "dw6z2nfy7nbnn672vtrekkxcywc4rmrx": {
+    "ogdw5cacqa2tmpvkjtbmnxlrzheqssbc": {
       "name": "libmd",
       "version": "1.0.3",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -794,47 +584,21 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "vbbcw5wyimswody2vunx5o3uxo6mluvf"
+      "hash": "zwax5ywzpj76eecqlxdb76oayadk53la"
     },
-    "ziadlu2q2o6tqugwmpumdowtbr3npl7j": {
+    "dqqymkpiwldpi3kiw572gc7ox7zjdom2": {
       "name": "gdbm",
-      "version": "1.21",
+      "version": "1.22",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -852,55 +616,29 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "readline",
-          "build_hash": "qd5taf675yt3jk3qoc7fdd2w5nqtoh75",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "4eeses6mcaie6tprqphighuyn4xzcn5u"
+      "hash": "wuz3crsgnt6euln777shbar5uian6qkw"
     },
-    "qd5taf675yt3jk3qoc7fdd2w5nqtoh75": {
+    "c54a46q4ccrmell2ffp5qwraqjctpsh6": {
       "name": "readline",
       "version": "8.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -918,55 +656,29 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "ncurses",
-          "build_hash": "jxypns2zodr5gpqxxn3xknzsttjvmpz2",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "nxrisy53zn7dd3p4a3iiguy45evftw4w"
+      "hash": "zvgnpixvtnomw3uyjfon5fe7z4bmgxlt"
     },
-    "jxypns2zodr5gpqxxn3xknzsttjvmpz2": {
+    "jdycnd7bz2adljkpz23h35ueg3bngxmd": {
       "name": "ncurses",
       "version": "6.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -987,54 +699,28 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "ysc6s6hl4ev6cy77tzvoycig5xsle57f"
+      "hash": "4nukdmjcdsltvcbf7j6ckby2wu36unae"
     },
-    "lsv6ufgcytffgkqrtruqqzsafhesloza": {
+    "ek6vbb3dbwuniaumx4hvugejpta4hrft": {
       "name": "pkgconf",
       "version": "1.4.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1054,41 +740,15 @@
         "module": null,
         "extra_attributes": {}
       },
-      "hash": "lsv6ufgcytffgkqrtruqqzsafhesloza"
+      "hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft"
     },
-    "bfvbrruv4tusabctp7n5znqjnvyt25xp": {
+    "ujvhxbu6me6lgzrqun2spkbvxf3spnef": {
       "name": "gettext",
       "version": "0.21",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1113,7 +773,7 @@
       "dependencies": [
         {
           "name": "bzip2",
-          "build_hash": "25eoyl7drprofw4qz6q52bgjwifmd6mk",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
           "type": [
             "build",
             "link"
@@ -1121,14 +781,14 @@
         },
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "libiconv",
-          "build_hash": "of6nlxfd4cj37pnceewricismjyzrtek",
+          "build_hash": "j6cq3hqfnixurehkivdxjccx4qz3vjmj",
           "type": [
             "build",
             "link"
@@ -1136,7 +796,7 @@
         },
         {
           "name": "libxml2",
-          "build_hash": "terhlaiyalsteh45wpv5smugijfe57k4",
+          "build_hash": "cecuuzo2pal6gtgmqbpccyuocqvnnz7x",
           "type": [
             "build",
             "link"
@@ -1144,7 +804,7 @@
         },
         {
           "name": "ncurses",
-          "build_hash": "jxypns2zodr5gpqxxn3xknzsttjvmpz2",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
           "type": [
             "build",
             "link"
@@ -1152,7 +812,7 @@
         },
         {
           "name": "tar",
-          "build_hash": "jswfefullwsz7tqt33fyxpifwz4jowlw",
+          "build_hash": "hwtbsj5rcvolzpefsxdyojmgdrlgzc3z",
           "type": [
             "build",
             "link"
@@ -1160,7 +820,7 @@
         },
         {
           "name": "xz",
-          "build_hash": "clw63cflsqtmd4awmlfnvmued6jzrsib",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
           "type": [
             "build",
             "link",
@@ -1168,41 +828,15 @@
           ]
         }
       ],
-      "hash": "ildmgtd3qgu4gtgc455tiqudis3iamri"
+      "hash": "ubcosx642s4ij4zxbgibddiujkkdhzpg"
     },
-    "of6nlxfd4cj37pnceewricismjyzrtek": {
+    "j6cq3hqfnixurehkivdxjccx4qz3vjmj": {
       "name": "libiconv",
       "version": "1.16",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1224,47 +858,21 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "7bbisnxobxawmbqdpea6mti5ot7ewzc3"
+      "hash": "f7ddwkg3xz432jsog55ne4ovqauofgjm"
     },
-    "terhlaiyalsteh45wpv5smugijfe57k4": {
+    "cecuuzo2pal6gtgmqbpccyuocqvnnz7x": {
       "name": "libxml2",
       "version": "2.9.12",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1283,14 +891,14 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "libiconv",
-          "build_hash": "of6nlxfd4cj37pnceewricismjyzrtek",
+          "build_hash": "j6cq3hqfnixurehkivdxjccx4qz3vjmj",
           "type": [
             "build",
             "link"
@@ -1298,14 +906,14 @@
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         },
         {
           "name": "xz",
-          "build_hash": "clw63cflsqtmd4awmlfnvmued6jzrsib",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
           "type": [
             "build",
             "link"
@@ -1313,48 +921,22 @@
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "ywrasxbevnfwgb6flja4ohqw5e7hpgzp"
+      "hash": "azl36g7ippyqmq6ky7dhanlwpxn4q5k7"
     },
-    "clw63cflsqtmd4awmlfnvmued6jzrsib": {
+    "l435jythdwa4jj4dcii2x7a4tyf7r6o6": {
       "name": "xz",
       "version": "5.2.4",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1379,41 +961,15 @@
         "module": null,
         "extra_attributes": {}
       },
-      "hash": "clw63cflsqtmd4awmlfnvmued6jzrsib"
+      "hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6"
     },
-    "ng77sovcbxivl53nr2ew42dgqikfqkbq": {
+    "svkt7nj6p43zt2fng4wjnaobgaz7ukim": {
       "name": "zlib",
       "version": "1.2.11",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1431,41 +987,15 @@
         "ldflags": [],
         "ldlibs": []
       },
-      "hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq"
+      "hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim"
     },
-    "jswfefullwsz7tqt33fyxpifwz4jowlw": {
+    "hwtbsj5rcvolzpefsxdyojmgdrlgzc3z": {
       "name": "tar",
       "version": "1.30",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1485,41 +1015,15 @@
         "module": null,
         "extra_attributes": {}
       },
-      "hash": "jswfefullwsz7tqt33fyxpifwz4jowlw"
+      "hash": "hwtbsj5rcvolzpefsxdyojmgdrlgzc3z"
     },
-    "2h2ne4vfbfvxzz5posyzomefqmqhg6uq": {
+    "x7detf2yjqbxzeby7iinyv5dv3gios6i": {
       "name": "libffi",
       "version": "3.3",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1543,47 +1047,21 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "l6dpum4nowwks3ihpbktuv6nf4o7d6s5"
+      "hash": "soh3gsazxkkeoe4pxecbq4oi3i6xs27b"
     },
-    "fdqbu734oilotx6zbtsxtlomxlwk65mt": {
+    "otwau6wrrtzgl3zjn7vol4jfq7nw4v55": {
       "name": "openssl",
-      "version": "1.1.1l",
+      "version": "1.1.1m",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1603,55 +1081,29 @@
       "dependencies": [
         {
           "name": "perl",
-          "build_hash": "fgiideolndrezjcojnt6d4gl7wwofzrc",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
           "type": [
             "build"
           ]
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "vscjz3q2hw2dgk2cxxptdi5pqoj6fnyk"
+      "hash": "u37fn47boqzvya2bapcw4vnreh4vfzkl"
     },
-    "fgiideolndrezjcojnt6d4gl7wwofzrc": {
+    "n24dg45g7npnlmdff4rsxg2a4ikj74uu": {
       "name": "perl",
       "version": "5.26.3",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1680,41 +1132,15 @@
       "patches": [
         "8cf4302ca8b480c60ccdcaa29ec53d9d50a71d4baf469ac8c6fca00ca31e58a2"
       ],
-      "hash": "fgiideolndrezjcojnt6d4gl7wwofzrc"
+      "hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu"
     },
-    "yninsz2yh7rwq44qhqz4u2kdvwejbs3a": {
+    "xgkklpfjrw3o244mrp5j46jlcafk3yp7": {
       "name": "sqlite",
-      "version": "3.36.0",
+      "version": "3.37.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1723,9 +1149,10 @@
       "namespace": "builtin",
       "parameters": {
         "column_metadata": true,
+        "dynamic_extensions": true,
         "fts": true,
         "functions": false,
-        "rtree": false,
+        "rtree": true,
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -1736,14 +1163,14 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "readline",
-          "build_hash": "qd5taf675yt3jk3qoc7fdd2w5nqtoh75",
+          "build_hash": "c54a46q4ccrmell2ffp5qwraqjctpsh6",
           "type": [
             "build",
             "link"
@@ -1751,48 +1178,22 @@
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "t64ssjya2xcppg2pukpprd2tzejmxacj"
+      "hash": "prid4guriggzrxkynlqzo7mqsaeingdy"
     },
-    "5gzkg5o3k3reftaoslgabsbzg7modqpl": {
+    "d6fsf7b27m5seoc65zyuu3kxg2xwtg2l": {
       "name": "util-linux-uuid",
       "version": "2.36.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1810,54 +1211,115 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "26wsd63j2q43cqg3k7dcveajxtdolnlc"
+      "hash": "nyx42rx22ugrxqaxgcx7ftjqg4mhuc3a"
     },
-    "fnqks2bng3ll4njcbdukva7mhekshuwg": {
+    "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b": {
+      "name": "py-setuptools",
+      "version": "57.4.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "yn7xbjlfu6apv4bzarm75kqzjcwiaxsb"
+    },
+    "t7rkcut3rqzj3iwnnqmp4hxem56e46l6": {
+      "name": "py-wheel",
+      "version": "0.37.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "type": [
+            "build",
+            "run"
+          ]
+        }
+      ],
+      "hash": "qodms5zr3bv53cewce3rir4diwyedlce"
+    },
+    "5oc6rqkc6lw4whwunvrdo5zqkqzfe52x": {
       "name": "py-fastaq",
       "version": "3.17.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1875,21 +1337,35 @@
       "dependencies": [
         {
           "name": "gzip",
-          "build_hash": "6ryclltn2v2fn3mjsvnqjnrhauwrlsos",
+          "build_hash": "f2z7klw2g2qoiq27zlchbym2wfw2j5zy",
           "type": [
             "run"
           ]
         },
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
@@ -1897,47 +1373,21 @@
         },
         {
           "name": "samtools",
-          "build_hash": "r2nukh4x2laxoxca7kmg7mmb5kbssfra",
+          "build_hash": "dm4h3tpxcesi52kkdzoyjows5dlsih22",
           "type": [
             "run"
           ]
         }
       ],
-      "hash": "kblumutqmv4kvuju4mopth2pbwvtsz7p"
+      "hash": "ar3dy7jyxi4t7by7ywyjo45fbqkfjck7"
     },
-    "6ryclltn2v2fn3mjsvnqjnrhauwrlsos": {
+    "f2z7klw2g2qoiq27zlchbym2wfw2j5zy": {
       "name": "gzip",
       "version": "1.11",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -1955,54 +1405,28 @@
       "dependencies": [
         {
           "name": "gmake",
-          "build_hash": "h7mwyozaziqynpfluh2airgwlbb32fhd",
+          "build_hash": "aviywuuqx34gfnt43f5y4lgbkcm3yiei",
           "type": [
             "build"
           ]
         },
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "gdqzdjw5yikktlkeauxfg2brfghvc5uz"
+      "hash": "a6qskvirhft7b6zqgg37g4h3vjppilwn"
     },
-    "h7mwyozaziqynpfluh2airgwlbb32fhd": {
+    "aviywuuqx34gfnt43f5y4lgbkcm3yiei": {
       "name": "gmake",
       "version": "4.2.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2032,41 +1456,15 @@
         "fe5b60d091c33f169740df8cb718bf4259f84528b42435194ffe0dd5b79cd125",
         "ca60bd9c1a1b35bc0dc58b6a4a19d5c2651f7a94a4b22b2c5ea001a1ca7a8a7f"
       ],
-      "hash": "h7mwyozaziqynpfluh2airgwlbb32fhd"
+      "hash": "aviywuuqx34gfnt43f5y4lgbkcm3yiei"
     },
-    "r2nukh4x2laxoxca7kmg7mmb5kbssfra": {
+    "dm4h3tpxcesi52kkdzoyjows5dlsih22": {
       "name": "samtools",
       "version": "1.14",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2084,7 +1482,7 @@
       "dependencies": [
         {
           "name": "htslib",
-          "build_hash": "ubxmvz3gsrmjm3j432735lktwz7eqmsa",
+          "build_hash": "nczoxszbq7mspi6nxl5x5ttijw2wtg4y",
           "type": [
             "build",
             "link"
@@ -2092,7 +1490,7 @@
         },
         {
           "name": "ncurses",
-          "build_hash": "jxypns2zodr5gpqxxn3xknzsttjvmpz2",
+          "build_hash": "jdycnd7bz2adljkpz23h35ueg3bngxmd",
           "type": [
             "build",
             "link"
@@ -2100,62 +1498,36 @@
         },
         {
           "name": "perl",
-          "build_hash": "fgiideolndrezjcojnt6d4gl7wwofzrc",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
           "type": [
             "run"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "run"
           ]
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "3273ed3lbqa4sazwox6lk2jn7xxf7qpx"
+      "hash": "cxkxmiqciyhsicmrjd6a2km5sqannkov"
     },
-    "ubxmvz3gsrmjm3j432735lktwz7eqmsa": {
+    "nczoxszbq7mspi6nxl5x5ttijw2wtg4y": {
       "name": "htslib",
       "version": "1.14",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2164,6 +1536,7 @@
       "namespace": "builtin",
       "parameters": {
         "libcurl": true,
+        "libdeflate": true,
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -2174,7 +1547,7 @@
       "dependencies": [
         {
           "name": "bzip2",
-          "build_hash": "25eoyl7drprofw4qz6q52bgjwifmd6mk",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
           "type": [
             "build",
             "link"
@@ -2182,7 +1555,7 @@
         },
         {
           "name": "curl",
-          "build_hash": "fgbx4vpka2pclijtq2xobud3vswx5xiv",
+          "build_hash": "mvv3lz7vbnsicoocrbuu3vpsumwdkjwj",
           "type": [
             "build",
             "link"
@@ -2190,14 +1563,22 @@
         },
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
+          "name": "libdeflate",
+          "build_hash": "vbmdw5jerrfpiirsm623xc3giu46kvzy",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
           "name": "xz",
-          "build_hash": "clw63cflsqtmd4awmlfnvmued6jzrsib",
+          "build_hash": "l435jythdwa4jj4dcii2x7a4tyf7r6o6",
           "type": [
             "build",
             "link"
@@ -2205,48 +1586,22 @@
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "yrnhvoxtz7z7dqjqletvaf56lm4wximh"
+      "hash": "et245rvlnf63gqhhz4k56ixhwlvb74o3"
     },
-    "fgbx4vpka2pclijtq2xobud3vswx5xiv": {
+    "mvv3lz7vbnsicoocrbuu3vpsumwdkjwj": {
       "name": "curl",
       "version": "7.80.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2274,14 +1629,14 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "openssl",
-          "build_hash": "fdqbu734oilotx6zbtsxtlomxlwk65mt",
+          "build_hash": "otwau6wrrtzgl3zjn7vol4jfq7nw4v55",
           "type": [
             "build",
             "link"
@@ -2289,55 +1644,70 @@
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "cqfbiml3u3nzmtoohq4gdsuj4z3obilr"
+      "hash": "bheggefojapfir7pjubhmvk5ygbr3mh3"
     },
-    "fsnr3idarllvnej5ecqcufwd2ravmmfd": {
+    "vbmdw5jerrfpiirsm623xc3giu46kvzy": {
+      "name": "libdeflate",
+      "version": "1.7",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gzip",
+          "build_hash": "f2z7klw2g2qoiq27zlchbym2wfw2j5zy",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "ww3zrjf6qo2dvt6dvrdufsabvjrxmxbq"
+    },
+    "aiwulhm4umc6kduejaqhjmfaqwtgz3ry": {
       "name": "py-pysam",
       "version": "0.18.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2355,7 +1725,7 @@
       "dependencies": [
         {
           "name": "bcftools",
-          "build_hash": "ro6jmvtre5b6lqlv2xrn63mqlhrrstab",
+          "build_hash": "mdarhsm554ppcqjqj75qu36r5badjxep",
           "type": [
             "build",
             "link"
@@ -2363,7 +1733,7 @@
         },
         {
           "name": "curl",
-          "build_hash": "fgbx4vpka2pclijtq2xobud3vswx5xiv",
+          "build_hash": "mvv3lz7vbnsicoocrbuu3vpsumwdkjwj",
           "type": [
             "build",
             "link"
@@ -2371,7 +1741,7 @@
         },
         {
           "name": "htslib",
-          "build_hash": "ubxmvz3gsrmjm3j432735lktwz7eqmsa",
+          "build_hash": "nczoxszbq7mspi6nxl5x5ttijw2wtg4y",
           "type": [
             "build",
             "link"
@@ -2379,21 +1749,35 @@
         },
         {
           "name": "py-cython",
-          "build_hash": "rxmkp5zb6nqtcl6nkslz47pted74kppa",
+          "build_hash": "lvzhnkgeyy7st6o2nbep7z5m3cgza6nl",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
@@ -2401,48 +1785,22 @@
         },
         {
           "name": "samtools",
-          "build_hash": "r2nukh4x2laxoxca7kmg7mmb5kbssfra",
+          "build_hash": "dm4h3tpxcesi52kkdzoyjows5dlsih22",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "rvodm2aie34iagjq7l377ynitsehzo6i"
+      "hash": "e7hnuz42hhf55cjg33vb4w2x47fjjlqs"
     },
-    "ro6jmvtre5b6lqlv2xrn63mqlhrrstab": {
+    "mdarhsm554ppcqjqj75qu36r5badjxep": {
       "name": "bcftools",
       "version": "1.14",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2462,14 +1820,14 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "htslib",
-          "build_hash": "ubxmvz3gsrmjm3j432735lktwz7eqmsa",
+          "build_hash": "nczoxszbq7mspi6nxl5x5ttijw2wtg4y",
           "type": [
             "build",
             "link"
@@ -2477,54 +1835,28 @@
         },
         {
           "name": "perl",
-          "build_hash": "fgiideolndrezjcojnt6d4gl7wwofzrc",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-matplotlib",
-          "build_hash": "4edvhfsbi52pj46qsv6ina4ripfohjcs",
+          "build_hash": "vfv5vtxphqxssxg74amwfay7gaoqvbbq",
           "type": [
             "run"
           ]
         }
       ],
-      "hash": "pphrpn2kpxd6kaxctx5cxc6rbqj6pxqw"
+      "hash": "uqy3seiaaofvgg52fx23ohe22uvfhyv4"
     },
-    "4edvhfsbi52pj46qsv6ina4ripfohjcs": {
+    "vfv5vtxphqxssxg74amwfay7gaoqvbbq": {
       "name": "py-matplotlib",
       "version": "3.5.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2548,7 +1880,7 @@
       "dependencies": [
         {
           "name": "freetype",
-          "build_hash": "eszyharkmimiicrsyahgcwdpqnv3yoal",
+          "build_hash": "jhck42bgt276f4ho6frr4dwm3ztvtuqe",
           "type": [
             "build",
             "link"
@@ -2556,7 +1888,7 @@
         },
         {
           "name": "libpng",
-          "build_hash": "qkalwn4i45puhcf5cigpuuwscittsuiv",
+          "build_hash": "a6su7tthr4nohen6nijthljry2rveqgq",
           "type": [
             "build",
             "link"
@@ -2564,21 +1896,21 @@
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-certifi",
-          "build_hash": "dxzalirgh7gbymxmfpgqrftdjmbjigfw",
+          "build_hash": "bluzndhqzhjwhuc5tpmdietp4lbntp6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-cycler",
-          "build_hash": "7l7ok2hgipei32mzq3pu6pf4yauscrz3",
+          "build_hash": "qeoaokdqmaevz4qfel6z7o6rxou3lewk",
           "type": [
             "build",
             "run"
@@ -2586,7 +1918,7 @@
         },
         {
           "name": "py-fonttools",
-          "build_hash": "kpmhglveh7kccsyca45qb6ychb4kda3s",
+          "build_hash": "wjrjmfhhwjn7tyj237pemve2ckn43l6x",
           "type": [
             "build",
             "run"
@@ -2594,7 +1926,7 @@
         },
         {
           "name": "py-kiwisolver",
-          "build_hash": "p2oylaxr5p5meug2zua46tcgrmdgfv3l",
+          "build_hash": "qm5gaihfh6aogdtsqrkck3ianipsv3qf",
           "type": [
             "build",
             "run"
@@ -2602,7 +1934,7 @@
         },
         {
           "name": "py-numpy",
-          "build_hash": "m5oh5uoblvh5ftchunk5w6v72xirl6sp",
+          "build_hash": "xffwfx6ljzcbw74td6tvkggke26olwtd",
           "type": [
             "build",
             "run"
@@ -2610,7 +1942,7 @@
         },
         {
           "name": "py-packaging",
-          "build_hash": "vpm3tn2ibhxbfntq76674crlwafsca7w",
+          "build_hash": "ahpcoe6vlcsosp3htvlgk6b2aaouvqaj",
           "type": [
             "build",
             "run"
@@ -2618,15 +1950,22 @@
         },
         {
           "name": "py-pillow",
-          "build_hash": "ytu7likib7g5g3jryemtnnimfma5uegg",
+          "build_hash": "h2stpfbhtlntihv46mmxx3uulqkb3paz",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-pyparsing",
-          "build_hash": "zjyufzlplpabvail7bdxhwxhgpypybho",
+          "build_hash": "632v43ebhoeuncezultsdhhnehg3bywl",
           "type": [
             "build",
             "run"
@@ -2634,7 +1973,7 @@
         },
         {
           "name": "py-python-dateutil",
-          "build_hash": "4eytri2hko6dkj7twfw25l2duvjnznaw",
+          "build_hash": "gwmfgcs3bs6pvkopt4qulfcnuxtk7ngj",
           "type": [
             "build",
             "run"
@@ -2642,7 +1981,7 @@
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build",
             "run"
@@ -2650,21 +1989,28 @@
         },
         {
           "name": "py-setuptools-scm",
-          "build_hash": "t3p26hj7glsb4xkx4qmuzkwuuw53f7zp",
+          "build_hash": "5tzco3szdwvbh3h5nghytaamzynpfk3k",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools-scm-git-archive",
-          "build_hash": "lv633exym5ogqyobkszcxyvflmyssll4",
+          "build_hash": "knovwy4cca23foow3djta3pfbxecyjby",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "link",
@@ -2673,48 +2019,22 @@
         },
         {
           "name": "qhull",
-          "build_hash": "zxopst46mvwz6wvvuio2jxmjagkx5sv2",
+          "build_hash": "y4hqr3giorjr3un6fpeivdyj6hxkkin2",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "3ufv4duo35t6lrhamdiplzc5rxjjaje7"
+      "hash": "kw4thmos3nuadegy5gvdeiefa7xllivk"
     },
-    "eszyharkmimiicrsyahgcwdpqnv3yoal": {
+    "jhck42bgt276f4ho6frr4dwm3ztvtuqe": {
       "name": "freetype",
       "version": "2.11.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2732,7 +2052,7 @@
       "dependencies": [
         {
           "name": "bzip2",
-          "build_hash": "25eoyl7drprofw4qz6q52bgjwifmd6mk",
+          "build_hash": "qttunzcfol62k7h2cmggzyjxzndflrtr",
           "type": [
             "build",
             "link"
@@ -2740,14 +2060,14 @@
         },
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "libpng",
-          "build_hash": "qkalwn4i45puhcf5cigpuuwscittsuiv",
+          "build_hash": "a6su7tthr4nohen6nijthljry2rveqgq",
           "type": [
             "build",
             "link"
@@ -2755,47 +2075,21 @@
         },
         {
           "name": "pkgconf",
-          "build_hash": "lsv6ufgcytffgkqrtruqqzsafhesloza",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "ouwgqspriovpmo45ge3blcxil5yugyrb"
+      "hash": "kltrsccpue74w5qr66aenaswjj5k2344"
     },
-    "qkalwn4i45puhcf5cigpuuwscittsuiv": {
+    "a6su7tthr4nohen6nijthljry2rveqgq": {
       "name": "libpng",
       "version": "1.6.37",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2813,55 +2107,29 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "fg5q7tt4tsflt74fngsvgdbmdxvrzic6"
+      "hash": "hk6uxiv24q7w577qezpon6dde4bu4acl"
     },
-    "dxzalirgh7gbymxmfpgqrftdjmbjigfw": {
+    "bluzndhqzhjwhuc5tpmdietp4lbntp6v": {
       "name": "py-certifi",
       "version": "2021.10.8",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2878,56 +2146,44 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "5eo3lfuzebfumyqvit7ovejzwesfc3sw"
+      "hash": "uxka4kojhj4drreksxs67rgnisyp5yp7"
     },
-    "7l7ok2hgipei32mzq3pu6pf4yauscrz3": {
+    "qeoaokdqmaevz4qfel6z7o6rxou3lewk": {
       "name": "py-cycler",
       "version": "0.11.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -2944,56 +2200,44 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "5rqr27brkcvwlpmbpir2r7ac35e5htp6"
+      "hash": "lhwpugg42uc2cwzchxytzjvh2gejdb2p"
     },
-    "kpmhglveh7kccsyca45qb6ychb4kda3s": {
+    "wjrjmfhhwjn7tyj237pemve2ckn43l6x": {
       "name": "py-fonttools",
       "version": "4.28.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3010,56 +2254,44 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "s7enctegzc7w64vprvmbggiq3nzmevm7"
+      "hash": "efystjwy5pecevr4utakrozw24537ugz"
     },
-    "p2oylaxr5p5meug2zua46tcgrmdgfv3l": {
+    "qm5gaihfh6aogdtsqrkck3ianipsv3qf": {
       "name": "py-kiwisolver",
       "version": "1.3.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3077,62 +2309,50 @@
       "dependencies": [
         {
           "name": "py-cppy",
-          "build_hash": "xbgj74qsccwu7a5n6kugzx3vqaw3f3qn",
+          "build_hash": "jmt7wp3ub7fxu5zurkf2cxyf76uaurrb",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "heqqvfh5o37v6vz36gwx73vy4sfbjizs"
+      "hash": "gxyi35q6snedy6mklxne3c6ffm7k337o"
     },
-    "xbgj74qsccwu7a5n6kugzx3vqaw3f3qn": {
+    "jmt7wp3ub7fxu5zurkf2cxyf76uaurrb": {
       "name": "py-cppy",
       "version": "1.1.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3149,56 +2369,44 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "27qmrkrs6zkeomnvf56nya4tvqd6h74m"
+      "hash": "7rkxuayj5yf3imimct4tm4u4jukijqgi"
     },
-    "m5oh5uoblvh5ftchunk5w6v72xirl6sp": {
+    "xffwfx6ljzcbw74td6tvkggke26olwtd": {
       "name": "py-numpy",
       "version": "1.22.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3224,7 +2432,7 @@
       "dependencies": [
         {
           "name": "openblas",
-          "build_hash": "eru4a4jlb6fech3r4g7q7uxrf2f47uoj",
+          "build_hash": "ennyzmtz222aa3hwbeek4igluunyo466",
           "type": [
             "build",
             "link"
@@ -3232,22 +2440,36 @@
         },
         {
           "name": "py-cython",
-          "build_hash": "rxmkp5zb6nqtcl6nkslz47pted74kppa",
+          "build_hash": "lvzhnkgeyy7st6o2nbep7z5m3cgza6nl",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "link",
@@ -3255,41 +2477,15 @@
           ]
         }
       ],
-      "hash": "5njynd4af5gxjb7kemezrfg4ok7nr6oi"
+      "hash": "sugd6mde2tdr4anl5w44sshuxj4g2jim"
     },
-    "eru4a4jlb6fech3r4g7q7uxrf2f47uoj": {
+    "ennyzmtz222aa3hwbeek4igluunyo466": {
       "name": "openblas",
-      "version": "0.3.18",
+      "version": "0.3.19",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3315,47 +2511,21 @@
       "dependencies": [
         {
           "name": "perl",
-          "build_hash": "fgiideolndrezjcojnt6d4gl7wwofzrc",
+          "build_hash": "n24dg45g7npnlmdff4rsxg2a4ikj74uu",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "i3pyblognzgq7tjtobw7mivncusqyd4w"
+      "hash": "nwugidhuigvprdbfsrpgs7azwftvbljl"
     },
-    "vpm3tn2ibhxbfntq76674crlwafsca7w": {
+    "ahpcoe6vlcsosp3htvlgk6b2aaouvqaj": {
       "name": "py-packaging",
       "version": "21.3",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3372,8 +2542,15 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-pyparsing",
-          "build_hash": "zjyufzlplpabvail7bdxhwxhgpypybho",
+          "build_hash": "632v43ebhoeuncezultsdhhnehg3bywl",
           "type": [
             "build",
             "run"
@@ -3381,55 +2558,36 @@
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "up2ul5vhxzwmwc2xe2tpw76bjjqhougk"
+      "hash": "dyh4yhva4regokjmik7dxkikxu6zrywn"
     },
-    "zjyufzlplpabvail7bdxhwxhgpypybho": {
+    "632v43ebhoeuncezultsdhhnehg3bywl": {
       "name": "py-pyparsing",
       "version": "3.0.6",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3446,56 +2604,44 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "q77zlaqyht57ls6cqkl4kcfvvwrcsxpl"
+      "hash": "f4ih52wryc4pxde26heq4mlque4gjwhm"
     },
-    "ytu7likib7g5g3jryemtnnimfma5uegg": {
+    "h2stpfbhtlntihv46mmxx3uulqkb3paz": {
       "name": "py-pillow",
       "version": "8.4.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3523,22 +2669,36 @@
       "dependencies": [
         {
           "name": "libjpeg-turbo",
-          "build_hash": "d2p6ikiqmwyeg5mthvgoxxuqg2mt5vop",
+          "build_hash": "hzvamywfj5gciyfzyefmfzx6jplcdc5w",
           "type": [
             "build",
             "link"
           ]
         },
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
@@ -3546,48 +2706,22 @@
         },
         {
           "name": "zlib",
-          "build_hash": "ng77sovcbxivl53nr2ew42dgqikfqkbq",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "hdwt2ltmyhnqosddvfngj6qi6acthumr"
+      "hash": "fbkisqtocw5qsvyngylfmfoieoqhv47q"
     },
-    "d2p6ikiqmwyeg5mthvgoxxuqg2mt5vop": {
+    "hzvamywfj5gciyfzyefmfzx6jplcdc5w": {
       "name": "libjpeg-turbo",
       "version": "2.1.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3605,54 +2739,28 @@
       "dependencies": [
         {
           "name": "cmake",
-          "build_hash": "fy4bogpi3rcr3a5lrrujdgiohwj4rvo3",
+          "build_hash": "ggpkffdtkqasifku4rng5i74x7xjtv6t",
           "type": [
             "build"
           ]
         },
         {
           "name": "nasm",
-          "build_hash": "ypdh74ohylhe2upb3vf6i5e2mgroe7ci",
+          "build_hash": "c4waicwc4pej42ic562cm7kjbf3v52yc",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "tje3fr532skrvwlrvh73yjktlinxrdvz"
+      "hash": "ihebq46tbu7uf3t7gmvtcz22i26qhdof"
     },
-    "fy4bogpi3rcr3a5lrrujdgiohwj4rvo3": {
+    "ggpkffdtkqasifku4rng5i74x7xjtv6t": {
       "name": "cmake",
       "version": "3.11.4",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3688,41 +2796,15 @@
         "dd3a40d4d92f6b2158b87d6fb354c277947c776424aa03f6dc8096cf3135f5d0",
         "1c540040c7e203dd8e27aa20345ecb07fe06570d56410a24a266ae570b1c4c39"
       ],
-      "hash": "fy4bogpi3rcr3a5lrrujdgiohwj4rvo3"
+      "hash": "ggpkffdtkqasifku4rng5i74x7xjtv6t"
     },
-    "ypdh74ohylhe2upb3vf6i5e2mgroe7ci": {
+    "c4waicwc4pej42ic562cm7kjbf3v52yc": {
       "name": "nasm",
       "version": "2.15.05",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3740,47 +2822,21 @@
       "dependencies": [
         {
           "name": "gnuconfig",
-          "build_hash": "vc4nsylzdw52vnko7gj5j23oggztaddh",
+          "build_hash": "gmsoxwkgm4cupcdq5mfiq2hd72u4cazw",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "lluskgodptzjneozufubbw5yc3bkaebo"
+      "hash": "ulo3dfzjjvceqfcd4c7t2sq6ajchskqm"
     },
-    "4eytri2hko6dkj7twfw25l2duvjnznaw": {
+    "gwmfgcs3bs6pvkopt4qulfcnuxtk7ngj": {
       "name": "py-python-dateutil",
       "version": "2.8.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3797,71 +2853,59 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools-scm",
-          "build_hash": "t3p26hj7glsb4xkx4qmuzkwuuw53f7zp",
+          "build_hash": "5tzco3szdwvbh3h5nghytaamzynpfk3k",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-six",
-          "build_hash": "uwbfgyy3dxomsje2qut3d3btvxpb6km5",
+          "build_hash": "arnvdozfrj7nutsyhnfqbzewm34ha4nq",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "tplu5xux3jinbpt2w6k5j7nhgzvf3aws"
+      "hash": "czmsr73hcqbydrt6yow4znx2bltzvevf"
     },
-    "t3p26hj7glsb4xkx4qmuzkwuuw53f7zp": {
+    "5tzco3szdwvbh3h5nghytaamzynpfk3k": {
       "name": "py-setuptools-scm",
       "version": "6.3.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3880,15 +2924,22 @@
       "dependencies": [
         {
           "name": "py-packaging",
-          "build_hash": "vpm3tn2ibhxbfntq76674crlwafsca7w",
+          "build_hash": "ahpcoe6vlcsosp3htvlgk6b2aaouvqaj",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build",
             "run"
@@ -3896,56 +2947,37 @@
         },
         {
           "name": "py-tomli",
-          "build_hash": "omehc7l3nlnnneg2vrdrhe3xxyap54jw",
+          "build_hash": "uiib5qf2lezezsb5qdnjs6cq3gc6xu5p",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "x73jepoujsin6bvld2ykdo5joyggbual"
+      "hash": "fw62fke6xv4yppumnxdgu7rtg7fd2tj5"
     },
-    "omehc7l3nlnnneg2vrdrhe3xxyap54jw": {
+    "uiib5qf2lezezsb5qdnjs6cq3gc6xu5p": {
       "name": "py-tomli",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -3963,122 +2995,36 @@
       "dependencies": [
         {
           "name": "py-pip",
-          "build_hash": "gbg3bvblozsejts3zlfiw4zzmg4o5lnq",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "osnmaqss6updbidddtuuqrqztv7vfjwm"
+      "hash": "efi53bet2u7xnhtnljrtci6fhijlgkk5"
     },
-    "gbg3bvblozsejts3zlfiw4zzmg4o5lnq": {
-      "name": "py-pip",
-      "version": "21.1.2",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "8.4.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "dependencies": [
-        {
-          "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
-          "type": [
-            "build",
-            "run"
-          ]
-        },
-        {
-          "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
-          "type": [
-            "build",
-            "run"
-          ]
-        }
-      ],
-      "hash": "w4sk2dpyqqxnccmnvi7t6iuctvzlsndt"
-    },
-    "uwbfgyy3dxomsje2qut3d3btvxpb6km5": {
+    "arnvdozfrj7nutsyhnfqbzewm34ha4nq": {
       "name": "py-six",
       "version": "1.16.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4095,56 +3041,44 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "t7qlbnvyqui4f7jk6rsyuvugp3ecsagm"
+      "hash": "cf2i3bnftbgdq3rppdq7fdsdqkj2773j"
     },
-    "lv633exym5ogqyobkszcxyvflmyssll4": {
+    "knovwy4cca23foow3djta3pfbxecyjby": {
       "name": "py-setuptools-scm-git-archive",
       "version": "1.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4161,63 +3095,52 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools-scm",
-          "build_hash": "t3p26hj7glsb4xkx4qmuzkwuuw53f7zp",
+          "build_hash": "5tzco3szdwvbh3h5nghytaamzynpfk3k",
+          "type": [
+            "build",
+            "run"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "5ah4uctahmttugoq4ia4k3svtpvnefor"
+      "hash": "ff6ykyvzjrojf5j6vulbz6dloxwwx5om"
     },
-    "zxopst46mvwz6wvvuio2jxmjagkx5sv2": {
+    "y4hqr3giorjr3un6fpeivdyj6hxkkin2": {
       "name": "qhull",
       "version": "2020.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4237,47 +3160,21 @@
       "dependencies": [
         {
           "name": "cmake",
-          "build_hash": "fy4bogpi3rcr3a5lrrujdgiohwj4rvo3",
+          "build_hash": "ggpkffdtkqasifku4rng5i74x7xjtv6t",
           "type": [
             "build"
           ]
         }
       ],
-      "hash": "fs7snsc53ynkofi3y3myytg2c5ozow7q"
+      "hash": "nwyv7ppcbyuw4fzccccvdqsmsj76twpx"
     },
-    "dsptpw6poyz22i6b3c47thw4fxycir7w": {
+    "46v6uk3pgem3o4jmndwpax6eb6x6txjz": {
       "name": "racon",
-      "version": "1.4.3",
+      "version": "1.5.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4287,9 +3184,6 @@
       "parameters": {
         "build_type": "RelWithDebInfo",
         "ipo": false,
-        "patches": [
-          "25ed60415e57d2642754b77d4adc7ad9cbd3ab0e445ea0a3a060fc28dfc93468"
-        ],
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -4297,68 +3191,39 @@
         "ldflags": [],
         "ldlibs": []
       },
-      "patches": [
-        "25ed60415e57d2642754b77d4adc7ad9cbd3ab0e445ea0a3a060fc28dfc93468"
-      ],
       "dependencies": [
         {
           "name": "cmake",
-          "build_hash": "fy4bogpi3rcr3a5lrrujdgiohwj4rvo3",
+          "build_hash": "ggpkffdtkqasifku4rng5i74x7xjtv6t",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build"
           ]
         },
         {
           "name": "sse2neon",
-          "build_hash": "g2k75bevxdur66zkqinrcoevdpq3itfa",
+          "build_hash": "t2fxdcsw6pgyq53gd5s5klduz3s5oudz",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "7comeusxe3dgx5dtwxrppfsycwgwjxb7"
+      "hash": "b2avqdmp5q5wguvecnft7mipdsjvwkni"
     },
-    "g2k75bevxdur66zkqinrcoevdpq3itfa": {
+    "t2fxdcsw6pgyq53gd5s5klduz3s5oudz": {
       "name": "sse2neon",
       "version": "master",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4373,41 +3238,15 @@
         "ldflags": [],
         "ldlibs": []
       },
-      "hash": "g2k75bevxdur66zkqinrcoevdpq3itfa"
+      "hash": "t2fxdcsw6pgyq53gd5s5klduz3s5oudz"
     },
-    "ajyaegemtwqn5d7go7f3euudsu5jjdcb": {
+    "2i5ewk7wu4xnacodda5zknywg4b4flyf": {
       "name": "py-viridian-workflow",
       "version": "0.3.1",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4425,7 +3264,7 @@
       "dependencies": [
         {
           "name": "py-fastaq",
-          "build_hash": "fnqks2bng3ll4njcbdukva7mhekshuwg",
+          "build_hash": "5oc6rqkc6lw4whwunvrdo5zqkqzfe52x",
           "type": [
             "build",
             "run"
@@ -4433,15 +3272,22 @@
         },
         {
           "name": "py-intervaltree",
-          "build_hash": "jqygn7sw7gnyvl2l6afe6gldjtxq72gn",
+          "build_hash": "3kgwfddnxyb2jkfbb2jut6nbyp6drbyo",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-pysam",
-          "build_hash": "fsnr3idarllvnej5ecqcufwd2ravmmfd",
+          "build_hash": "aiwulhm4umc6kduejaqhjmfaqwtgz3ry",
           "type": [
             "build",
             "run"
@@ -4449,55 +3295,36 @@
         },
         {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "xvbup4kc56i6ukmxxu3nljapon3gftlg"
+      "hash": "3e4fev2szvavzbf32pvqklafxzcadvdu"
     },
-    "jqygn7sw7gnyvl2l6afe6gldjtxq72gn": {
+    "3kgwfddnxyb2jkfbb2jut6nbyp6drbyo": {
       "name": "py-intervaltree",
       "version": "3.0.2",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4514,64 +3341,52 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-sortedcontainers",
-          "build_hash": "a2qy4x77ghx757t5mpjciuhfpgncpyw7",
+          "build_hash": "izg5k7cxiytxvmkedvdikm7lipzgzv5r",
           "type": [
             "build",
             "run"
           ]
         },
         {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "eus67h5op7m5ubd3bajhqxujydywk7h4"
+      "hash": "v7tzs4kh7ohyqnhbpgnhvks5bm6nvsvf"
     },
-    "a2qy4x77ghx757t5mpjciuhfpgncpyw7": {
+    "izg5k7cxiytxvmkedvdikm7lipzgzv5r": {
       "name": "py-sortedcontainers",
       "version": "2.1.0",
       "arch": {
         "platform": "linux",
         "platform_os": "rhel8",
-        "target": {
-          "name": "graviton2",
-          "vendor": "ARM",
-          "features": [
-            "aes",
-            "asimd",
-            "asimddp",
-            "asimdhp",
-            "asimdrdm",
-            "atomics",
-            "cpuid",
-            "crc32",
-            "dcpop",
-            "evtstrm",
-            "fp",
-            "fphp",
-            "lrcpc",
-            "pmull",
-            "sha1",
-            "sha2",
-            "ssbs"
-          ],
-          "generation": 0,
-          "parents": [
-            "aarch64"
-          ]
-        }
+        "target": "aarch64"
       },
       "compiler": {
         "name": "gcc",
@@ -4588,22 +3403,36 @@
       },
       "dependencies": [
         {
+          "name": "py-pip",
+          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "type": [
+            "build"
+          ]
+        },
+        {
           "name": "py-setuptools",
-          "build_hash": "px62ps35zwi6tpyl2zhyzp4idt5hrc6x",
+          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "py-wheel",
+          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "za5zwpk5ogs5tkwqzrdjm77lqqgfmxkf",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "buo24ptcokprdbh4mppbu6ouzjxzaq2v"
+      "hash": "6jvrfn6vgkibddpahwr7komn5jj7grmw"
     }
   }
 }
