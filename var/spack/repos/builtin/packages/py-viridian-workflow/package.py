@@ -13,6 +13,8 @@ class PyViridianWorkflow(PythonPackage):
 
     url      = "https://github.com/iqbal-lab-org/viridian_workflow/archive/refs/tags/v0.3.1.tar.gz"
 
+    version('master', git='https://github.com/iqbal-lab-org/viridian_workflow', branch='master', numeric_equivalent='>')
+    version('0.3.2', sha256='1c5d6bd80c96c2972a5d2988c735f5fb050e7efe187f2f086fa586619dcaeb63')
     version('0.3.1', sha256='5dc55b4b0efc5ed5901e5e6bfc6d29a6e8ebfe76ad21ee39e6457b797e17a843')
     version('0.3.0', sha256='cbfc167678fe6d0c4d275cb683a84d021002ce9b496270548c202b87bf908b10')
     version('0.2.2', sha256='3f83d2080c739fe3f5a8d6d21e9c43324a1c7bc4b75d7817341dc8a31cf53679')
@@ -22,3 +24,12 @@ class PyViridianWorkflow(PythonPackage):
     depends_on('py-intervaltree', type=('build', 'run'))
     depends_on('py-fastaq', type=('build', 'run'))
     depends_on('py-pysam', type=('build', 'run'))
+
+    depends_on('bcftools', type='run')
+    depends_on('vt', type='run')
+    depends_on('minimap2', type='run')
+    depends_on('racon', type='run')
+    depends_on('py-viridian', type='run')
+    depends_on('mummer', type='run')
+    depends_on('py-varifier', type='run')
+    depends_on('py-qcovid', type='run')
