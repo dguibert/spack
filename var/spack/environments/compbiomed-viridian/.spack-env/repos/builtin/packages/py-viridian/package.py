@@ -19,7 +19,7 @@ class PyViridian(PythonPackage):
     # depends_on('python@2.X:2.Y,3.Z:', type=('build', 'run'))
     depends_on('py-setuptools', type=('build', 'run'))
     # depends_on('py-foo',        type=('build', 'run'))
-    depends_on('racon')
+    depends_on('racon', type='run')
     depends_on('minimap2', type=('build', 'run'))
     depends_on('py-pysam')
     depends_on('py-fastaq')
