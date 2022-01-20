@@ -6,16 +6,16 @@
   },
   "roots": [
     {
-      "hash": "22jqw73hgsymjcpqvslkepy2qwfkblq6",
+      "hash": "wwoiljkgr5lkhqexjtbl3luxlnfpc2aj",
       "spec": "py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0 ^py-varifier@master ^py-viridian@main"
     },
     {
-      "hash": "by5rrpn2ddxfnszmtmjap3ybpy3f4mf7",
+      "hash": "vh5oj7fgd2p7w3q7jl3xmmnpfq7czx22",
       "spec": "minimap2"
     }
   ],
   "concrete_specs": {
-    "22jqw73hgsymjcpqvslkepy2qwfkblq6": {
+    "wwoiljkgr5lkhqexjtbl3luxlnfpc2aj": {
       "name": "py-viridian-workflow",
       "version": "0.3.2",
       "arch": {
@@ -46,7 +46,7 @@
         },
         {
           "name": "minimap2",
-          "build_hash": "5pdbc4wdpizzowx7dx22zsyg5ifnmvrm",
+          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
           "type": [
             "run"
           ]
@@ -91,7 +91,7 @@
         },
         {
           "name": "py-qcovid",
-          "build_hash": "fbrytkblh7rq7ll3v3vmwjjaq5rlpvgv",
+          "build_hash": "uuoixltpohjohnj66zjmt3dmxjireyqj",
           "type": [
             "run"
           ]
@@ -105,14 +105,14 @@
         },
         {
           "name": "py-varifier",
-          "build_hash": "4yjm4b3qze63u7weqd7vduwmgpxhefjv",
+          "build_hash": "fnbx4fzmcqdha3jluacjexsgv4spwqcg",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-viridian",
-          "build_hash": "4s6zxtmaf3cl5fynp57f2emds3od7ugj",
+          "build_hash": "yfyzxq5fy2j74wy6eeliqir5fxagtfot",
           "type": [
             "run"
           ]
@@ -147,7 +147,7 @@
           ]
         }
       ],
-      "hash": "or4gfesjnfnvipcsekct4uevs4nawbt5"
+      "hash": "j5vsboeutpsj5gcq5bz4klwe562nf6eq"
     },
     "spkrunv5522bspu336ibssnvqfd6grm5": {
       "name": "bcftools",
@@ -2926,7 +2926,7 @@
       ],
       "hash": "nwyv7ppcbyuw4fzccccvdqsmsj76twpx"
     },
-    "5pdbc4wdpizzowx7dx22zsyg5ifnmvrm": {
+    "qvpn3bmrdirfj34xlucntx6ived5wivz": {
       "name": "minimap2",
       "version": "2.24",
       "arch": {
@@ -2940,6 +2940,9 @@
       },
       "namespace": "builtin",
       "parameters": {
+        "js_engine": [
+          "node-js"
+        ],
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -2948,6 +2951,13 @@
         "ldlibs": []
       },
       "dependencies": [
+        {
+          "name": "node-js",
+          "build_hash": "b3ykymdemexkqhrf55wyga4cw4e55xqw",
+          "type": [
+            "run"
+          ]
+        },
         {
           "name": "py-cython",
           "build_hash": "lvzhnkgeyy7st6o2nbep7z5m3cgza6nl",
@@ -2992,7 +3002,109 @@
           ]
         }
       ],
-      "hash": "3ey5t2fg534dbih4qevcq7ne2ud4ufhp"
+      "hash": "lpsb2kqx4zi4nwtjr6pdw3b6tx37off2"
+    },
+    "b3ykymdemexkqhrf55wyga4cw4e55xqw": {
+      "name": "node-js",
+      "version": "14.15.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "debug": false,
+        "doc": false,
+        "icu4c": false,
+        "openssl": true,
+        "zlib": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "dependencies": [
+        {
+          "name": "gmake",
+          "build_hash": "aviywuuqx34gfnt43f5y4lgbkcm3yiei",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "libtool",
+          "build_hash": "yeww7cne3digfx24z2hltsojkhylad24",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "openssl",
+          "build_hash": "otwau6wrrtzgl3zjn7vol4jfq7nw4v55",
+          "type": [
+            "build",
+            "link"
+          ]
+        },
+        {
+          "name": "pkgconf",
+          "build_hash": "ek6vbb3dbwuniaumx4hvugejpta4hrft",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "python",
+          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "type": [
+            "build"
+          ]
+        },
+        {
+          "name": "zlib",
+          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
+          "type": [
+            "build",
+            "link"
+          ]
+        }
+      ],
+      "hash": "uhwkx7xwfyggmefe7fupa5hcng7hznhk"
+    },
+    "yeww7cne3digfx24z2hltsojkhylad24": {
+      "name": "libtool",
+      "version": "2.4.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "aarch64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "external": {
+        "path": "/usr",
+        "module": null,
+        "extra_attributes": {}
+      },
+      "hash": "yeww7cne3digfx24z2hltsojkhylad24"
     },
     "7usinsyqmnuxemvy67hvqrgbxxjmsixs": {
       "name": "mummer",
@@ -4317,34 +4429,6 @@
         }
       ],
       "hash": "k7hty34eeek5yag75nn7flklxemocltu"
-    },
-    "yeww7cne3digfx24z2hltsojkhylad24": {
-      "name": "libtool",
-      "version": "2.4.6",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "rhel8",
-        "target": "aarch64"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "8.4.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "external": {
-        "path": "/usr",
-        "module": null,
-        "extra_attributes": {}
-      },
-      "hash": "yeww7cne3digfx24z2hltsojkhylad24"
     },
     "rxmh3f22uaxzdd53xbs737ybh5v3vsjs": {
       "name": "m4",
@@ -5986,7 +6070,7 @@
       ],
       "hash": "e7hnuz42hhf55cjg33vb4w2x47fjjlqs"
     },
-    "fbrytkblh7rq7ll3v3vmwjjaq5rlpvgv": {
+    "uuoixltpohjohnj66zjmt3dmxjireyqj": {
       "name": "py-qcovid",
       "version": "master",
       "arch": {
@@ -6010,7 +6094,7 @@
       "dependencies": [
         {
           "name": "minimap2",
-          "build_hash": "5pdbc4wdpizzowx7dx22zsyg5ifnmvrm",
+          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
           "type": [
             "build",
             "link"
@@ -6055,7 +6139,7 @@
           ]
         }
       ],
-      "hash": "4brgewtd4bf2r4d76awjjxkgjkgaxui2"
+      "hash": "ljsdcydjzqu2dxklq3yvvot7asrzh64m"
     },
     "ukpcfhndgmrmaeiurobl6wbzpzglvl6s": {
       "name": "py-sqlalchemy",
@@ -6176,7 +6260,7 @@
       ],
       "hash": "i2va7y5wcmgq7nalylfda5iecjntsvfu"
     },
-    "4yjm4b3qze63u7weqd7vduwmgpxhefjv": {
+    "fnbx4fzmcqdha3jluacjexsgv4spwqcg": {
       "name": "py-varifier",
       "version": "master",
       "arch": {
@@ -6206,15 +6290,8 @@
           ]
         },
         {
-          "name": "k8",
-          "build_hash": "dolhedlbghmx4h5pqfx75wswsiu3jgz2",
-          "type": [
-            "run"
-          ]
-        },
-        {
           "name": "minimap2",
-          "build_hash": "5pdbc4wdpizzowx7dx22zsyg5ifnmvrm",
+          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
           "type": [
             "build",
             "run"
@@ -6305,39 +6382,7 @@
           ]
         }
       ],
-      "hash": "ubyvwyrz52qk3vxrlbu6pjuchgnjnsvm"
-    },
-    "dolhedlbghmx4h5pqfx75wswsiu3jgz2": {
-      "name": "k8",
-      "version": "0.2.4",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "rhel8",
-        "target": "aarch64"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "8.4.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "dependencies": [
-        {
-          "name": "zlib",
-          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
-          "type": [
-            "run"
-          ]
-        }
-      ],
-      "hash": "342up6dufz5jo7ehbzucz4xdbijvrhy4"
+      "hash": "jsvivoz7f6esvvdtcwjr2eivrhic34xi"
     },
     "smua6uzr4rnfs2ykpfq2waqpued5v6jz": {
       "name": "py-biopython",
@@ -7491,7 +7536,7 @@
       ],
       "hash": "3ugxtxcf47n6mgqkrwuzklw55447ebq3"
     },
-    "4s6zxtmaf3cl5fynp57f2emds3od7ugj": {
+    "yfyzxq5fy2j74wy6eeliqir5fxagtfot": {
       "name": "py-viridian",
       "version": "main",
       "arch": {
@@ -7515,7 +7560,7 @@
       "dependencies": [
         {
           "name": "minimap2",
-          "build_hash": "5pdbc4wdpizzowx7dx22zsyg5ifnmvrm",
+          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
           "type": [
             "build",
             "run"
@@ -7575,7 +7620,7 @@
           ]
         }
       ],
-      "hash": "qum7wn4omzzui542glkfuru4rto7pq6r"
+      "hash": "opauztqs2rorsnjo3rhvfnwhbpznxsos"
     },
     "zheu4lvqknc37n2ux6fqh5aacdds67v2": {
       "name": "racon",
@@ -7649,7 +7694,7 @@
       },
       "hash": "t2fxdcsw6pgyq53gd5s5klduz3s5oudz"
     },
-    "by5rrpn2ddxfnszmtmjap3ybpy3f4mf7": {
+    "vh5oj7fgd2p7w3q7jl3xmmnpfq7czx22": {
       "name": "minimap2",
       "version": "2.24",
       "arch": {
@@ -7663,6 +7708,9 @@
       },
       "namespace": "builtin",
       "parameters": {
+        "js_engine": [
+          "node-js"
+        ],
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -7671,6 +7719,13 @@
         "ldlibs": []
       },
       "dependencies": [
+        {
+          "name": "node-js",
+          "build_hash": "b3ykymdemexkqhrf55wyga4cw4e55xqw",
+          "type": [
+            "run"
+          ]
+        },
         {
           "name": "py-cython",
           "build_hash": "32fyqxse4t6agnt3kh7mxej6hj4btord",
@@ -7715,7 +7770,7 @@
           ]
         }
       ],
-      "hash": "3ey5t2fg534dbih4qevcq7ne2ud4ufhp"
+      "hash": "lpsb2kqx4zi4nwtjr6pdw3b6tx37off2"
     },
     "32fyqxse4t6agnt3kh7mxej6hj4btord": {
       "name": "py-cython",

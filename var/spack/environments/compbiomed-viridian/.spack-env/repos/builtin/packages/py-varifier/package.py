@@ -3,23 +3,6 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
-# ----------------------------------------------------------------------------
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install py-varifier
-#
-# You can edit this file again by typing:
-#
-#     spack edit py-varifier
-#
-# See the Spack documentation for more information on packaging.
-# ----------------------------------------------------------------------------
-
 from spack import *
 
 
@@ -41,10 +24,14 @@ class PyVarifier(PythonPackage):
     depends_on('py-cluster-vcf-records@0.13.2:', type=('build', 'run'))
     #mappy >= 2.17 provided by minimap2
     depends_on('minimap2@2.17:', type=('build', 'run'))
-    depends_on('k8', type='run')
     depends_on('py-pandas')
     depends_on('py-fastaq@3.14.0:')
     depends_on('py-pymummer')
     depends_on('py-pysam', type='run')
     depends_on('py-seaborn', type=('build', 'run'))
 
+    @run_before('install')
+    def configure(self):
+      print('STEP')
+      sed = which('sed')
+      sed('-ie', 's@"minimap2", "paftools.js", "k8"@"minimap2", "paftools.js"@', 'varifier/truth_variant_finding.py')
