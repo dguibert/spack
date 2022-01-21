@@ -184,7 +184,6 @@ spack:
     # https://setuptools.readthedocs.io/en/latest/history.html#v58-0-0
   - py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0 ^py-viridian@main
     ^py-varifier@master
-  - minimap2
   view: false
   concretization: separately
   compilers:
