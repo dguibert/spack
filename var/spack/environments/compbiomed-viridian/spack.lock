@@ -2926,7 +2926,7 @@
       ],
       "hash": "nwyv7ppcbyuw4fzccccvdqsmsj76twpx"
     },
-    "qvpn3bmrdirfj34xlucntx6ived5wivz": {
+    "pq4dke6qlqfywgn2223engg57wdjgmqo": {
       "name": "minimap2",
       "version": "2.24",
       "arch": {
@@ -3002,9 +3002,9 @@
           ]
         }
       ],
-      "hash": "lpsb2kqx4zi4nwtjr6pdw3b6tx37off2"
+      "hash": "uocvtcpdgbj6t7cla7nfhcpubadeeub6"
     },
-    "b3ykymdemexkqhrf55wyga4cw4e55xqw": {
+    "vpfmpafhc5rqoeqnegvwetorpz4ewoaf": {
       "name": "node-js",
       "version": "14.15.1",
       "arch": {
@@ -3062,7 +3062,7 @@
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build"
           ]
@@ -6094,7 +6094,7 @@
       "dependencies": [
         {
           "name": "minimap2",
-          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
+          "build_hash": "pq4dke6qlqfywgn2223engg57wdjgmqo",
           "type": [
             "build",
             "link"
@@ -7560,7 +7560,7 @@
       "dependencies": [
         {
           "name": "minimap2",
-          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
+          "build_hash": "pq4dke6qlqfywgn2223engg57wdjgmqo",
           "type": [
             "build",
             "run"
