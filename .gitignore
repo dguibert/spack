@@ -4,6 +4,7 @@
 
 /var/spack/stage
 /var/spack/cache
+/var/spack/environments/*/.spack-env
 #/var/spack/environments
 #!/var/spack/environments/*/spack.yaml
 #!/var/spack/environments/software-x86_64
