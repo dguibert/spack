@@ -6,16 +6,12 @@
   },
   "roots": [
     {
-      "hash": "wwoiljkgr5lkhqexjtbl3luxlnfpc2aj",
+      "hash": "vcnuxhtlprbzmzly4dfes2o6xkzs52li",
       "spec": "py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0 ^py-varifier@master ^py-viridian@main"
-    },
-    {
-      "hash": "vh5oj7fgd2p7w3q7jl3xmmnpfq7czx22",
-      "spec": "minimap2"
     }
   ],
   "concrete_specs": {
-    "wwoiljkgr5lkhqexjtbl3luxlnfpc2aj": {
+    "vcnuxhtlprbzmzly4dfes2o6xkzs52li": {
       "name": "py-viridian-workflow",
       "version": "0.3.2",
       "arch": {
@@ -39,28 +35,28 @@
       "dependencies": [
         {
           "name": "bcftools",
-          "build_hash": "spkrunv5522bspu336ibssnvqfd6grm5",
+          "build_hash": "fencbm6p4jw4wydsenivnj6gnekj4zzi",
           "type": [
             "run"
           ]
         },
         {
           "name": "minimap2",
-          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
+          "build_hash": "pq4dke6qlqfywgn2223engg57wdjgmqo",
           "type": [
             "run"
           ]
         },
         {
           "name": "mummer",
-          "build_hash": "7usinsyqmnuxemvy67hvqrgbxxjmsixs",
+          "build_hash": "gx4zxxbtinepodo76trirejotnqoa6lj",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-fastaq",
-          "build_hash": "5oc6rqkc6lw4whwunvrdo5zqkqzfe52x",
+          "build_hash": "wlec77y57hsozbdgcvajrqrra7qruo2i",
           "type": [
             "build",
             "run"
@@ -91,42 +87,42 @@
         },
         {
           "name": "py-qcovid",
-          "build_hash": "uuoixltpohjohnj66zjmt3dmxjireyqj",
+          "build_hash": "ole43uyc6ajot3qg7zmf7vao4nzeuvt5",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-varifier",
-          "build_hash": "fnbx4fzmcqdha3jluacjexsgv4spwqcg",
+          "build_hash": "oxhgz4whpemght7qslyswixcipfliogy",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-viridian",
-          "build_hash": "yfyzxq5fy2j74wy6eeliqir5fxagtfot",
+          "build_hash": "4f7som4ipyjt7f2jravqvqk3ncwhoin7",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
@@ -147,9 +143,9 @@
           ]
         }
       ],
-      "hash": "j5vsboeutpsj5gcq5bz4klwe562nf6eq"
+      "hash": "qkse6j4tpgpez55rnoeu4pjjcpjwyxmv"
     },
-    "spkrunv5522bspu336ibssnvqfd6grm5": {
+    "fencbm6p4jw4wydsenivnj6gnekj4zzi": {
       "name": "bcftools",
       "version": "1.14",
       "arch": {
@@ -2953,42 +2949,42 @@
       "dependencies": [
         {
           "name": "node-js",
-          "build_hash": "b3ykymdemexkqhrf55wyga4cw4e55xqw",
+          "build_hash": "vpfmpafhc5rqoeqnegvwetorpz4ewoaf",
           "type": [
             "run"
           ]
         },
         {
           "name": "py-cython",
-          "build_hash": "lvzhnkgeyy7st6o2nbep7z5m3cgza6nl",
+          "build_hash": "y7ddpxuldbrixf2th6fnv5cvuwg27rin",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
@@ -5790,15 +5786,15 @@
         },
         {
           "name": "samtools",
-          "build_hash": "dm4h3tpxcesi52kkdzoyjows5dlsih22",
+          "build_hash": "xdqfv5rnakezx3fdrszjdx55xk7haohx",
           "type": [
             "run"
           ]
         }
       ],
-      "hash": "ar3dy7jyxi4t7by7ywyjo45fbqkfjck7"
+      "hash": "l4g2dfegzfqpgwrjewmr2kajgccfd3wb"
     },
-    "dm4h3tpxcesi52kkdzoyjows5dlsih22": {
+    "xdqfv5rnakezx3fdrszjdx55xk7haohx": {
       "name": "samtools",
       "version": "1.14",
       "arch": {
@@ -5859,9 +5855,9 @@
           ]
         }
       ],
-      "hash": "cxkxmiqciyhsicmrjd6a2km5sqannkov"
+      "hash": "42rrdsp7f7qri4lfmei566z5uw5xblgw"
     },
-    "3kgwfddnxyb2jkfbb2jut6nbyp6drbyo": {
+    "jrkaxtiu5mcmsgs66eeqgujh2jffd4i7": {
       "name": "py-intervaltree",
       "version": "3.0.2",
       "arch": {
@@ -6061,16 +6057,16 @@
         },
         {
           "name": "samtools",
-          "build_hash": "dm4h3tpxcesi52kkdzoyjows5dlsih22",
+          "build_hash": "xdqfv5rnakezx3fdrszjdx55xk7haohx",
           "type": [
             "build",
             "link"
           ]
         }
       ],
-      "hash": "e7hnuz42hhf55cjg33vb4w2x47fjjlqs"
+      "hash": "di4ru27mzqxxdwnol452awzgje3hfszx"
     },
-    "uuoixltpohjohnj66zjmt3dmxjireyqj": {
+    "ole43uyc6ajot3qg7zmf7vao4nzeuvt5": {
       "name": "py-qcovid",
       "version": "master",
       "arch": {
@@ -6125,23 +6121,23 @@
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "ljsdcydjzqu2dxklq3yvvot7asrzh64m"
+      "hash": "feospbxlzqeit7vpamai5pjd6kvknflt"
     },
-    "ukpcfhndgmrmaeiurobl6wbzpzglvl6s": {
+    "lpkfhqanjm6rtdqj47mwlvxkuzcftntf": {
       "name": "py-sqlalchemy",
       "version": "1.4.20",
       "arch": {
@@ -6258,9 +6254,9 @@
           ]
         }
       ],
-      "hash": "i2va7y5wcmgq7nalylfda5iecjntsvfu"
+      "hash": "6jcz227islejvqrvathylsxx3zjynf3u"
     },
-    "fnbx4fzmcqdha3jluacjexsgv4spwqcg": {
+    "oxhgz4whpemght7qslyswixcipfliogy": {
       "name": "py-varifier",
       "version": "master",
       "arch": {
@@ -6284,14 +6280,14 @@
       "dependencies": [
         {
           "name": "bcftools",
-          "build_hash": "spkrunv5522bspu336ibssnvqfd6grm5",
+          "build_hash": "fencbm6p4jw4wydsenivnj6gnekj4zzi",
           "type": [
             "run"
           ]
         },
         {
           "name": "minimap2",
-          "build_hash": "qvpn3bmrdirfj34xlucntx6ived5wivz",
+          "build_hash": "pq4dke6qlqfywgn2223engg57wdjgmqo",
           "type": [
             "build",
             "run"
@@ -6331,14 +6327,14 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-pymummer",
-          "build_hash": "3whcagfudgkhutz3w4hyvesetdkp5k6l",
+          "build_hash": "ogdoxcdhefyt5khxddasn5iniwhcacnl",
           "type": [
             "build",
             "link"
@@ -6382,9 +6378,9 @@
           ]
         }
       ],
-      "hash": "jsvivoz7f6esvvdtcwjr2eivrhic34xi"
+      "hash": "uphxw33vxtkpxxtscumba4iq2bvvbidl"
     },
-    "smua6uzr4rnfs2ykpfq2waqpued5v6jz": {
+    "7tzb5acdrwq6eawctoy4ovzvrsknkafn": {
       "name": "py-biopython",
       "version": "1.78",
       "arch": {
@@ -6493,14 +6489,14 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-pysam",
-          "build_hash": "2t24kzur72u4gq5uqypmjdp5hywkqwot",
+          "build_hash": "pir7hl5koxdemdpal4weuhgvirjmyny2",
           "type": [
             "build",
             "run"
@@ -6674,14 +6670,14 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-python-dateutil",
-          "build_hash": "gwmfgcs3bs6pvkopt4qulfcnuxtk7ngj",
+          "build_hash": "j75traaxottppgkmxqukxfnx2jrtcsgx",
           "type": [
             "build",
             "run"
@@ -6697,30 +6693,30 @@
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "wpahi42o2omcrvowajg7wkgcsirv5muf"
+      "hash": "6xch6ebjp22ijuaqwghbm5qft5b4ped6"
     },
-    "xeqqasika3tg7yskzjz35banorg7ku5z": {
+    "6d5ubu4yslnhl2oh2ikgohwirlpgg6ts": {
       "name": "py-bottleneck",
       "version": "1.3.2",
       "arch": {
@@ -6752,37 +6748,37 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "mjcjaddfvhylrlav6t2com34yzipudzu"
+      "hash": "pqtayek4xzw7hhgq6fippejv7kqcr6ug"
     },
-    "4clbqnscwhnw3ooclp6lrmvzhagdgu4o": {
+    "mat4gvmlbwc7ngm3btq6ozhbt6p3in6a": {
       "name": "py-numexpr",
       "version": "2.7.3",
       "arch": {
@@ -6814,37 +6810,37 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "ihszovsphtp7vhie3pfntwgj7ye3x5rt"
+      "hash": "xyx5m5ldm64qxijrkzucvtqyfwnordyr"
     },
-    "wik7b54muh4543lgcsxctlkrvujc4rtg": {
+    "yukblztk4mdockhspaztcc7jyaip5iu7": {
       "name": "py-pytz",
       "version": "2021.1",
       "arch": {
@@ -6868,37 +6864,37 @@
       "dependencies": [
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "pfjdm7nxbiwbypmsmytwzbhe2c7cu23g"
+      "hash": "wvs4zc7pppuxj5kcm6fs3jem7go5l3ni"
     },
-    "3whcagfudgkhutz3w4hyvesetdkp5k6l": {
+    "ogdoxcdhefyt5khxddasn5iniwhcacnl": {
       "name": "py-pymummer",
       "version": "0.11.0",
       "arch": {
@@ -6938,30 +6934,30 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "z3736gqxavq72eo4zr3rfelvxzsoogtt"
+      "hash": "xyan3tmjiyofxlg4vmdlqda6pejc54li"
     },
-    "iqydb624p4mga3jxt2ueymrwmnjkhtfg": {
+    "yglpj57m4ofawzkdagx3hnut6ye7i6qv": {
       "name": "py-seaborn",
       "version": "0.11.2",
       "arch": {
@@ -7009,14 +7005,14 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-scipy",
-          "build_hash": "ctz5llva4bbluiiegkw63gqe5g3v4zus",
+          "build_hash": "ike63ssvad6ztpfrextg5fiqlilmdgzn",
           "type": [
             "build",
             "run"
@@ -7024,30 +7020,30 @@
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "nn4qzl4dhe5nbjybuulwqakbmgt7sv3h"
+      "hash": "kolzil2jimwrwjivf6uthwi52oyvoy75"
     },
-    "ctz5llva4bbluiiegkw63gqe5g3v4zus": {
+    "ike63ssvad6ztpfrextg5fiqlilmdgzn": {
       "name": "py-scipy",
       "version": "1.7.3",
       "arch": {
@@ -7259,14 +7255,14 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-ply",
-          "build_hash": "pq54xaicv3fep554c5nzsja76htopb5h",
+          "build_hash": "uht63f4ckzzltytukb7eg6pwndxkmj4o",
           "type": [
             "build",
             "run"
@@ -7274,37 +7270,37 @@
         },
         {
           "name": "py-pytest-runner",
-          "build_hash": "or2p2u32zq7sh7d6zmilqh32vt422szo",
+          "build_hash": "7nokdipnd6axl3k46fd5enzcpr45vspt",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "xcbjb4kypy5hvnkasnsn6gkw2xwxdlmy"
+      "hash": "wqzabtziaautraord2sdyulhoryj76tb"
     },
-    "dt5hooldz3a7py626h5bcs3wrxuvjnrd": {
+    "uf6drtl6zyizx7uxt5wzvhcusogk7uli": {
       "name": "py-beniget",
       "version": "0.4.1",
       "arch": {
@@ -7336,37 +7332,37 @@
         },
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "5qo5sbk7akrsml3vr4jq55ohmqklpvhd"
+      "hash": "46t767gggviwbauvadetxf6uzglfexc3"
     },
-    "fyzv6zorc3h56p5j4hugsuvxmytjcjqk": {
+    "mkevwr7en3xv53wfsuwiqnubkz7trm4h": {
       "name": "py-gast",
       "version": "0.5.3",
       "arch": {
@@ -7390,37 +7386,37 @@
       "dependencies": [
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "6fcgt6tjmiw4aopbixwbdgjdhqvhehzr"
+      "hash": "h32cyrp3sgbcn77ogwk3qlqsg7ea6bik"
     },
-    "pq54xaicv3fep554c5nzsja76htopb5h": {
+    "uht63f4ckzzltytukb7eg6pwndxkmj4o": {
       "name": "py-ply",
       "version": "3.11",
       "arch": {
@@ -7444,37 +7440,37 @@
       "dependencies": [
         {
           "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
+          "build_hash": "we6ucubaa4k4mtdssvxj3ybagazlozsu",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-setuptools",
-          "build_hash": "rqv7wcn4nhs4cpqkiytp5kcpglrfmr4b",
+          "build_hash": "mnky5exh2jfmcnocorj5zupwdq5mrh7q",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "vdo4u2zcsfzgjm7h64fulbrghfi474ld"
+      "hash": "tcelqovv7edcbywkrkg6ny4f5atdx6zu"
     },
-    "or2p2u32zq7sh7d6zmilqh32vt422szo": {
+    "7nokdipnd6axl3k46fd5enzcpr45vspt": {
       "name": "py-pytest-runner",
       "version": "5.3.1",
       "arch": {
@@ -7513,30 +7509,30 @@
         },
         {
           "name": "py-setuptools-scm",
-          "build_hash": "5tzco3szdwvbh3h5nghytaamzynpfk3k",
+          "build_hash": "x7zzvjxquy6hqjqlrx7lkpanuan2typ3",
           "type": [
             "build"
           ]
         },
         {
           "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
+          "build_hash": "4ymqi25poz73kqrtxagosyhq7p5cel6v",
           "type": [
             "build"
           ]
         },
         {
           "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
+          "build_hash": "3kjmcciqxwdupkuroyzv3da4h5qbgeqb",
           "type": [
             "build",
             "run"
           ]
         }
       ],
-      "hash": "3ugxtxcf47n6mgqkrwuzklw55447ebq3"
+      "hash": "ihzrrxmq323aajiavc7gprxmgkf2p57l"
     },
-    "yfyzxq5fy2j74wy6eeliqir5fxagtfot": {
+    "4f7som4ipyjt7f2jravqvqk3ncwhoin7": {
       "name": "py-viridian",
       "version": "main",
       "arch": {
@@ -7614,15 +7610,15 @@
         },
         {
           "name": "racon",
-          "build_hash": "zheu4lvqknc37n2ux6fqh5aacdds67v2",
+          "build_hash": "2wdn3cmjomkq3cmoespwxggf7pjxmieh",
           "type": [
             "run"
           ]
         }
       ],
-      "hash": "opauztqs2rorsnjo3rhvfnwhbpznxsos"
+      "hash": "r3pjh5aapmhbfhdg6jflqp45dcjkqngv"
     },
-    "zheu4lvqknc37n2ux6fqh5aacdds67v2": {
+    "2wdn3cmjomkq3cmoespwxggf7pjxmieh": {
       "name": "racon",
       "version": "1.5.0",
       "arch": {
@@ -7693,187 +7689,6 @@
         "ldlibs": []
       },
       "hash": "t2fxdcsw6pgyq53gd5s5klduz3s5oudz"
-    },
-    "vh5oj7fgd2p7w3q7jl3xmmnpfq7czx22": {
-      "name": "minimap2",
-      "version": "2.24",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "rhel8",
-        "target": "aarch64"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "8.4.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "js_engine": [
-          "node-js"
-        ],
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "dependencies": [
-        {
-          "name": "node-js",
-          "build_hash": "b3ykymdemexkqhrf55wyga4cw4e55xqw",
-          "type": [
-            "run"
-          ]
-        },
-        {
-          "name": "py-cython",
-          "build_hash": "32fyqxse4t6agnt3kh7mxej6hj4btord",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "py-setuptools",
-          "build_hash": "vgbkzebsizecyg5i7n4cwx5vgn3um6oy",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
-          "type": [
-            "build",
-            "run"
-          ]
-        },
-        {
-          "name": "zlib",
-          "build_hash": "svkt7nj6p43zt2fng4wjnaobgaz7ukim",
-          "type": [
-            "link"
-          ]
-        }
-      ],
-      "hash": "lpsb2kqx4zi4nwtjr6pdw3b6tx37off2"
-    },
-    "32fyqxse4t6agnt3kh7mxej6hj4btord": {
-      "name": "py-cython",
-      "version": "0.29.24",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "rhel8",
-        "target": "aarch64"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "8.4.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "dependencies": [
-        {
-          "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "py-setuptools",
-          "build_hash": "vgbkzebsizecyg5i7n4cwx5vgn3um6oy",
-          "type": [
-            "build",
-            "run"
-          ]
-        },
-        {
-          "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
-          "type": [
-            "build",
-            "link",
-            "run"
-          ]
-        }
-      ],
-      "hash": "wwj62tc5qkuw7tgdy4i5g7xm5uxpo3v7"
-    },
-    "vgbkzebsizecyg5i7n4cwx5vgn3um6oy": {
-      "name": "py-setuptools",
-      "version": "59.4.0",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "rhel8",
-        "target": "aarch64"
-      },
-      "compiler": {
-        "name": "gcc",
-        "version": "8.4.1"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "dependencies": [
-        {
-          "name": "py-pip",
-          "build_hash": "5ivuyc6zl253owzxvmhay4kaoxdeodqi",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "py-wheel",
-          "build_hash": "t7rkcut3rqzj3iwnnqmp4hxem56e46l6",
-          "type": [
-            "build"
-          ]
-        },
-        {
-          "name": "python",
-          "build_hash": "saj6ianv3nrnietrfxjvinhfpuv4vti7",
-          "type": [
-            "build",
-            "run"
-          ]
-        }
-      ],
-      "hash": "zplguslwqzwn5uu3jy6y24wp2timmtwu"
     }
   }
 }
