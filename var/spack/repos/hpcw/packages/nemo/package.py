@@ -32,6 +32,8 @@ class Nemo(Package):
     svn = "https://forge.ipsl.jussieu.fr/nemo/svn/NEMO"
 
     # FIXME: Add proper versions and checksums here.
+    version('4.0.14480', svn='http://forge.ipsl.jussieu.fr/nemo/svn/NEMO/releases/release-4.0',
+        revision=14480)
     version('4.0.5', svn='https://forge.ipsl.jussieu.fr/nemo/svn/NEMO/releases/r4.0/r4.0.5/',
         revision=14450)
 
