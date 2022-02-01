@@ -32,10 +32,6 @@ class Libemos(CMakePackage):
     homepage = "https://confluence.ecmwf.int/display/EMOS/Emoslib"
     url      = "file://%s/libemos-4.5.5c-Source.tar.gz" % os.environ.get('HPCW_DOWNLOAD_URL')
 
-    # FIXME: Add a list of GitHub accounts to
-    # notify when the package is updated.
-    # maintainers = ['github_user1', 'github_user2']
-
     version('4.5.5c', sha256='baf7144e29bfe17554db27971fc5eef501d133bf38cf56953b10f722e82d664a')
 
     depends_on('raps-support')
@@ -56,6 +52,7 @@ class Libemos(CMakePackage):
           '-DENABLE_TESTS:BOOL=OFF',
           '-DENABLE_INSTALL_TOOLS:BOOL=OFF',
           '-DECBUILD_TRUST_FLAGS:BOOL=ON',
+          '-DCMAKE_VERBOSE_MAKEFILE:BOOL=ON',
           ]
         # only gcc@10:
         if self.spec.satisfies('%gcc@10:'):
