@@ -9,8 +9,8 @@ unset -f module module_raw ml
 
 if ${LOAD_SPACK}; then
   source $SPACK_ROOT/share/spack/setup-env.sh
-  LMOD_PATH=${LMOD_PATH:-$(spack location -i lmod@8.6.5 arch=$(uname -p))}
-  LMOD_PATH=${LMOD_PATH:-$(spack location -i lmod arch=$(uname -p))}
+  export LMOD_PATH=${LMOD_PATH:-$(spack location -i lmod@8.6.5 arch=linux-$(spack arch -o)-$(uname -p))}
+  export LMOD_PATH=${LMOD_PATH:-$(spack location -i lmod arch=$(uname -p))}
   source $LMOD_PATH/lmod/lmod/init/profile
   source $SPACK_ROOT/share/spack/setup-env.sh
 else
