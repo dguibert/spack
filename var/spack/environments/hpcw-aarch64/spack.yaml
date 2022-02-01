@@ -205,7 +205,7 @@ spack:
       variants:
       - fabrics='knem,ucx' # comma not handle
       - +legacylaunchers
-      - +pmix
+      - +pmi
       - schedulers=slurm
       - +thread_multiple
   definitions:
@@ -223,6 +223,8 @@ spack:
       ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
   - models:
     - nemo cfg=BENCH %gcc@11.2.0 ^hdf5%gcc@11.2.0 ^netcdf-c%gcc@11.2.0 ^netcdf-fortran%gcc@11.2.0
+      #    - ifs %gcc@11.2.0 ^hdf5%gcc@11.2.0 ^netcdf-c%gcc@11.2.0 ^netcdf-fortran%gcc@11.2.0
+      #^parmetis%gcc@11.2.0 ^metis%gcc@11.2.0 ^openblas%gcc@11.2.0
   specs:
   - $compiler
   - $mpis
