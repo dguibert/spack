@@ -5,6 +5,7 @@ spack:
   config:
     install_missing_compilers: true
     source_cache: /software/spack/mirror
+    url_fetch_method: curl
   mirrors:
     software-mirror: file://software/spack/mirror
   modules:
@@ -225,6 +226,7 @@ spack:
     # https://setuptools.readthedocs.io/en/latest/history.html#v58-0-0
   - py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0 ^py-viridian@main
     ^py-varifier@master
+  - arm-forge@21.1
   view: false
   concretization: separately
   compilers:
