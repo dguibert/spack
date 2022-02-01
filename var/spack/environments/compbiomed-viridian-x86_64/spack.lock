@@ -8,6 +8,10 @@
     {
       "hash": "jfiw6yovysiub3hnyoqwo62myeadzvug",
       "spec": "py-viridian-workflow ^py-pysam@0.18.0 ^py-setuptools@57.4.0 ^py-varifier@master ^py-viridian@main"
+    },
+    {
+      "hash": "z5rdgqban7wydit4qpel5goqij2iwqr6",
+      "spec": "arm-forge@21.1"
     }
   ],
   "concrete_specs": {
@@ -7356,6 +7360,30 @@
         }
       ],
       "hash": "xv7vuevmgfnlpdxxb4eyits3zdkgihmd"
+    },
+    "z5rdgqban7wydit4qpel5goqij2iwqr6": {
+      "name": "arm-forge",
+      "version": "21.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "rhel8",
+        "target": "x86_64"
+      },
+      "compiler": {
+        "name": "gcc",
+        "version": "8.4.1"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "probe": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "hash": "z5rdgqban7wydit4qpel5goqij2iwqr6"
     }
   }
 }
