@@ -1,0 +1,75 @@
+diff --git a/src/cdi.h b/src/cdi.h
+index 22c54eb6..9853f69b 100644
+--- a/src/cdi.h
++++ b/src/cdi.h
+@@ -447,6 +447,7 @@ int cdiIterator_inqTileCount(CdiIterator *me, int *outTileCount, int *outTileAtt
+ CdiParam cdiIterator_inqParam(CdiIterator *me);
+ void cdiIterator_inqParamParts(CdiIterator *me, int *outDiscipline, int *outCategory, int *outNumber);	//Some FORTRAN compilers produce wrong code for the cdiIterator_inqParam()-wrapper, rendering it unusable from FORTRAN. This function is the workaround.
+ int cdiIterator_inqDatatype(CdiIterator *me);
++int cdiIterator_inqFiletype(CdiIterator *me);
+ int cdiIterator_inqTsteptype(CdiIterator *me);
+ char *cdiIterator_inqVariableName(CdiIterator *me);        //The caller is responsible to Free() the returned buffer.
+ int cdiIterator_inqGridId(CdiIterator *me);         //The returned id is only valid until the next call to cdiIteratorNextField().
+diff --git a/src/iterator.c b/src/iterator.c
+index 37f89334..c4683cb6 100644
+--- a/src/iterator.c
++++ b/src/iterator.c
+@@ -889,6 +889,25 @@ int cdiIterator_inqDatatype(CdiIterator* me)
+   return me->datatype;
+ }
+ 
++/*
++@Function cdiIterator_inqFiletype
++@Title Get the filetype of the current field
++
++@Prototype int cdiIterator_inqFiletype(CdiIterator* iterator)
++@Parameter
++    @item iterator The iterator to operate on.
++
++@Result The filetype that is used to store this field on disk.
++
++@Description
++    Simple metadata inspection function.
++*/
++int cdiIterator_inqFiletype(CdiIterator* me)
++{
++  sanityCheck(me);
++  return me->filetype;
++}
++
+ /*
+ @Function cdiIterator_inqTsteptype
+ @Title Get the timestep type
+diff --git a/src/mo_cdi.f90 b/src/mo_cdi.f90
+index b6f40572..86135046 100644
+--- a/src/mo_cdi.f90
++++ b/src/mo_cdi.f90
+@@ -301,6 +301,7 @@ module mo_cdi
+   public :: cdiIterator_inqParam
+   public :: cdiIterator_inqParamParts
+   public :: cdiIterator_inqDatatype
++  public :: cdiIterator_inqFiletype
+   public :: cdiIterator_inqTsteptype
+   public :: cdiIterator_inqVariableName
+   public :: cdiIterator_inqGridId
+@@ -3578,6 +3579,20 @@ contains
+     f_result = lib_cdiIterator_inqDatatype(me_dummy%ptr)
+   end function cdiIterator_inqDatatype
+ 
++  function cdiIterator_inqFiletype(me_dummy) result(f_result)
++    integer(c_int) :: f_result
++    type(t_CdiIterator), intent(in) :: me_dummy
++    interface
++      function lib_cdiIterator_inqFiletype(me_dummy) bind(c, name =&
++      & 'cdiIterator_inqFiletype') result(c_result)
++        import c_int, c_ptr
++        integer(c_int) :: c_result
++        type(c_ptr), value :: me_dummy
++      end function lib_cdiIterator_inqFiletype
++    end interface
++    f_result = lib_cdiIterator_inqFiletype(me_dummy%ptr)
++  end function cdiIterator_inqFiletype
++
+   function cdiIterator_inqTsteptype(me_dummy) result(f_result)
+     integer(c_int) :: f_result
+     type(t_CdiIterator), intent(in) :: me_dummy
