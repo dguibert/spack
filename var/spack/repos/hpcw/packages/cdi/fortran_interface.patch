@@ -1,0 +1,167 @@
+diff --git a/configure.ac b/configure.ac
+index 61ad9da..d322734 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -401,7 +401,8 @@ AC_CONFIG_FILES([tests/test_cksum_grib \
+ 
+ AC_OUTPUT([Makefile src/Makefile interfaces/Makefile app/Makefile \
+ 	tests/Makefile examples/Makefile cdi.settings \
+-	examples/pio/Makefile src/pkgconfig/cdi.pc src/pkgconfig/cdipio.pc])
++	examples/pio/Makefile src/pkgconfig/cdi.pc src/pkgconfig/cdipio.pc \
++        src/pkgconfig/cdi_f2003.pc])
+ 
+ #  ----------------------------------------------------------------------
+ #  Show configuration
+diff --git a/src/Makefile.am b/src/Makefile.am
+index d09b58e..3d3f411 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -1,16 +1,31 @@
+ ## Process this file with automake to produce Makefile.in
+ #
+-EXTRA_DIST = cdilib.c mo_cdi.f90
++EXTRA_DIST = cdilib.c
+ 
+ noinst_LTLIBRARIES = libcdiresunpack.la
+ 
++include_HEADERS =
++lib_LTLIBRARIES =
++
+ if ENABLE_CDI_LIB
+-  lib_LTLIBRARIES = libcdi.la
+-  include_HEADERS = cdi.h cdi.inc
++  lib_LTLIBRARIES += libcdi.la
++  include_HEADERS += cdi.h
++# add cdi.inc only if cfortran interface is required
++if USE_FC
++  include_HEADERS += cdi.inc
++endif
++if CREATE_ISOC
++  lib_LTLIBRARIES += libcdi_f2003.la
++  include_HEADERS += mo_cdi.$(FCMODEXT)
++endif
+ else
+   noinst_LTLIBRARIES += libcdi.la
++if CREATE_ISOC
++  noinst_LTLIBRARIES += libcdi_f2003.la
++endif
+ endif
+ 
++
+ AM_CFLAGS = $(PPM_CORE_CFLAGS) $(YAXT_CFLAGS) $(MPI_C_INCLUDE)
+ 
+ libcdi_la_SOURCES = 	 \
+@@ -162,6 +177,9 @@ EXTRA_DIST += \
+ 
+ 
+ 
++libcdi_f2003_la_SOURCES = mo_cdi.f90
++libcdi_f2003_la_LIBADD = libcdi.la
++
+ libcdiresunpack_la_SOURCES = \
+ 	resource_unpack.c
+ 
+@@ -238,23 +256,26 @@ LOCALTARGETS += pkgconfig/cdi.pc
+ if USE_MPI
+ LOCALTARGETS += pkgconfig/cdipio.pc
+ endif
+-endif
+-
+ if CREATE_ISOC
+-LOCALTARGETS += mo_cdi.$(OBJEXT)
++LOCALTARGETS += pkgconfig/cdi_f2003.pc
++endif
+ endif
++
+ #
+ mo_cdi.f90: $(top_srcdir)/src/cdi.h $(top_srcdir)/interfaces/f2003/bindGen.rb
+ 	$(RUBY) $(top_srcdir)/interfaces/f2003/bindGen.rb $(top_srcdir)/src/cdi.h $@
+-#
+-mo_cdi.$(OBJEXT): mo_cdi.f90
+-	$(FC) $(FCFLAGS) -c $(FCFLAGS_f90) $<
++mo_cdi.$(FCMODEXT): mo_cdi.lo
++	@if test ! -f $@; then rm -f $<; $(MAKE) $<; fi
+ #
+ pkgconfig/cdi.pc: pkgconfig/cdi.pc.in ../config.status
+ 	(cd .. ; ./config.status src/pkgconfig/cdi.pc)
+ 
+ pkgconfig/cdipio.pc: pkgconfig/cdipio.pc.in ../config.status
+ 	(cd .. ; ./config.status src/pkgconfig/cdipio.pc)
++
++pkgconfig/cdi_f2003.pc: pkgconfig/cdi_f2003.pc.in ../config.status
++	(cd .. ; ./config.status src/pkgconfig/cdi_f2003.pc)
++
+ cdilib.c: 
+ 	(cd $(top_srcdir)/src ; ./make_cdilib )
+ #
+@@ -263,15 +284,19 @@ all-local: $(LOCALTARGETS)
+ CLEANFILES  = `ls *~`
+ #CLEANFILES += cdilib.c
+ if CREATE_ISOC
+-CLEANFILES += mo_cdi.$(FCMODEXT) mo_cdi.$(OBJEXT)
++CLEANFILES += mo_cdi.$(FCMODEXT)
+ endif
+ 
+ if ENABLE_CDI_LIB
+ PKGCONFIG_FILES = pkgconfig/cdi.pc
+ CLEANFILES += pkgconfig/cdi.pc
+ if USE_MPI
+-CLEANFILES += pkgconfig/cdipio.pc
+ PKGCONFIG_FILES += pkgconfig/cdipio.pc
++CLEANFILES += pkgconfig/cdipio.pc
++endif
++if CREATE_ISOC
++PKGCONFIG_FILES += pkgconfig/cdi_f2003.pc
++CLEANFILES += pkgconfig/cdi_f2003.pc
+ endif
+ 
+ install-exec-local: $(PKGCONFIG_FILES)
+diff --git a/src/pkgconfig/cdi_f2003.pc.in b/src/pkgconfig/cdi_f2003.pc.in
+new file mode 100644
+index 0000000..67c58bf
+--- /dev/null
++++ b/src/pkgconfig/cdi_f2003.pc.in
+@@ -0,0 +1,43 @@
++prefix=@prefix@
++exec_prefix=@exec_prefix@
++libdir=@libdir@
++includedir=@includedir@
++cflags=-I@includedir@
++fcflags=@FPP_INCOPT@@includedir@ @CDI_F90_INTERFACE_FCFLAGS@
++libs=-L@libdir@ -lcdi_f2003 -lcdi @GRIB_API_LIBS@ @NETCDF_LIBS@ @SZLIB_LIBS@ @THREADS_LIBS@ @LIBS@
++threads_libs=@THREADS_LIBS@
++threads_cflags=@THREADS_INCLUDE@
++szlib_cflags=@SZLIB_INCLUDE@
++szlib_libs=@SZLIB_LIBS@
++netcdf_root=@NETCDF_ROOT@
++netcdf_cflags=@NETCDF_INCLUDE@
++netcdf_libs=@NETCDF_LIBS@
++grib_api_cflags=@GRIB_API_INCLUDE@
++grib_api_libs=@GRIB_API_LIBS@
++aux_libs=@LIBS@
++cdi_f2003_build_cc=@CC@
++cdi_f2003_build_cflags=@CFLAGS@
++cdi_f2003_build_cppflags=@CPPFLAGS@
++cdi_f2003_build_ldflags=@LDFLAGS@
++cdi_f2003_build_libs=@LIBS@
++cdi_f2003_build_fc=@FC@
++cdi_f2003_build_fcflags=@FCFLAGS@
++cdi_f2003_build_f77=@F77@
++cdi_f2003_build_fflags=@FFLAGS@
++cdi_f2003_build_cxx=@CXX@
++cdi_f2003_build_cxxflags=@CXXFLAGS@
++cdi_f2003_build_enable_grib=@ENABLE_GRIB@
++cdi_f2003_build_enable_cgribex=@ENABLE_CGRIBEX@
++cdi_f2003_build_enable_service=@ENABLE_SERVICE@
++cdi_f2003_build_enable_extra=@ENABLE_EXTRA@
++cdi_f2003_build_enable_ieg=@ENABLE_IEG@
++
++Name: @PACKAGE_NAME@_f2003
++Description: Fortran 2003 interface of CDI
++URL: @PACKAGE_URL@
++Version: @VERSION@
++Requires: 
++Libs: ${libs}
++Cflags: ${cflags}
++FCflags: ${fcflags}
++
