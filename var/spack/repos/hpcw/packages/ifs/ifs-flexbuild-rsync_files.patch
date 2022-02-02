@@ -1,0 +1,15 @@
+--- a/flexbuild/makebins/rsync_files	2021-05-05 19:10:56.285020757 +0200
++++ b/flexbuild/makebins/rsync_files	2021-05-05 19:11:03.739556073 +0200
+@@ -94,11 +94,7 @@
+     flexbuild/reference_output/use_reference_outputs_$bm.* \
+     flexbuild/scalability_tests/$bm \
+     flexbuild/external/perl5/lib \
+-    flexbuild/external/$compsys/install/etc \
+-    flexbuild/external/$compsys/install/bin \
+-    flexbuild/external/$compsys/install/lib* \
+-    flexbuild/external/$compsys/install/share \
+-    $pgen_install $final 2>&1 | tee -a rsync_stat.$pid.txt
++    $final 2>&1 | tee -a rsync_stat.$pid.txt
+
+ rc=${PIPESTATUS[0]}
+
