@@ -1,0 +1,49 @@
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 3d3f411..57d0de3 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -242,7 +242,6 @@ endif
+ 
+ libcdipio_la_LIBADD    = libcdi.la $(PPM_CORE_LIBS) $(YAXT_LIBS) $(MPI_C_LIB)
+ 
+-libcdi_la_LIBADD    = $(UUID_C_LIB)
+ #
+ #cdilib.c:
+ #	$(top_srcdir)/src/make_cdilib $(top_srcdir)/src
+diff --git a/tests/Makefile.am b/tests/Makefile.am
+index 4072025..149b2b9 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -36,7 +36,7 @@ pio_write_SOURCES = pio_write.c pio_write.h simple_model.c \
+ pio_write_deco2d_SOURCES = pio_write.c pio_write.h deco2d_model.c \
+ 	simple_model_helper.h simple_model_helper.c
+ test_resource_copy_SOURCES = test_resource_copy.c
+-test_resource_copy_LDADD = $(UUID_C_LIB) ../src/libcdiresunpack.la $(LDADD)
++test_resource_copy_LDADD = ../src/libcdiresunpack.la $(LDADD)
+ test_resource_copy_mpi_SOURCES = test_resource_copy.c
+ test_cdf_write_SOURCES = test_cdf_write.c
+ test_cdf_read_SOURCES = test_cdf_read.c
+@@ -45,17 +45,17 @@ test_byteswap_SOURCES = test_byteswap.c
+ #
+ AM_CFLAGS = $(PPM_CORE_CFLAGS) $(YAXT_CFLAGS) $(MPI_C_INCLUDE)
+ if USE_MPI
+-pio_write_LDADD = ../src/libcdipio.la $(UUID_C_LIB) $(MPI_C_LIB)
+-pio_write_deco2d_LDADD = ../src/libcdipio.la $(UUID_C_LIB) $(MPI_C_LIB)
++pio_write_LDADD = ../src/libcdipio.la $(MPI_C_LIB)
++pio_write_deco2d_LDADD = ../src/libcdipio.la $(MPI_C_LIB)
+ TESTS +=  test_resource_copy_mpi_run
+ check_PROGRAMS += test_resource_copy_mpi
+-test_resource_copy_mpi_LDADD = ../src/libcdipio.la $(UUID_C_LIB)
++test_resource_copy_mpi_LDADD = ../src/libcdipio.la 
+ test_resource_copy_mpi_CFLAGS = $(AM_CFLAGS) $(CFLAGS) \
+ 	-DMPI_MARSHALLING
+ else
+-pio_write_LDADD = $(LDADD) $(UUID_C_LIB)
+-pio_write_deco2d_LDADD = $(LDADD) $(UUID_C_LIB)
+-test_resource_copy_mpi_LDADD = $(LDADD) $(UUID_C_LIB)
++pio_write_LDADD = $(LDADD)
++pio_write_deco2d_LDADD = $(LDADD)
++test_resource_copy_mpi_LDADD = $(LDADD)
+ endif
+ 
+ LDADD = ../src/libcdi.la -lm
