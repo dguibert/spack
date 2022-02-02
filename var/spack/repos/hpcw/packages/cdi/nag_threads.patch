@@ -1,0 +1,35 @@
+diff --git a/autogen.sh b/autogen.sh
+new file mode 100755
+index 0000000..850da92
+--- /dev/null
++++ b/autogen.sh
+@@ -0,0 +1,4 @@
++#!/bin/sh
++
++autoreconf -fvi || exit $?
++patch -p 1 -i patch/ltmain_sh.patch -d .
+diff --git a/patch/ltmain_sh.patch b/patch/ltmain_sh.patch
+new file mode 100644
+index 0000000..08b8db0
+--- /dev/null
++++ b/patch/ltmain_sh.patch
+@@ -0,0 +1,19 @@
++diff --git a/config/ltmain.sh b/config/ltmain.sh
++index 857338f..c19bbcc 100644
++--- a/config/ltmain.sh
+++++ b/config/ltmain.sh
++@@ -8078,6 +8078,14 @@ func_mode_link ()
++ 	# Read the .la file
++ 	func_source "$lib"
++ 
+++	# Change -pthread to -Wl,-pthread for nagfor
+++        if test -n "$inherited_linker_flags"; then
+++          func_cc_basename "$CC"
+++          case $func_cc_basename_result in
+++            nagfor*) inherited_linker_flags=`$ECHO "$inherited_linker_flags" | $SED 's/ -pthread/ -Wl,-pthread/g'` ;;
+++          esac
+++        fi
+++
++ 	# Convert "-framework foo" to "foo.ltframework"
++ 	if test -n "$inherited_linker_flags"; then
++ 	  tmp_inherited_linker_flags=`$ECHO "$inherited_linker_flags" | $SED 's/-framework \([^ $]*\)/\1.ltframework/g'`
