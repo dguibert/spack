@@ -1,0 +1,52 @@
+diff --git a/src/pkgconfig/cdi_f2003.pc.in b/src/pkgconfig/cdi_f2003.pc.in
+index 0f4ce104..67c58bf5 100644
+--- a/src/pkgconfig/cdi_f2003.pc.in
++++ b/src/pkgconfig/cdi_f2003.pc.in
+@@ -4,7 +4,7 @@ libdir=@libdir@
+ includedir=@includedir@
+ cflags=-I@includedir@
+ fcflags=@FPP_INCOPT@@includedir@ @CDI_F90_INTERFACE_FCFLAGS@
+-libs=-L@libdir@ -lcdipio @PPM_CORE_LIBS@ @YAXT_LIBS@ -lcdi @GRIB_API_LIBS@ @NETCDF_LIBS@ @SZLIB_LIBS@ @THREADS_LIBS@ @LIBS@
++libs=-L@libdir@ -lcdi_f2003 -lcdi @GRIB_API_LIBS@ @NETCDF_LIBS@ @SZLIB_LIBS@ @THREADS_LIBS@ @LIBS@
+ threads_libs=@THREADS_LIBS@
+ threads_cflags=@THREADS_INCLUDE@
+ szlib_cflags=@SZLIB_INCLUDE@
+@@ -15,22 +15,22 @@ netcdf_libs=@NETCDF_LIBS@
+ grib_api_cflags=@GRIB_API_INCLUDE@
+ grib_api_libs=@GRIB_API_LIBS@
+ aux_libs=@LIBS@
+-cdipio_build_cc=@CC@
+-cdipio_build_cflags=@CFLAGS@
+-cdipio_build_cppflags=@CPPFLAGS@
+-cdipio_build_ldflags=@LDFLAGS@
+-cdipio_build_libs=@LIBS@
+-cdipio_build_fc=@FC@
+-cdipio_build_fcflags=@FCFLAGS@
+-cdipio_build_f77=@F77@
+-cdipio_build_fflags=@FFLAGS@
+-cdipio_build_cxx=@CXX@
+-cdipio_build_cxxflags=@CXXFLAGS@
+-cdipio_build_enable_grib=@ENABLE_GRIB@
+-cdipio_build_enable_cgribex=@ENABLE_CGRIBEX@
+-cdipio_build_enable_service=@ENABLE_SERVICE@
+-cdipio_build_enable_extra=@ENABLE_EXTRA@
+-cdipio_build_enable_ieg=@ENABLE_IEG@
++cdi_f2003_build_cc=@CC@
++cdi_f2003_build_cflags=@CFLAGS@
++cdi_f2003_build_cppflags=@CPPFLAGS@
++cdi_f2003_build_ldflags=@LDFLAGS@
++cdi_f2003_build_libs=@LIBS@
++cdi_f2003_build_fc=@FC@
++cdi_f2003_build_fcflags=@FCFLAGS@
++cdi_f2003_build_f77=@F77@
++cdi_f2003_build_fflags=@FFLAGS@
++cdi_f2003_build_cxx=@CXX@
++cdi_f2003_build_cxxflags=@CXXFLAGS@
++cdi_f2003_build_enable_grib=@ENABLE_GRIB@
++cdi_f2003_build_enable_cgribex=@ENABLE_CGRIBEX@
++cdi_f2003_build_enable_service=@ENABLE_SERVICE@
++cdi_f2003_build_enable_extra=@ENABLE_EXTRA@
++cdi_f2003_build_enable_ieg=@ENABLE_IEG@
+ 
+ Name: @PACKAGE_NAME@_f2003
+ Description: Fortran 2003 interface of CDI
