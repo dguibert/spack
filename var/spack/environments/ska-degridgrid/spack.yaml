@@ -215,14 +215,14 @@ spack:
   - py-scipy@1.5.1
   - py-matplotlib@3.2.2
   - py-tqdm@4.47.0
-  - casacore+python
+  - casacore+python ^fftw~mpi
   - py-astropy@4.0.1
   - py-invoke@1.4.1
   - py-seaborn@0.11.2
   - py-python-dateutil
   - py-cython@0.29.21
   - py-icecream
-    #- icecream@2.1.1
+  - py-python-casacore
   view: false
   concretization: together
   compilers:
