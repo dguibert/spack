@@ -222,9 +222,10 @@ spack:
   - py-python-dateutil
   - py-cython@0.29.21
   - py-icecream
-  - py-python-casacore
-  view: false
+  - py-python-casacore # @3.3.1
+  - lmod
   concretization: together
+  view: false
   compilers:
   - compiler:
       spec: gcc@8.4.1
