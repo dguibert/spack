@@ -105,6 +105,10 @@ class LmodConfiguration(BaseConfiguration):
     # requiring forward slash path seperators at this stage
     default_projections = {'all': posixpath.join('{name}', '{version}')}
 
+    def __init__(self):
+      print(f"LmodConfiguration init")
+      super.__init__()
+
     @property
     def core_compilers(self):
         """Returns the list of "Core" compilers
@@ -173,6 +177,7 @@ class LmodConfiguration(BaseConfiguration):
             # If I depend on it
             if x in self.spec and not self.spec.package.provides(x):
                 requirements[x] = self.spec[x]  # record the actual provider
+        print(f"requirements: {requirements}")
         return requirements
 
     @property
@@ -182,6 +187,7 @@ class LmodConfiguration(BaseConfiguration):
         """
         provides = {}
 
+        print(f"provides: {self.compiler_spec}")
         # Treat the 'compiler' case in a special way, as compilers are not
         # virtual dependencies in spack
 
