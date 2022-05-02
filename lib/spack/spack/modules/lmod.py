@@ -38,6 +38,7 @@ configuration_registry = {}  # type: Dict[str, Any]
 def make_configuration(spec, module_set_name):
     """Returns the lmod configuration for spec"""
     key = (spec.dag_hash(), module_set_name)
+    print(f"make_configuration")
     try:
         return configuration_registry[key]
     except KeyError:
