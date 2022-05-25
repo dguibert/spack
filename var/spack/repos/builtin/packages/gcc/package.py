@@ -134,7 +134,7 @@ class Gcc(AutotoolsPackage, GNUMirrorPackage):
         "profiled",
         default=False,
         description="Use Profile Guided Optimization",
-        when="+bootstrap %gcc",
+        #when="+bootstrap %gcc" # FIXME nixpack spec.depends.compiler.spec.name)
     )
 
     depends_on("flex", type="build", when="@master")
