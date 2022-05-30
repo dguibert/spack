@@ -23,7 +23,7 @@ class LuaLuajit(LuaImplPackage):
     variant('lualinks', default=True, description="add symlinks to make lua-luajit a drop-in lua replacement")
 
     provides("lua-lang@5.1", when="+lualinks")
-    conflicts("lua", when="+lualinks")
+    # conflicts("lua", when="+lualinks") # FIXME nixpack
     provides("luajit")
     lua_version_override = "5.1"
 
