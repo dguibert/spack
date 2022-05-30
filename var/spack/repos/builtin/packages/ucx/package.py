@@ -4,13 +4,9 @@
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 import shutil
 
-<<<<<<<
-from spack.package import *
-=======
 import re
 
 from spack import *
->>>>>>>
 
 
 class Ucx(AutotoolsPackage, CudaPackage):
@@ -198,15 +194,12 @@ class Ucx(AutotoolsPackage, CudaPackage):
         if '%aocc' in spec:
             args.append('LDFLAGS=-fuse-ld=bfd')
 
-<<<<<<<
         return args
 
     @run_after('install')
     def drop_examples(self):
         if self.spec.satisfies('~examples'):
             shutil.rmtree(join_path(self.spec.prefix, 'share', 'ucx', 'examples'))
-=======
-        return config_args
 
     @classmethod
     def determine_version(cls, exe):
@@ -265,5 +258,3 @@ class Ucx(AutotoolsPackage, CudaPackage):
             results.append(variants)
         return results
 
-
->>>>>>>
