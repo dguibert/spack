@@ -48,7 +48,6 @@ class Ucx(AutotoolsPackage, CudaPackage):
 
     simd_values = ('avx', 'sse41', 'sse42')
 
-<<<<<<< HEAD
     variant('assertions', default=False, description='Enable assertions')
     variant('backtrace_detail', default=False, description="Enable using BFD support "
             "for detailed backtrace. Note: this adds a dependency on binutils, you may "
@@ -83,20 +82,13 @@ class Ucx(AutotoolsPackage, CudaPackage):
     variant('ud', default=False, description="Compile with IB Unreliable Datagram support")
     variant('verbs', default=False, description='Build OpenFabrics support')
     variant('xpmem', default=False, description='Enable XPMEM support')
-
-    depends_on('binutils+ld', when='%aocc', type='build')
-    depends_on('binutils', when='+backtrace_detail')
-=======
     variant('mofed', default=False,
             description="Use Mellanox OFED")
 
-    depends_on('mofed', when="+mofed")
-    depends_on('numactl')
-    depends_on('rdma-core')
-    depends_on('pkgconfig', type='build')
-    depends_on('java@8', when='+java')
-    depends_on('maven', when='+java')
->>>>>>> refs/rewritten/Mofed-UCX-detectable
+    depends_on('binutils+ld', when='%aocc', type='build')
+    depends_on('binutils', when='+backtrace_detail')
+
+
     depends_on('gdrcopy', when='@1.7:+gdrcopy')
     depends_on('gdrcopy@1.3', when='@:1.6+gdrcopy')
     depends_on('java@8', when='+java')
@@ -108,6 +100,7 @@ class Ucx(AutotoolsPackage, CudaPackage):
     depends_on('rdma-core', when='+rdmacm')
     depends_on('rdma-core', when='+verbs')
     depends_on('xpmem', when='+xpmem')
+    depends_on('mofed', when="+mofed")
 
     conflicts('+gdrcopy', when='~cuda', msg='gdrcopy currently requires cuda support')
     conflicts('+rocm', when='+gdrcopy', msg='gdrcopy > 2.0 does not support rocm')
