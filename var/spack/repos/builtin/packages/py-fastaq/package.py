@@ -5,6 +5,7 @@
 
 from spack.package import *
 
+
 class PyFastaq(PythonPackage):
     """Manipulate FASTA and FASTQ files."""
 
@@ -22,4 +23,3 @@ class PyFastaq(PythonPackage):
     depends_on('py-setuptools', type='build')
     depends_on('samtools', type='run')
     depends_on('gzip', type='run')
-

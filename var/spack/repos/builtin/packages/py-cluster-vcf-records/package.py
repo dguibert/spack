@@ -29,4 +29,3 @@ class PyClusterVcfRecords(PythonPackage):
     depends_on('py-pysam', type=('build', 'run'))
     depends_on('bcftools', type='run')
     depends_on('vt', type='run')
-

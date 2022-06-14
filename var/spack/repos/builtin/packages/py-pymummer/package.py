@@ -26,4 +26,3 @@ class PyPymummer(PythonPackage):
 
     depends_on('mummer', type=('build', 'run'))
     depends_on('py-fastaq@3.10.0:', type=('build', 'run'))
-
