@@ -23,4 +23,3 @@ class PyViridian(PythonPackage):
     depends_on('minimap2', type=('build', 'run'))
     depends_on('py-pysam')
     depends_on('py-fastaq')
-

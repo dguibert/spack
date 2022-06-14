@@ -17,4 +17,3 @@ class PyQcovid(PythonPackage):
     depends_on('py-pysam')
     depends_on('minimap2')
     depends_on('py-sqlalchemy@1.3.20:')
-

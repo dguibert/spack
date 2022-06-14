@@ -31,8 +31,9 @@ class Minimap2(PythonPackage):
 
     variant(
         "js_engine",
-        values=any_combination_of("node-js", "k8").prohibit_empty_set().with_default("k8"),
-        description="List of javascript engines for which support is enabled; "
+        values=any_combination_of("node-js", "k8")
+        .prohibit_empty_set().with_default("k8"),
+        description="List of javascript engines for which support is enabled"
     )
 
     conflicts("target=aarch64:", when="@:2.10")

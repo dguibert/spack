@@ -22,7 +22,7 @@ class PyVarifier(PythonPackage):
     depends_on('vt', type='run')
     depends_on('py-biopython', type=('build', 'run'))
     depends_on('py-cluster-vcf-records@0.13.2:', type=('build', 'run'))
-    #mappy >= 2.17 provided by minimap2
+    # mappy >= 2.17 provided by minimap2
     depends_on('minimap2@2.17:', type=('build', 'run'))
     depends_on('py-pandas')
     depends_on('py-fastaq@3.14.0:')
@@ -32,6 +32,6 @@ class PyVarifier(PythonPackage):
 
     @run_before('install')
     def configure(self):
-      print('STEP')
-      sed = which('sed')
-      sed('-ie', 's@"minimap2", "paftools.js", "k8"@"minimap2", "paftools.js"@', 'varifier/truth_variant_finding.py')
+        sed = which('sed')
+        sed('-ie', 's@"minimap2", "paftools.js", "k8"@"minimap2", "paftools.js"@',
+            'varifier/truth_variant_finding.py')
