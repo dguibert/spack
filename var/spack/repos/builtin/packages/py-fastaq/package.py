@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
-from spack import *
+from spack.package import *
 
 class PyFastaq(PythonPackage):
     """Manipulate FASTA and FASTQ files."""
