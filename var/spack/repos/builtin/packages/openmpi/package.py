@@ -390,8 +390,6 @@ class Openmpi(AutotoolsPackage, CudaPackage):
     patch("nag_pthread/2.0.0_2.1.1.patch", when="@2.0.0:2.1.1%nag")
     patch("nag_pthread/1.10.4_1.10.999.patch", when="@1.10.4:1.10%nag")
 
-    patch("nvhpc-libtool.patch", when="@master %nvhpc")
-    patch("nvhpc-configure.patch", when="%nvhpc")
     patch("nvhpc-avx.patch", when="%nvhpc@:21.9")
 
     # Fix MPI_Sizeof() in the "mpi" Fortran module for compilers that do not
