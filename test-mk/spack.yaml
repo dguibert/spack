@@ -1,0 +1,11 @@
+# This is a Spack Environment file.
+#
+spack:
+  # add package specs to the `specs` list
+  include:
+  - packages-spartan-x86_64.yaml
+  specs:
+  - perl
+  view: true
+  concretizer:
+    unify: false
