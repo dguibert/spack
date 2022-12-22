@@ -11,12 +11,14 @@ spack:
   #include:
   #  - $include_file
   include:
-  - packages-genji-x86_64.yaml
-  - ../env-gcc-openmpi.yaml
+  - packages-spartan-x86_64.yaml
+  #- ../env-gcc-openmpi.yaml
   #- ../env-gcc-openmpi-specs.yaml
   config:
     install_missing_compilers: true
     source_cache: /software/spack/mirror
+  concretizer:
+    unify: when_possible
   mirrors:
     software-mirror: file://software/spack/mirror
   modules:
@@ -24,8 +26,20 @@ spack:
       lmod:
         core_compilers:
         - gcc@8.4.1
+  packages:
+    all:
+      target: [x86_64, aarch64]
+      compiler: [gcc@8.4.1]
+  specs:
+  - openmpi fabrics='knem,ucx' %gcc ^autoconf%gcc@8.4.1 ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1
+    ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1 ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1
+    ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1 ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1
+    ^python+ssl%gcc@8.4.1 arch=x86_64
+  - osu-micro-benchmarks %gcc@12.1.0 ^openmpi fabrics='knem,ucx' %gcc@12.1.0 ^autoconf%gcc@8.4.1
+    ^automake%gcc@8.4.1 ^cmake%gcc@8.4.1 ^hwloc%gcc@8.4.1 ^libevent%gcc@8.4.1 ^libtool%gcc@8.4.1
+    ^libxml2%gcc@8.4.1 ^m4%gcc@8.4.1 ^numactl%gcc@8.4.1 ^openssh%gcc@8.4.1 ^rdma-core%gcc@8.4.1
+    ^zlib%gcc@8.4.1 ^perl%gcc@8.4.1 ^python+ssl%gcc@8.4.1
   view: false
-  concretization: separately
   compilers:
   - compiler:
       spec: gcc@8.4.1

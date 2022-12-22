@@ -2,6 +2,14 @@ spack:
   #upstreams:
   #  slash-software:
   #    install_tree: /software/spack/v0.13.2-9600-g5f36801aa7-2925a5e/software/spack/opt/spack
+  ## include:
+  ##   - packages-genji-x86_64.yaml
+  #definitions:
+  #  - include_file:
+  #    - packages-genji-x86_64.yaml
+  #    when: arch.satisfies('x86_64')
+  #include:
+  #  - $include_file
   include:
   - packages-spartan-x86_64.yaml
   config:
