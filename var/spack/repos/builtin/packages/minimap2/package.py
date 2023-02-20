@@ -31,9 +31,8 @@ class Minimap2(PythonPackage):
 
     variant(
         "js_engine",
-        values=any_combination_of("node-js", "k8")
-        .prohibit_empty_set().with_default("k8"),
-        description="List of javascript engines for which support is enabled"
+        values=any_combination_of("node-js", "k8").prohibit_empty_set().with_default("k8"),
+        description="List of javascript engines for which support is enabled",
     )
 
     conflicts("target=aarch64:", when="@:2.10")
@@ -42,7 +41,7 @@ class Minimap2(PythonPackage):
     depends_on("py-cython", type="build")
 
     conflicts("js_engine=k8", when="target=aarch64:")
-    depends_on("k8"     , type="run", when="js_engine=k8")
+    depends_on("k8", type="run", when="js_engine=k8")
     depends_on("node-js", type="run", when="js_engine=node-js")
 
     @run_after("install")
@@ -55,7 +54,7 @@ class Minimap2(PythonPackage):
         install("minimap2", prefix.bin)
         sed = which("sed")
         if self.spec.satisfies("js_engine=node"):
-          sed("-ie", "1s/k8/node/", "./misc/paftools.js")
-          #sed("-ie", "1s/k8/node/", "./misc/mmphase.js")
+            sed("-ie", "1s/k8/node/", "./misc/paftools.js")
+            # sed("-ie", "1s/k8/node/", "./misc/mmphase.js")
         install("./misc/paftools.js", prefix.bin)
-        #install("./misc/mmphase.js", prefix.bin)
+        # install("./misc/mmphase.js", prefix.bin)
