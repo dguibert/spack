@@ -7,13 +7,13 @@ from spack.package import *
 
 
 class PyQcovid(PythonPackage):
-    """QC pipelines for sars-cov-2 sequence+consensus submitted to the ENA """
+    """QC pipelines for sars-cov-2 sequence+consensus submitted to the ENA"""
 
     homepage = "https://github.com/iqbal-lab-org/QCovid"
-    url      = "https://github.com/iqbal-lab-org/QCovid"
+    url = "https://github.com/iqbal-lab-org/QCovid"
 
-    version('master', git='https://github.com/iqbal-lab-org/QCovid', branch='master')
+    version("master", git="https://github.com/iqbal-lab-org/QCovid", branch="master")
 
-    depends_on('py-pysam')
-    depends_on('minimap2')
-    depends_on('py-sqlalchemy@1.3.20:')
+    depends_on("py-pysam")
+    depends_on("minimap2")
+    depends_on("py-sqlalchemy@1.3.20:")
