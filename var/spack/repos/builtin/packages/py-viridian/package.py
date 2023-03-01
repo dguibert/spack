@@ -13,12 +13,7 @@ class PyViridian(PythonPackage):
 
     url = "https://github.com/iqbal-lab-org/viridian/archive/refs/tags/v0.1.0.tar.gz"
 
-    version(
-        "main",
-        git="https://github.com/iqbal-lab-org/viridian",
-        branch="main",
-        numeric_equivalent=">",
-    )
+    version("main", git="https://github.com/iqbal-lab-org/viridian", branch="main")
     version("0.1.0", sha256="b319a4dc6d6510a9bd4cb6248c38d38f2d11c02eed7eb5645fe48d683c3c1e9f")
 
     # depends_on('python@2.X:2.Y,3.Z:', type=('build', 'run'))

@@ -12,12 +12,7 @@ class PyVarifier(PythonPackage):
     homepage = "https://github.com/iqbal-lab-org/varifier"
     url = "https://github.com/iqbal-lab-org/varifier/archive/refs/tags/v0.3.1.tar.gz"
 
-    version(
-        "master",
-        git="https://github.com/iqbal-lab-org/varifier",
-        branch="master",
-        numeric_equivalent=">",
-    )
+    version("master", git="https://github.com/iqbal-lab-org/varifier", branch="master")
     version("0.3.1", sha256="119f49d985f694ef0452dd70d2c53134b09a82a95d356913f7d729617c8cc7c1")
     version("0.3.0", sha256="d318db2ef96eebc9682db9e0b11178f9ebee891afb584ff6aa32de3728d56f36")
     version("0.2.0", sha256="9ac7ad3eacd21261ca7a5b4a214152cb55e51cfb8c0cb3ffa3538ebfebc8e359")

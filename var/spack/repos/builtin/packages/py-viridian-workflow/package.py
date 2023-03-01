@@ -13,12 +13,7 @@ class PyViridianWorkflow(PythonPackage):
 
     url = "https://github.com/iqbal-lab-org/viridian_workflow/archive/refs/tags/v0.3.1.tar.gz"
 
-    version(
-        "master",
-        git="https://github.com/iqbal-lab-org/viridian_workflow",
-        branch="master",
-        numeric_equivalent=">",
-    )
+    version("master", git="https://github.com/iqbal-lab-org/viridian_workflow", branch="master")
     version("0.3.2", sha256="1c5d6bd80c96c2972a5d2988c735f5fb050e7efe187f2f086fa586619dcaeb63")
     version("0.3.1", sha256="5dc55b4b0efc5ed5901e5e6bfc6d29a6e8ebfe76ad21ee39e6457b797e17a843")
     version("0.3.0", sha256="cbfc167678fe6d0c4d275cb683a84d021002ce9b496270548c202b87bf908b10")
