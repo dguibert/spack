@@ -50,11 +50,6 @@ modules:
 
     # Default configurations if lmod is enabled
     lmod:
-      all:
-        autoload: direct
-
-    # Default configurations if lmod is enabled
-    lmod:
       hash_length: 0
       core_specs:
         - 'python'
