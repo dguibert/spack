@@ -27,7 +27,7 @@ import spack.platforms
 import spack.repo
 import spack.store
 
-_SERIALIZE = sys.platform == "win32" or (sys.version_info >= (3, 8) and sys.platform == "darwin")
+_serialize = sys.platform == "win32" or (sys.version_info >= (3, 8) and sys.platform == "darwin")
 
 
 patches = None
@@ -66,7 +66,7 @@ class PackageInstallContext:
     """
 
     def __init__(self, pkg):
-        if _SERIALIZE:
+        if _serialize:
             self.serialized_pkg = serialize(pkg)
             self.serialized_env = serialize(spack.environment.active_environment())
         else:
@@ -78,8 +78,8 @@ class PackageInstallContext:
     def restore(self):
         self.test_state.restore()
         spack.main.spack_working_dir = self.spack_working_dir
-        env = pickle.load(self.serialized_env) if _SERIALIZE else self.env
-        pkg = pickle.load(self.serialized_pkg) if _SERIALIZE else self.pkg
+        env = pickle.load(self.serialized_env) if _serialize else self.env
+        pkg = pickle.load(self.serialized_pkg) if _serialize else self.pkg
         if env:
             spack.environment.activate(env)
         return pkg
@@ -93,18 +93,26 @@ class TestState:
     """
 
     def __init__(self):
-        if _SERIALIZE:
+        if _serialize:
+            self.repo_dirs = list(r.root for r in spack.repo.path.repos)
             self.config = spack.config.config
             self.platform = spack.platforms.host
             self.test_patches = store_patches()
-            self.store = spack.store.STORE
+            self.store_token = spack.store.store.serialize()
 
     def restore(self):
-        if _SERIALIZE:
+        if _serialize:
             spack.config.config = self.config
-            spack.repo.path = spack.repo.create(self.config)
+            spack.repo.path = spack.repo._path(self.config)
             spack.platforms.host = self.platform
-            spack.store.STORE = self.store
+
+            new_store = spack.store.Store.deserialize(self.store_token)
+            spack.store.store = new_store
+            spack.store.root = new_store.root
+            spack.store.unpadded_root = new_store.unpadded_root
+            spack.store.db = new_store.db
+            spack.store.layout = new_store.layout
+
             self.test_patches.restore()
 
 

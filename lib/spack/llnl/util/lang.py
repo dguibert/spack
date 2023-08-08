@@ -821,7 +821,7 @@ class Singleton:
         # 'instance'/'_instance' to be defined or it will enter an infinite
         # loop, so protect against that here.
         if name in ["_instance", "instance"]:
-            raise AttributeError(f"cannot create {name}")
+            raise AttributeError()
         return getattr(self.instance, name)
 
     def __getitem__(self, name):
