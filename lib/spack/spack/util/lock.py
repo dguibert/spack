@@ -46,7 +46,8 @@ class Lock(llnl.util.lock.Lock):
             enable_lock = False
         elif sys.platform != "win32" and enable_lock is None:
             enable_lock = True
-        self._enable = enable_lock
+        # override enable with config:locks
+        self._enable = spack.config.get("config:locks", enable_lock)
         super().__init__(
             path,
             start=start,
