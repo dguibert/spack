@@ -345,7 +345,7 @@ DEFAULT_LOCK_CFG: LockConfiguration = LockConfiguration(
 def lock_configuration(configuration):
     """Return a LockConfiguration from a spack.config.Configuration object."""
     return LockConfiguration(
-        enable=configuration.get("config:locks", True),
+        enable=configuration.get("config:locks", sys.platform != "win32"),
         database_timeout=configuration.get("config:db_lock_timeout"),
         package_timeout=configuration.get("config:package_lock_timeout"),
     )

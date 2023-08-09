@@ -173,7 +173,8 @@ class Store:
         self.hash_length = hash_length
         self.upstreams = upstreams
         self.lock_cfg = lock_cfg
-        self.db = spack.database.Database(root, upstream_dbs=upstreams, lock_cfg=lock_cfg)
+        db_root = spack.config.get("config:database_root", root)
+        self.db = spack.database.Database(db_root, upstream_dbs=upstreams, lock_cfg=lock_cfg)
 
         timeout_format_str = (
             f"{str(lock_cfg.package_timeout)}s" if lock_cfg.package_timeout else "No timeout"
@@ -184,7 +185,7 @@ class Store:
             spack.database.prefix_lock_path(root), default_timeout=lock_cfg.package_timeout
         )
         self.failure_tracker = spack.database.FailureTracker(
-            self.root, default_timeout=lock_cfg.package_timeout
+            db_root, default_timeout=lock_cfg.package_timeout
         )
 
         self.layout = spack.directory_layout.DirectoryLayout(
@@ -266,7 +267,8 @@ def _construct_upstream_dbs_from_install_roots(
     accumulated_upstream_dbs: List[spack.database.Database] = []
     for install_root in reversed(install_roots):
         upstream_dbs = list(accumulated_upstream_dbs)
-        next_db = spack.database.Database(
+        db_root = spack.config.get("config:database_root", install_root)
+        next_db = spack.database.Database(db_root,
             spack.util.path.canonicalize_path(install_root),
             is_upstream=True,
             upstream_dbs=upstream_dbs,
