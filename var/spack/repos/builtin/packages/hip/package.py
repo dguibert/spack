@@ -25,6 +25,7 @@ class Hip(CMakePackage):
     libraries = ["libamdhip64"]
 
     version("master", branch="master")
+    version("5.6.0", sha256="a8237768c1ae70029d972376f8d279f4de18a1e6106fff6215d1e16847bc375e")
     version("5.5.1", sha256="1f5f6bb72d8d64335ccc8242ef2e2ea8efeb380cce2997f475b1ee77528d9fb4")
     version("5.5.0", sha256="5b0d0253e62f85cc21d043513f7c11c64e4a4ec416159668f0b160d732d09a3c")
     version("5.4.3", sha256="23e51d3af517cd63019f8d199e46b84d5a18251d148e727f3985e8d99ccb0e58")
@@ -339,7 +340,7 @@ class Hip(CMakePackage):
     patch(
         "https://github.com/ROCm-Developer-Tools/HIP/commit/50ee82f6bc4aad10908ce09198c9f7ebfb2a3561.patch?full_index=1",
         sha256="c2ee21cdc55262c7c6ba65546b5ca5f65ea89730",
-        when="@5.2:5.4",
+        when="@5.2:",
     )
 
     @property
