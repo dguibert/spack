@@ -113,7 +113,7 @@ class MiopenHip(CMakePackage):
     depends_on("bzip2")
     depends_on("sqlite")
     depends_on("half")
-    depends_on("zlib", when="@3.9.0:")
+    depends_on("zlib-api", when="@3.9.0:")
 
     patch("0001-Add-rocm-path-and-rocm-device-lib-path-flags.patch", when="@3.9.0:5.0.2")
     patch("miopen-hip-include-nlohmann-include-directory.patch", when="@5.4.0:")
@@ -159,7 +159,7 @@ class MiopenHip(CMakePackage):
 
     def setup_build_environment(self, env):
         if "@3.9.0:" in self.spec:
-            lib_dir = self.spec["zlib"].libs.directories[0]
+            lib_dir = self.spec["zlib-api"].libs.directories[0]
             env.prepend_path("LIBRARY_PATH", lib_dir)
 
     def get_bitcode_dir(self):
@@ -200,10 +200,9 @@ class MiopenHip(CMakePackage):
         if self.spec.satisfies("@5.1.0:5.3"):
             mlir_inc = spec["mlirmiopen"].prefix.include
             args.append(self.define("CMAKE_CXX_FLAGS", "-I{0}".format(mlir_inc)))
-        # TODO: need to turn on composable-kernel to on at a later date
-        # requires a new recipe for composable-kernel
         if self.spec.satisfies("@5.4.0:"):
-            args.append(self.define("MIOPEN_USE_COMPOSABLEKERNEL", "OFF"))
+            args.append(self.define("MIOPEN_USE_COMPOSABLEKERNEL", "ON"))
+            args.append(self.define("MIOPEN_USE_MLIR", "OFF"))
             args.append(
                 "-DNLOHMANN_JSON_INCLUDE={0}".format(self.spec["nlohmann-json"].prefix.include)
             )

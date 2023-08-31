@@ -23,6 +23,7 @@ from spack.environment import depfile
 
 from ._common import _root_spec
 from .config import root_path, spec_for_current_python, store_path
+from .core import _add_externals_if_missing
 
 
 class BootstrapEnvironment(spack.environment.Environment):
@@ -36,6 +37,7 @@ class BootstrapEnvironment(spack.environment.Environment):
             mypy_root_spec(),
             black_root_spec(),
             flake8_root_spec(),
+            fish_root_spec(),
             pytest_root_spec(),
         ]
 
@@ -178,6 +180,12 @@ def flake8_root_spec() -> str:
     return _root_spec("py-flake8@3.8.2:")
 
 
+def fish_root_spec() -> str:
+    """Return the root spec used to bootstrap fish"""
+    # fish 3.2.0 introduces the `--check` flag to `fish_indent`
+    return _root_spec("fish@3.2:")
+
+
 def pytest_root_spec() -> str:
     """Return the root spec used to bootstrap flake8"""
     return _root_spec("py-pytest@6.2.4:")
@@ -185,6 +193,7 @@ def pytest_root_spec() -> str:
 
 def ensure_environment_dependencies() -> None:
     """Ensure Spack dependencies from the bootstrap environment are installed and ready to use"""
+    _add_externals_if_missing()
     with BootstrapEnvironment() as env:
         env.update_installations()
         env.update_syspath_and_environ()
