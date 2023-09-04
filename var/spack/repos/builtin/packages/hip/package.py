@@ -703,7 +703,8 @@ class Hip(CMakePackage):
             args.append(self.define("CLR_BUILD_OCL", False)),
         return args
 
-    test_src_dir = "hip-tests/samples"
+    def test_src_dir(self):
+        return "hip-tests/samples"if "@5.6.0:" in self.spec else "samples"
 
     @run_after("install")
     def cache_test_sources(self):
@@ -711,13 +712,13 @@ class Hip(CMakePackage):
         install test subdirectory for use during `spack test run`."""
         if self.spec.satisfies("@:5.1.0"):
             return
-        self.cache_extra_test_sources([self.test_src_dir])
+        self.cache_extra_test_sources([self.test_src_dir()])
 
     def test_samples(self):
         # configure, build and run all hip samples
         if self.spec.satisfies("@:5.1.0"):
             raise SkipTest("Test is only available for specs after version 5.1.0")
-        test_dir = join_path(self.test_suite.current_test_cache_dir, self.test_src_dir)
+        test_dir = join_path(self.test_suite.current_test_cache_dir, self.test_src_dir())
         prefixes = ";".join(
             [
                 self.spec["hip"].prefix,
