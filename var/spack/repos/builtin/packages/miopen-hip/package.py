@@ -20,6 +20,8 @@ class MiopenHip(CMakePackage):
     maintainers("srekolam", "renjithravindrankannath")
     libraries = ["libMIOpen"]
 
+    version("5.6.1", sha256="ff627d68ed9e52433a3c808b5d3ff179a398b77ce81b00cfea7b2c4da5162c6c")
+    version("5.6.0", sha256="d620ddab5b488bdf81242654fefa337c6b71dc410c2ff26d30a4ee86a8d22d11")
     version("5.5.1", sha256="2cd75071b8ee876c69a94f028b6c8a9346d6d2fde7d4b64e6d635f3b6c994262")
     version("5.5.0", sha256="791087242551669e546225e36123c21663f0dad14dbcfd6d0ce0e7bad0ab0de1")
     version("5.4.3", sha256="37ffe2ed3d7942da8ea2f6bdb85c7a2f58e3ccd31767db158a322769d3604efd")
@@ -144,6 +146,7 @@ class MiopenHip(CMakePackage):
         "5.4.3",
         "5.5.0",
         "5.5.1",
+        "5.6.1",
     ]:
         depends_on("rocm-cmake@%s:" % ver, type="build", when="@" + ver)
         depends_on("hip@" + ver, when="@" + ver)
@@ -153,7 +156,7 @@ class MiopenHip(CMakePackage):
     for ver in ["5.1.0", "5.1.3", "5.2.0", "5.2.1", "5.2.3", "5.3.0", "5.3.3"]:
         depends_on("mlirmiopen@" + ver, when="@" + ver)
 
-    for ver in ["5.4.0", "5.4.3", "5.5.0", "5.5.1"]:
+    for ver in ["5.4.0", "5.4.3", "5.5.0", "5.5.1", "5.6.0", "5.6.1"]:
         depends_on("rocmlir@" + ver, when="@" + ver)
         depends_on("nlohmann-json", type="link")
 
