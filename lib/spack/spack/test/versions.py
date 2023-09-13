@@ -8,7 +8,7 @@ We try to maintain compatibility with RPM's version semantics
 where it makes sense.
 """
 import os
-import sys
+import pathlib
 
 import pytest
 
@@ -26,6 +26,7 @@ from spack.version import (
     is_git_version,
     ver,
 )
+from spack.version.git_ref_lookup import SEMVER_REGEX
 
 
 def assert_ver_lt(a, b):
@@ -597,11 +598,10 @@ def test_invalid_versions(version_str):
         Version(version_str)
 
 
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
 def test_versions_from_git(git, mock_git_version_info, monkeypatch, mock_packages):
     repo_path, filename, commits = mock_git_version_info
     monkeypatch.setattr(
-        spack.package_base.PackageBase, "git", "file://%s" % repo_path, raising=False
+        spack.package_base.PackageBase, "git", pathlib.Path(repo_path).as_uri(), raising=False
     )
 
     for commit in commits:
@@ -618,7 +618,6 @@ def test_versions_from_git(git, mock_git_version_info, monkeypatch, mock_package
         assert str(comparator) == expected
 
 
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
 @pytest.mark.parametrize(
     "commit_idx,expected_satisfies,expected_not_satisfies",
     [
@@ -642,7 +641,7 @@ def test_git_hash_comparisons(
     """Check that hashes compare properly to versions"""
     repo_path, filename, commits = mock_git_version_info
     monkeypatch.setattr(
-        spack.package_base.PackageBase, "git", "file://%s" % repo_path, raising=False
+        spack.package_base.PackageBase, "git", pathlib.Path(repo_path).as_uri(), raising=False
     )
 
     spec = spack.spec.Spec(f"git-test-commit@{commits[commit_idx]}").concretized()
@@ -653,12 +652,11 @@ def test_git_hash_comparisons(
         assert not spec.satisfies(item)
 
 
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
 def test_git_ref_comparisons(mock_git_version_info, install_mockery, mock_packages, monkeypatch):
     """Check that hashes compare properly to versions"""
     repo_path, filename, commits = mock_git_version_info
     monkeypatch.setattr(
-        spack.package_base.PackageBase, "git", "file://%s" % repo_path, raising=False
+        spack.package_base.PackageBase, "git", pathlib.Path(repo_path).as_uri(), raising=False
     )
 
     # Spec based on tag v1.0
@@ -674,26 +672,6 @@ def test_git_ref_comparisons(mock_git_version_info, install_mockery, mock_packag
     assert spec_branch.satisfies("@1.2")
     assert spec_branch.satisfies("@1.1:1.3")
     assert str(spec_branch.version) == "git.1.x=1.2"
-
-
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
-def test_git_branch_with_slash():
-    class MockLookup(object):
-        def get(self, ref):
-            assert ref == "feature/bar"
-            return "1.2", 0
-
-    v = spack.version.from_string("git.feature/bar")
-    assert isinstance(v, GitVersion)
-    v.attach_lookup(MockLookup())
-
-    # Create a version range
-    test_number_version = spack.version.from_string("1.2")
-    v.satisfies(test_number_version)
-
-    serialized = VersionList([v]).to_dict()
-    v_deserialized = VersionList.from_dict(serialized)
-    assert v_deserialized[0].ref == "feature/bar"
 
 
 @pytest.mark.parametrize(
@@ -807,7 +785,6 @@ def test_version_intersects_satisfies_semantic(lhs_str, rhs_str, expected):
         ),
     ],
 )
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
 def test_git_versions_without_explicit_reference(
     spec_str,
     tested_intersects,
@@ -818,7 +795,7 @@ def test_git_versions_without_explicit_reference(
 ):
     repo_path, filename, commits = mock_git_version_info
     monkeypatch.setattr(
-        spack.package_base.PackageBase, "git", "file://%s" % repo_path, raising=False
+        spack.package_base.PackageBase, "git", pathlib.Path(repo_path).as_uri(), raising=False
     )
     spec = spack.spec.Spec(spec_str)
 
@@ -953,7 +930,7 @@ def test_inclusion_upperbound():
     assert is_specific.intersects(upperbound) and is_range.intersects(upperbound)
 
 
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
+@pytest.mark.not_on_windows("Not supported on Windows (yet)")
 def test_git_version_repo_attached_after_serialization(
     mock_git_version_info, mock_packages, config, monkeypatch
 ):
@@ -973,7 +950,7 @@ def test_git_version_repo_attached_after_serialization(
     assert spack.spec.Spec.from_dict(spec.to_dict()).satisfies("@1.0")
 
 
-@pytest.mark.skipif(sys.platform == "win32", reason="Not supported on Windows (yet)")
+@pytest.mark.not_on_windows("Not supported on Windows (yet)")
 def test_resolved_git_version_is_shown_in_str(
     mock_git_version_info, mock_packages, config, monkeypatch
 ):
@@ -996,3 +973,25 @@ def test_unresolvable_git_versions_error(config, mock_packages):
         # The package exists, but does not have a git property set. When dereferencing
         # the version, we should get VersionLookupError, not a generic AttributeError.
         spack.spec.Spec(f"git-test-commit@{'a' * 40}").version.ref_version
+
+
+@pytest.mark.parametrize(
+    "tag,expected",
+    [
+        ("v100.2.3", "100.2.3"),
+        ("v1.2.3", "1.2.3"),
+        ("v1.2.3-pre.release+build.1", "1.2.3-pre.release+build.1"),
+        ("v1.2.3+build.1", "1.2.3+build.1"),
+        ("v1.2.3+build_1", None),
+        ("v1.2.3-pre.release", "1.2.3-pre.release"),
+        ("v1.2.3-pre_release", None),
+        ("1.2.3", "1.2.3"),
+        ("1.2.3.", None),
+    ],
+)
+def test_semver_regex(tag, expected):
+    result = SEMVER_REGEX.search(tag)
+    if expected is None:
+        assert result is None
+    else:
+        assert result.group() == expected

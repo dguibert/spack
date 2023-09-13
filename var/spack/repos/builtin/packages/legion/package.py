@@ -50,7 +50,6 @@ class Legion(CMakePackage, ROCmPackage):
     depends_on("ucx", when="network=ucx")
     depends_on("ucx", when="conduit=ucx")
     depends_on("mpi", when="conduit=mpi")
-    depends_on("cray-pmi", when="conduit=ofi-slingshot11 ^cray-mpich")
     depends_on("cuda@10.0:11.9", when="+cuda_unsupported_compiler @:23.03.0")
     depends_on("cuda@10.0:11.9", when="+cuda @:23.03.0")
     depends_on("cuda@10.0:12.2", when="+cuda_unsupported_compiler @23.06.0:")
@@ -105,7 +104,7 @@ class Legion(CMakePackage, ROCmPackage):
     depends_on("py-cffi", when="+python")
     depends_on("py-numpy", when="+python")
     depends_on("papi", when="+papi")
-    depends_on("zlib", when="+zlib")
+    depends_on("zlib-api", when="+zlib")
 
     # A C++ standard variant to work-around some odd behaviors with apple-clang
     # but this might be helpful for other use cases down the road.  Legion's
