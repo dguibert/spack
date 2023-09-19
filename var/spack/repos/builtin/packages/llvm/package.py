@@ -770,6 +770,11 @@ class Llvm(CMakePackage, CudaPackage):
             define("LIBOMP_HWLOC_INSTALL_DIR", spec["hwloc"].prefix),
             from_variant("LLVM_ENABLE_ZSTD", "zstd"),
         ]
+        if "+flang" in spec and spec.version >= Version("17"):
+            # Flang does not currently support building with LLVM exceptions enabled. llvm@17
+            cmake_args.append(define("LLVM_ENABLE_EH", False))
+        else:
+            cmake_args.append(define("LLVM_ENABLE_EH", True))
 
         # Flang does not support exceptions from core llvm.
         # LLVM_ENABLE_EH=True when building flang will soon
