@@ -39,6 +39,7 @@ aomp = [
     "9ec03a69cc462ada43e1fd4ca905a765b08c10e0911fb7a202c893cc577855e6",
     "0673820a81986c9e2f28f15bbb45ad18934bca56a9d08aae6c49ec3895b38487",
     "6c051bf7625f682ba3d2ea80b46a38ca2cbcd20f5d89ae3433602d3e7ef0403a",
+    "4f34fa02db410808c5e629f30f8804210b42c4ff7d31aa80606deaed43054c3c",
 ]
 
 devlib = [
@@ -93,6 +94,7 @@ llvm = [
     "7d7181f20f89cb0715191aa32914186c67a34258c13457055570d47e15296553",
     "e922bd492b54d99e56ed88c81e2009ed6472059a180b10cc56ce1f9bd2d7b6ed",
     "045e43c0c4a3f4f2f1db9fb603a4f1ea3d56e128147e19ba17909eb57d7f08e5",
+    "4abdf00b297a77c5886cedb37e63acda2ba11cb9f4c0a64e133b05800aadfcf0",
 ]
 
 flang = [
@@ -120,6 +122,7 @@ flang = [
     "7c3b4eb3e95b9e2f91234f202a76034628d230a92e57b7c5ee9dcca1097bec46",
     "fcefebddca0b373da81ff84f0f5469a1ef77a05430a5195d0f2e6399d3af31c3",
     "5ebcbca2e03bd0686e677f44ea551e97bd9395c6b119f832fa784818733aa652",
+    "cc4f1973b1b8e7bcc4f09e3381bae4e1a2e51ea4e2598fc1b520ccb8bf24d28c",
 ]
 
 extras = [
@@ -147,6 +150,7 @@ extras = [
     "8955aa9d039fd6c1ff2e26d7298f0bf09bbcf03f09c6df92c91a9ab2510df9da",
     "017bfed52fbe08185d8dbde79377918454215683562519a9e47acf403d9a1c29",
     "437e2017cfe2ab73b15ada0fc1ea88f794f0b108cc5410f457268ae7e4e8985a",
+    "be59433dd85d4b8f0eaff87e0cc424a814152c67f3a682d1343c4bd61dd49a0f";
 ]
 
 versions = [
@@ -174,6 +178,7 @@ versions = [
     "5.5.1",
     "5.6.0",
     "5.6.1",
+    "5.7.0",
 ]
 versions_dict = dict()  # type: Dict[str,Dict[str,str]]
 components = ["aomp", "devlib", "llvm", "flang", "extras"]
@@ -195,6 +200,7 @@ class RocmOpenmpExtras(Package):
     tags = ["rocm"]
 
     maintainers("srekolam", "renjithravindrankannath", "estewart08")
+    version("5.7.0", sha256=versions_dict["5.7.0"]["aomp"])
     version("5.6.1", sha256=versions_dict["5.6.1"]["aomp"])
     version("5.6.0", sha256=versions_dict["5.6.0"]["aomp"])
     version("5.5.1", sha256=versions_dict["5.5.1"]["aomp"])
@@ -253,13 +259,14 @@ class RocmOpenmpExtras(Package):
         "5.5.1",
         "5.6.0",
         "5.6.1",
+        "5.7.0",
     ]:
         depends_on("hsakmt-roct@" + ver, when="@" + ver)
         depends_on("comgr@" + ver, when="@" + ver)
         depends_on("hsa-rocr-dev@" + ver, when="@" + ver)
         depends_on("llvm-amdgpu@{0} ~openmp".format(ver), when="@" + ver)
 
-    for ver in ["5.5.0", "5.5.1", "5.6.0", "5.6.1"]:
+    for ver in ["5.5.0", "5.5.1", "5.6.0", "5.6.1", "5.7.0"]:
         depends_on("rocm-core@" + ver, when="@" + ver)
 
         # tag changed to 'rocm-' in 4.0.0
