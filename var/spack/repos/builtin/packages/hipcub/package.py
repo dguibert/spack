@@ -15,6 +15,7 @@ class Hipcub(CMakePackage, CudaPackage, ROCmPackage):
     tags = ["rocm"]
 
     maintainers("srekolam", "renjithravindrankannath")
+    version("5.7.0", sha256="899356867f662d9a6f3870bb4a496f605a3143c6ad4d1fa9e9faead68fa8d13b")
     version("5.6.1", sha256="4b9479daa40424c9ddbc14ce967aa170680f8ca1ed01a514e6e30ccfa22552ce")
     version("5.6.0", sha256="5e74ddbf833f39836bf9ec6c6750348c7386a85ca67aaf9bb54d16c9e1959031")
     version("5.5.1", sha256="ad83f3f1ed85ead9e3012906957c125a896168be913f6fb6af298228fc571480")
@@ -150,7 +151,7 @@ class Hipcub(CMakePackage, CudaPackage, ROCmPackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1",
+        "5.6.1", "5.7.0",
     ]:
         depends_on("rocprim@" + ver, when="+rocm @" + ver)
         depends_on("rocm-cmake@%s:" % ver, type="build", when="@" + ver)
