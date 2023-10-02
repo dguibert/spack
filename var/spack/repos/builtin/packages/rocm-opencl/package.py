@@ -20,15 +20,20 @@ class RocmOpencl(CMakePackage):
     libraries = ["libOpenCL"]
 
     def url_for_version(self, version):
-        if version == Version("3.5.0"):
-            return (
-                "https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/roc-3.5.0.tar.gz"
-            )
+        # before Version 5.6.0, the repo was rocclr
+        if version < Version("5.6.0"):
+            if version == Version("3.5.0"):
+                return (
+                    "https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/roc-3.5.0.tar.gz"
+                )
 
-        url = "https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/rocm-{0}.tar.gz"
+            url = "https://github.com/RadeonOpenCompute/ROCm-OpenCL-Runtime/archive/rocm-{0}.tar.gz"
+        else:
+            url = "https://github.com/ROCm-Developer-Tools/clr/archive/rocm-{0}.tar.gz"
         return url.format(version)
 
     version("master", branch="main")
+    version("5.7.0", sha256="bc2447cb6fd86dff6a333b04e77ce85755104d9011a14a044af53caf02449573")
     version("5.6.1", sha256="ec26049f7d93c95050c27ba65472736665ec7a40f25920a868616b2970f6b845")
     version("5.6.0", sha256="52ab260d00d279c2a86c353901ffd88ee61b934ad89e9eb480f210656705f04e")
     version("5.5.1", sha256="a8a62a7c6fc5398406d2203b8cb75621a24944688e545d917033d87de2724498")
@@ -191,7 +196,7 @@ class RocmOpencl(CMakePackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1",
+        "5.6.1", "5.7.0",
         "master",
     ]:
         depends_on("comgr@" + ver, type="build", when="@" + ver)
@@ -245,6 +250,7 @@ class RocmOpencl(CMakePackage):
         if "@4.5.0:" in self.spec:
             args.append(self.define("ROCCLR_PATH", self.stage.source_path + "/rocclr"))
             args.append(self.define("AMD_OPENCL_PATH", self.stage.source_path))
+            args.append(self.define("CLR_BUILD_OCL", "yes"))
         return args
 
     def setup_run_environment(self, env):
