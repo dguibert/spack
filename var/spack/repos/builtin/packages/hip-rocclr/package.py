@@ -12,21 +12,26 @@ class HipRocclr(CMakePackage):
     with to different backends such as ROCr or PAL This abstraction allows
     runtimes to work on Windows as well as on Linux without much effort."""
 
-    homepage = "https://github.com/ROCm-Developer-Tools/ROCclr"
-    git = "https://github.com/ROCm-Developer-Tools/ROCclr.git"
+    homepage = "https://github.com/ROCm-Developer-Tools/clr"
+    git = "https://github.com/ROCm-Developer-Tools/clr.git"
     tags = ["rocm"]
 
     maintainers("srekolam", "renjithravindrankannath")
 
     def url_for_version(self, version):
-        # Fix up a typo in the 3.5.0 release.
-        if version == Version("3.5.0"):
-            return "https://github.com/ROCm-Developer-Tools/ROCclr/archive/roc-3.5.0.tar.gz"
+        # before Version 5.6.0, the repo was rocclr
+        if version < Version("5.6.0"):
+            # Fix up a typo in the 3.5.0 release.
+            if version == Version("3.5.0"):
+                return "https://github.com/ROCm-Developer-Tools/ROCclr/archive/roc-3.5.0.tar.gz"
 
-        url = "https://github.com/ROCm-Developer-Tools/ROCclr/archive/rocm-{0}.tar.gz"
+            url = "https://github.com/ROCm-Developer-Tools/ROCclr/archive/rocm-{0}.tar.gz"
+        else:
+            url = "https://github.com/ROCm-Developer-Tools/clr/archive/rocm-{0}.tar.gz"
         return url.format(version)
 
     version("master", branch="main")
+    version("5.7.0", sha256="bc2447cb6fd86dff6a333b04e77ce85755104d9011a14a044af53caf02449573")
     version("5.6.1", sha256="cc9a99c7e4de3d9360c0a471b27d626e84a39c9e60e0aff1e8e1500d82391819")
     version("5.6.0", sha256="864f87323e793e60b16905284fba381a7182b960dd4a37fb67420c174442c03c")
     version("5.5.1", sha256="1375fc7723cfaa0ae22a78682186d4804188b0a54990bfd9c0b8eb421b85e37e")
@@ -143,7 +148,7 @@ class HipRocclr(CMakePackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1",
+        "5.6.1", "5.7.0",
         "master",
     ]:
         depends_on("hsakmt-roct@" + ver, when="@" + ver)
@@ -229,10 +234,12 @@ class HipRocclr(CMakePackage):
             filter_file(self.build_directory, self.prefix, path)
 
     def cmake_args(self):
-        args = [
-            self.define("USE_COMGR_LIBRARY", "yes"),
-            self.define("OPENCL_DIR", join_path(self.stage.source_path, "opencl-on-vdi")),
-        ]
+        args = []
+        args.append(self.define("USE_COMGR_LIBRARY", "yes"))
+        if self.spec.satisfies("@:5.6.1"):
+            args.append(self.define("OPENCL_DIR", join_path(self.stage.source_path, "opencl-on-vdi")))
+        else:
+            args.append(self.define("CLR_BUILD_HIP", "yes"))
         return args
 
     def __init__(self, spec):
