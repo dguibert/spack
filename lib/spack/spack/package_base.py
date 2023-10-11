@@ -25,7 +25,7 @@ import textwrap
 import time
 import traceback
 import warnings
-from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, TypeVar
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple, Type, TypeVar, Union
 
 import llnl.util.filesystem as fsys
 import llnl.util.tty as tty
@@ -522,7 +522,7 @@ class PackageBase(WindowsRPath, PackageViewMixin, metaclass=PackageMeta):
 
     # Declare versions dictionary as placeholder for values.
     # This allows analysis tools to correctly interpret the class attributes.
-    versions: dict
+    versions: Dict[Union[GitVersion, StandardVersion], dict]
 
     # Same for dependencies
     dependencies: dict
