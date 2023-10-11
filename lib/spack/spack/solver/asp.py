@@ -682,6 +682,19 @@ def extract_args(model, predicate_name):
     return [intermediate_repr(sym.arguments) for sym in model if sym.name == predicate_name]
 
 
+def by_preference(version_and_info: Tuple[Union[vn.StandardVersion, vn.GitVersion], dict]):
+    """Concretization order imposed on the set of defined versions in package.py.
+    The order is preferred > non-preferred, non-deprecated > deprecated, finite > develop,
+    otherwise standard version ordering."""
+    version, info = version_and_info
+    return (
+        info.get("preferred", False),
+        not info.get("deprecated", False),
+        not version.isdevelop(),
+        version,
+    )
+
+
 class ErrorHandler:
     def __init__(self, model):
         self.model = model
@@ -1982,7 +1995,7 @@ class SpackSolverSetup:
         """Declare any versions in specs not declared in packages."""
         packages_yaml = spack.config.get("packages")
         for pkg_name in possible_pkgs:
-            pkg_cls = spack.repo.PATH.get_pkg_class(pkg_name)
+            pkg_cls: spack.package_base.PackageBase = spack.repo.PATH.get_pkg_class(pkg_name)
 
             # All the versions from the corresponding package.py file. Since concepts
             # like being a "develop" version or being preferred exist only at a
@@ -1996,7 +2009,9 @@ class SpackSolverSetup:
                     x for x in package_py_versions if _is_checksummed_version(x)
                 ]
 
-            for idx, (v, version_info) in enumerate(package_py_versions):
+            for idx, (v, version_info) in enumerate(
+                sorted(pkg_cls.versions.items(), key=by_preference, reverse=True)
+            ):
                 if version_info.get("deprecated", False):
                     self.deprecated_versions[pkg_name].add(v)
                     if not allow_deprecated:
@@ -2250,29 +2265,49 @@ class SpackSolverSetup:
 
         cspecs = set([c.spec for c in compilers])
 
-        # add compiler specs from the input line to possibilities if we
-        # don't require compilers to exist.
-        strict = spack.concretize.Concretizer().check_for_compiler_existence
-        for s in traverse.traverse_nodes(specs):
+        s: spack.spec.Spec
+        for s in spack.traverse.traverse_nodes(specs):
             # we don't need to validate compilers for already-built specs
             if s.concrete or not s.compiler:
                 continue
 
-            version = s.compiler.versions.concrete
-
-            if not version or any(c.satisfies(s.compiler) for c in cspecs):
+            if any(c.satisfies(s.compiler) for c in cspecs):
                 continue
 
-            # Error when a compiler is not found and strict mode is enabled
-            if strict:
+            # Error when a compiler cannot be found in config but should be
+            if not spack.config.get("config:install_missing_compilers", False):
                 raise spack.concretize.UnavailableCompilerVersionError(s.compiler)
 
             # Make up a compiler matching the input spec. This is for bootstrapping.
-            compiler_cls = spack.compilers.class_for_compiler_name(s.compiler.name)
-            compilers.append(
-                compiler_cls(s.compiler, operating_system=None, target=None, paths=[None] * 4)
+            concrete_compiler_spec = spack.spec.CompilerSpec(s.compiler.name)
+            compiler_pkg: spack.package_base.PackageBase = spack.repo.PATH.get_pkg_class(
+                spack.compilers.pkg_spec_for_compiler(concrete_compiler_spec).name
             )
-            self.gen.fact(fn.allow_compiler(s.compiler.name, version))
+            # Pick the latest the greatest matching compiler, this is a greedy choice
+            # and can be made non-greedy once its modelled in the solver.
+            try:
+                greedy_compiler_version, _ = max(
+                    (
+                        v
+                        for v in compiler_pkg.versions.items()
+                        if v[0].satisfies(s.compiler.versions)
+                    ),
+                    key=by_preference,
+                )
+            except ValueError:
+                # No version of the compiler is compatible with the spec
+                raise spack.concretize.UnavailableCompilerVersionError(s.compiler, bootstrap=True)
+            concrete_compiler_spec.versions = vn.VersionList([greedy_compiler_version])
+            compiler_cls = spack.compilers.class_for_compiler_name(s.compiler.name)
+
+            compilers.append(
+                compiler_cls(
+                    concrete_compiler_spec, operating_system=None, target=None, paths=[None] * 4
+                )
+            )
+            self.gen.fact(
+                fn.allow_compiler(concrete_compiler_spec.name, concrete_compiler_spec.version)
+            )
 
         return list(
             sorted(
