@@ -117,7 +117,7 @@ class Rccl(CMakePackage):
 
     patch("0001-Fix-numactl-path-issue.patch", when="@3.7.0:4.3.2")
     patch("0002-Fix-numactl-rocm-smi-path-issue.patch", when="@4.5.0:5.2.1")
-    patch("0003-Fix-numactl-rocm-smi-path-issue.patch", when="@5.2.3:")
+    patch("0003-Fix-numactl-rocm-smi-path-issue.patch", when="@5.2.3:5.4")
 
     depends_on("cmake@3.5:", type="build")
     for ver in [
