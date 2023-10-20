@@ -25,4 +25,4 @@ class PyPymummer(PythonPackage):
     version("0.7.0", sha256="bd329946f67d3c7ebb783038077cbd831a63d65353e24f9454404150e5217876")
 
     depends_on("mummer", type=("build", "run"))
-    depends_on("py-fastaq@3.10.0:", type=("build", "run"))
+    depends_on("py-pyfastaq@3.10.0:", type=("build", "run"))

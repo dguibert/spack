@@ -22,7 +22,7 @@ class PyViridianWorkflow(PythonPackage):
 
     depends_on("py-setuptools", type="build")
     depends_on("py-intervaltree", type=("build", "run"))
-    depends_on("py-fastaq", type=("build", "run"))
+    depends_on("py-pyfastaq", type=("build", "run"))
     depends_on("py-pysam", type=("build", "run"))
 
     depends_on("bcftools", type="run")

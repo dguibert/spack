@@ -25,7 +25,7 @@ class PyVarifier(PythonPackage):
     # mappy >= 2.17 provided by minimap2
     depends_on("minimap2@2.17:", type=("build", "run"))
     depends_on("py-pandas")
-    depends_on("py-fastaq@3.14.0:")
+    depends_on("py-pyfastaq@3.14.0:")
     depends_on("py-pymummer")
     depends_on("py-pysam", type="run")
     depends_on("py-seaborn", type=("build", "run"))

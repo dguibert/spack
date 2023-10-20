@@ -22,4 +22,4 @@ class PyViridian(PythonPackage):
     depends_on("racon", type="run")
     depends_on("minimap2", type=("build", "run"))
     depends_on("py-pysam")
-    depends_on("py-fastaq")
+    depends_on("py-pyfastaq")

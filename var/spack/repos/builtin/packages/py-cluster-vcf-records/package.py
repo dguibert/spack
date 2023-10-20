@@ -26,7 +26,7 @@ class PyClusterVcfRecords(PythonPackage):
     version("0.11.0", sha256="5739559ca9e450e3561a6d44d09c92c5c8fbd877aae80a6ce5cf180a0ef13e97")
 
     depends_on("py-bitarray", type=("build", "run"))
-    depends_on("py-fastaq@3.14.0:", type=("build", "run"))
+    depends_on("py-pyfastaq@3.14.0:", type=("build", "run"))
     depends_on("py-pysam", type=("build", "run"))
     depends_on("bcftools", type="run")
     depends_on("vt", type="run")
