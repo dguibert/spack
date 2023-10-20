@@ -11,9 +11,11 @@ class PyQcovid(PythonPackage):
 
     homepage = "https://github.com/iqbal-lab-org/QCovid"
     url = "https://github.com/iqbal-lab-org/QCovid"
+    git="https://github.com/iqbal-lab-org/QCovid"
 
-    version("master", git="https://github.com/iqbal-lab-org/QCovid", branch="master")
+    version("master", branch="master")
 
+    depends_on("py-setuptools", type="build")
     depends_on("py-pysam")
     depends_on("minimap2")
     depends_on("py-sqlalchemy@1.3.20:")
