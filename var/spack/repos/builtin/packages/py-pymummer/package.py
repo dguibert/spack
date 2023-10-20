@@ -11,18 +11,19 @@ class PyPymummer(PythonPackage):
 
     homepage = "https://github.com/sanger-pathogens/pymummer"
 
-    url = "https://github.com/sanger-pathogens/pymummer/archive/refs/tags/v0.11.0.tar.gz"
+    pypi = "pymummer/pymummer-0.11.0.tar.gz"
 
-    version("0.11.0", sha256="960b7e29603f6126e8df89ded62e15399c10d9e62b501336971ee272923967ac")
-    version("0.10.3", sha256="cabae6ff65cdafc0d52c3a824c0e8456423f740260c6f91e1853554a6b13d42f")
-    version("0.10.2", sha256="3c0c7308b88fcef7e43589992e31d1384165095acee253680b5844f9e2feb7b1")
-    version("0.10.1", sha256="8c358227b842a61477889db50af0918ea3e793fddc56f6a9900e6820f2712b20")
-    version("0.10.0", sha256="381927a3dfee34727da173bfc747b34a9ddecb1647c2d36c3df4ceb297f85309")
-    version("0.9.0", sha256="e0c8bead3dacd1ecb29cdb1bdd60d7b52f13073dfbb152eefcfe08a147b9b3a1")
-    version("0.8.1", sha256="b7b137ac1e96fdaa24a18a56dc35db26c276b70615b511303518d3771631e189")
-    version("0.8.0", sha256="45d33f9aaa92a1ad06732456d3b8539cf09a81aac5bbfb3f61dd571b85c74116")
-    version("0.7.1", sha256="33ab7aeb4f09a4e00ca32c237d3f6eca0050127663ad445b139debf7137a4e57")
-    version("0.7.0", sha256="bd329946f67d3c7ebb783038077cbd831a63d65353e24f9454404150e5217876")
+    version("0.11.0", sha256="199b8391348ff83760e9f63fdcee6208f8aa29da6506ee1654f1933e60665259")
+    version("0.10.3", sha256="986555d36828bd90bf0e63d9d472e5b20c191f0e51123b5252fa924761149fc2")
+    version("0.10.2", sha256="80ea1af917d8a683460a9dbe75a54a099515d0a8f0a74dd7eeced41adbb9f460")
+    version("0.10.1", sha256="04a06d2faecf5b972b3a60e1493520e384cb10dd5c00bf7d643a1d059c4e8f87")
+    version("0.10.0", sha256="bec0649cf0e4016949f49b46b789697f8cff043d5dfc6b6bb54ddff2cba83679")
+    version("0.9.0", sha256="9c1fd30623202889a45d2d5124c24d0e4fcf1746aed82d22b292b6d6c5568e26")
+    version("0.8.1", sha256="8e6d9759bedb216453eb7e94a2ea3b79a39b96fde716a35b4aadcf523ca1f313")
+    version("0.8.0", sha256="dbb2817cb63873a408ba3e818d17d068633d401b21db9881503358a23792b4f3")
+    version("0.7.1", sha256="7aab311c60fcb9fc5a2bce658e949d80f4801e73107eb2e835f46caed02cfedf")
+    version("0.7.0", sha256="2d02cb60e6aa8e1fcfc5e07c36ce3bcf52cf447e6315cd6371a549adc20529d9")
 
+    depends_on("py-setuptools", type="build")
     depends_on("mummer", type=("build", "run"))
     depends_on("py-pyfastaq@3.10.0:", type=("build", "run"))
