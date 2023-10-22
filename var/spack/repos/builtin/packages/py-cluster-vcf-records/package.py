@@ -25,6 +25,7 @@ class PyClusterVcfRecords(PythonPackage):
     version("0.11.1", sha256="49140120a495a15cb503c6e0136a2875507b927c6bd11df498be0a100058f5cb")
     version("0.11.0", sha256="5739559ca9e450e3561a6d44d09c92c5c8fbd877aae80a6ce5cf180a0ef13e97")
 
+    depends_on("py-setuptools", type="build")
     depends_on("py-bitarray", type=("build", "run"))
     depends_on("py-pyfastaq@3.14.0:", type=("build", "run"))
     depends_on("py-pysam", type=("build", "run"))
