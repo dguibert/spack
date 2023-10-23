@@ -42,7 +42,7 @@ class Racon(CMakePackage):
     conflicts("%gcc@:4.7")
     conflicts("%clang@:3.1")
 
-    patch('aarch64.patch', when='@:1.4 target=aarch64:')
+    patch("aarch64.patch", when="@:1.4 target=aarch64:")
 
     def url_for_version(self, version):
         if version >= Version("1.4.3"):
