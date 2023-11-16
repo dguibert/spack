@@ -33,6 +33,7 @@ class RocmOpencl(CMakePackage):
         return url.format(version)
 
     version("master", branch="main")
+    version("5.7.0", sha256="c78490335233a11b4d8a5426ace7417c555f5e2325de10422df06c0f0f00f7eb")
     version("5.7.0", sha256="bc2447cb6fd86dff6a333b04e77ce85755104d9011a14a044af53caf02449573")
     version("5.6.1", sha256="ec26049f7d93c95050c27ba65472736665ec7a40f25920a868616b2970f6b845")
     version("5.6.0", sha256="52ab260d00d279c2a86c353901ffd88ee61b934ad89e9eb480f210656705f04e")
@@ -196,7 +197,9 @@ class RocmOpencl(CMakePackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1", "5.7.0",
+        "5.6.1",
+        "5.7.0",
+        "5.7.1",
         "master",
     ]:
         depends_on("comgr@" + ver, type="build", when="@" + ver)
