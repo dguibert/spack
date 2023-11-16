@@ -18,7 +18,7 @@ class Hipsolver(CMakePackage, CudaPackage, ROCmPackage):
 
     homepage = "https://github.com/ROCmSoftwarePlatform/hipSOLVER"
     git = "https://github.com/ROCmSoftwarePlatform/hipSOLVER.git"
-    url = "https://github.com/ROCmSoftwarePlatform/hipSOLVER/archive/rocm-5.5.0.tar.gz"
+    url = "https://github.com/ROCmSoftwarePlatform/hipSOLVER/archive/refs/tags/rocm-5.7.1.tar.gz"
     tags = ["rocm"]
 
     maintainers("cgmb", "srekolam", "renjithravindrankannath")
@@ -26,6 +26,7 @@ class Hipsolver(CMakePackage, CudaPackage, ROCmPackage):
 
     version("develop", branch="develop")
     version("master", branch="master")
+    version("5.7.1", sha256="5592e965c0dc5722931302289643d1ece370220af2c7afc58af97b3395295658")
     version("5.7.0", sha256="0e35795bfbcb57ed8e8437471209fb7d230babcc31d9a4a0b3640c3ee639f4a7")
     version("5.6.1", sha256="2e546bc7771f7bf0aa7892b69cded725941573e8b70614759c3d03c21eb78dde")
     version("5.6.0", sha256="11fa51d210853d93d24d55b20367738e49711793412f58e8d7689710b92ae16c")
@@ -109,7 +110,9 @@ class Hipsolver(CMakePackage, CudaPackage, ROCmPackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1", "5.7.0",
+        "5.6.1",
+        "5.7.0",
+        "5.7.1",
         "master",
         "develop",
     ]:

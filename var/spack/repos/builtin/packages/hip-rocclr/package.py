@@ -31,6 +31,7 @@ class HipRocclr(CMakePackage):
         return url.format(version)
 
     version("master", branch="main")
+    version("5.7.0", sha256="c78490335233a11b4d8a5426ace7417c555f5e2325de10422df06c0f0f00f7eb")
     version("5.7.0", sha256="bc2447cb6fd86dff6a333b04e77ce85755104d9011a14a044af53caf02449573")
     version("5.6.1", sha256="cc9a99c7e4de3d9360c0a471b27d626e84a39c9e60e0aff1e8e1500d82391819")
     version("5.6.0", sha256="864f87323e793e60b16905284fba381a7182b960dd4a37fb67420c174442c03c")
@@ -148,7 +149,9 @@ class HipRocclr(CMakePackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1", "5.7.0",
+        "5.6.1",
+        "5.7.0",
+        "5.7.1",
         "master",
     ]:
         depends_on("hsakmt-roct@" + ver, when="@" + ver)
