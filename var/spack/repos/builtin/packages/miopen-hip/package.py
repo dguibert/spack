@@ -19,6 +19,7 @@ class MiopenHip(CMakePackage):
 
     maintainers("srekolam", "renjithravindrankannath")
     libraries = ["libMIOpen"]
+    version("5.7.1", sha256="912a658fe21ce6f1982b0f2ff251c3f7bb618f2e7e9876d983bcb54e3cd7129e")
     version("5.7.0", sha256="5cd0b62254469e1c246d5890d2b78f8aedcf42cf8a327eabc1a391b83bcd14e1")
     version("5.6.1", sha256="ff627d68ed9e52433a3c808b5d3ff179a398b77ce81b00cfea7b2c4da5162c6c")
     version("5.6.0", sha256="d620ddab5b488bdf81242654fefa337c6b71dc410c2ff26d30a4ee86a8d22d11")
@@ -147,7 +148,9 @@ class MiopenHip(CMakePackage):
         "5.5.0",
         "5.5.1",
         "5.6.0",
-        "5.6.1", "5.7.0",
+        "5.6.1",
+        "5.7.0",
+        "5.7.1",
     ]:
         depends_on("rocm-cmake@%s:" % ver, type="build", when="@" + ver)
         depends_on("hip@" + ver, when="@" + ver)
@@ -157,7 +160,7 @@ class MiopenHip(CMakePackage):
     for ver in ["5.1.0", "5.1.3", "5.2.0", "5.2.1", "5.2.3", "5.3.0", "5.3.3"]:
         depends_on("mlirmiopen@" + ver, when="@" + ver)
 
-    for ver in ["5.5.1", "5.6.0", "5.6.1", "5.7.0"]:
+    for ver in ["5.5.1", "5.6.0", "5.6.1", "5.7.0", "5.7.1"]:
         depends_on("nlohmann-json", type="link")
         depends_on("composable-kernel@" + ver, when="@" + ver)
     for ver in ["5.4.0", "5.4.3", "5.5.0"]:
