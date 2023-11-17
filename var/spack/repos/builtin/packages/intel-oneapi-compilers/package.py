@@ -8,6 +8,17 @@ from spack.package import *
 
 versions = [
     {
+        "version": "2024.0.0",
+        "cpp": {
+            "url": "https://registrationcenter-download.intel.com/akdlm//IRC_NAS/5c8e686a-16a7-4866-b585-9cf09e97ef36/l_dpcpp-cpp-compiler_p_2024.0.0.49524_offline.sh",
+            "sha256": "d10bad2009c98c631fbb834aae62012548daeefc806265ea567316cd9180a684",
+        },
+        "ftn": {
+            "url": "https://registrationcenter-download.intel.com/akdlm//IRC_NAS/89b0fcf9-5c00-448a-93a1-5ee4078e008e/l_fortran-compiler_p_2024.0.0.49493_offline.sh",
+            "sha256": "57faf854b8388547ee4ef2db387a9f6f3b4d0cebd67b765cf5e844a0a970d1f9",
+        },
+    },
+    {
         "version": "2023.2.1",
         "cpp": {
             "url": "https://registrationcenter-download.intel.com/akdlm//IRC_NAS/ebf5d9aa-17a7-46a4-b5df-ace004227c0e/l_dpcpp-cpp-compiler_p_2023.2.1.8_offline.sh",
@@ -165,7 +176,8 @@ class IntelOneapiCompilers(IntelOneApiPackage):
     homepage = "https://software.intel.com/content/www/us/en/develop/tools/oneapi.html"
 
     # See https://github.com/spack/spack/issues/39252
-    depends_on("patchelf@:0.17", type="build")
+    # we stopped patching binaries with v2 layout in 2024.0
+    depends_on("patchelf@:0.17", when="@:2023.4", type="build")
 
     # TODO: effectively gcc is a direct dependency of intel-oneapi-compilers, but we
     # cannot express that properly. For now, add conflicts for non-gcc compilers
@@ -183,12 +195,24 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         )
 
     @property
+    def v2_layout_versions(self):
+        return "@2024:"
+
+    @property
     def component_dir(self):
         return "compiler"
 
     @property
+    def _llvm_bin(self):
+        return self.component_prefix.bin if self.v2_layout else self.component_prefix.linux.bin
+
+    @property
+    def _classic_bin(self):
+        return self.component_prefix.bin if self.v2_layout else self.component_prefix.linux.intel64.bin
+
+    @property
     def compiler_search_prefix(self):
-        return self.prefix.compiler.join(str(self.version)).linux.bin
+        return self._llvm_bin
 
     def setup_run_environment(self, env):
         """Adds environment variables to the generated module file.
@@ -203,14 +227,15 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         """
         super().setup_run_environment(env)
 
-        env.set("CC", self.component_prefix.linux.bin.icx)
-        env.set("CXX", self.component_prefix.linux.bin.icpx)
-        env.set("F77", self.component_prefix.linux.bin.ifx)
-        env.set("FC", self.component_prefix.linux.bin.ifx)
+        env.set("CC", self._llvm_bin.icx)
+        env.set("CXX", self._llvm_bin.icpx)
+        env.set("F77", self._llvm_bin.ifx)
+        env.set("FC", self._llvm_bin.ifx)
 
     def install(self, spec, prefix):
         # Copy instead of install to speed up debugging
         # install_tree("/opt/intel/oneapi/compiler", self.prefix)
+        # return
 
         # install cpp
         super().install(spec, prefix)
@@ -219,11 +244,16 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         self.install_component(find("fortran-installer", "*")[0])
 
         # Some installers have a bug and do not return an error code when failing
-        if not is_exe(self.component_prefix.linux.bin.intel64.ifort):
-            raise RuntimeError("install failed")
+        if not is_exe(self._llvm_bin.ifx):
+            raise RuntimeError("Fortran install failed")
 
     @run_after("install")
     def inject_rpaths(self):
+        # This issue was resolved in an earlier version, but v2_layout
+        # is a convenient place to switch over
+        if self.v2_layout:
+            return
+        
         # Sets rpath so the compilers can work without setting LD_LIBRARY_PATH.
         patchelf = which("patchelf")
         patchelf.add_default_arg("--set-rpath", ":".join(self._ld_library_path()))
@@ -254,7 +284,10 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         # TODO: it is unclear whether we should really use all elements of
         #  _ld_library_path because it looks like the only rpath that needs to be
         #  injected is self.component_prefix.linux.compiler.lib.intel64_lin.
-        common_flags = ["-Wl,-rpath,{}".format(d) for d in self._ld_library_path()]
+        if self.v2_layout:
+            common_flags = ["-Wl,-rpath,{}".format(self.component_prefix.lib)]
+        else:
+            common_flags = ["-Wl,-rpath,{}".format(d) for d in self._ld_library_path()]
 
         # Make sure that underlying clang gets the right GCC toolchain by default
         llvm_flags = ["--gcc-toolchain={}".format(self.compiler.prefix)]
@@ -270,15 +303,21 @@ class IntelOneapiCompilers(IntelOneApiPackage):
             llvm_flags.append("-Wno-unused-command-line-argument")
 
         self.write_config_file(
-            common_flags + llvm_flags, self.component_prefix.linux.bin, ["icx", "icpx"]
+            common_flags + llvm_flags, self._llvm_bin, ["icx", "icpx"]
         )
         self.write_config_file(
-            common_flags + classic_flags, self.component_prefix.linux.bin, ["ifx"]
+            common_flags + classic_flags, self._llvm_bin, ["ifx"]
         )
         self.write_config_file(
             common_flags + classic_flags,
-            self.component_prefix.linux.bin.intel64,
-            ["icc", "icpc", "ifort"],
+            self._classic_bin,
+            ["ifort"],
+        )
+        if self.version < Version("2024.0"):
+            self.write_config_file(
+                common_flags + classic_flags,
+                self._classic_bin,
+                ["icc", "icpc"],
         )
 
     def _ld_library_path(self):
