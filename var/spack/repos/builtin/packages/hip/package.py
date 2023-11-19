@@ -406,6 +406,7 @@ class Hip(CMakePackage):
         sha256="c2ee21cdc55262c7c6ba65546b5ca5f65ea89730",
         when="@5.2:",
     )
+    patch("0016-nogpuinc.5.7.0.patch", when="@5.7")
 
     @property
     def root_cmakelists_dir(self):
