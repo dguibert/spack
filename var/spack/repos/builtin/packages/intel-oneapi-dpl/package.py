@@ -84,6 +84,10 @@ class IntelOneapiDpl(IntelOneApiLibraryPackage):
     )
 
     @property
+    def v2_layout_versions(self):
+        return "@2022.3:"
+
+    @property
     def component_dir(self):
         return "dpl"
 

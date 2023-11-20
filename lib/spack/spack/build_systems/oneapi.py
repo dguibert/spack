@@ -56,9 +56,20 @@ class IntelOneApiPackage(Package):
         raise NotImplementedError
 
     @property
+    def v2_layout_versions(self):
+        """Version that implements the v2 directory layout."""
+        raise NotImplementedError
+
+    @property
+    def v2_layout(self):
+        """Returns true if this version implements the v2 directory layout."""
+        return self.spec.satisfies(self.v2_layout_versions)
+
+    @property
     def component_prefix(self):
         """Path to component <prefix>/<component>/<version>."""
-        return self.prefix.join(join_path(self.component_dir, self.spec.version))
+        v = self.spec.version.up_to(2) if self.v2_layout else self.spec.version
+        return self.prefix.join(self.component_dir).join(str(v))
 
     @property
     def env_script_args(self):
@@ -112,8 +123,9 @@ class IntelOneApiPackage(Package):
                 shutil.rmtree("/var/intel/installercache", ignore_errors=True)
 
         # Some installers have a bug and do not return an error code when failing
-        if not isdir(join_path(self.prefix, self.component_dir)):
-            raise RuntimeError("install failed")
+        install_dir = join_path(self.prefix, self.component_dir)
+        if not isdir(install_dir):
+            raise RuntimeError("install failed to directory: {0}".format(install_dir))
 
     def setup_run_environment(self, env):
         """Adds environment variables to the generated module file.
