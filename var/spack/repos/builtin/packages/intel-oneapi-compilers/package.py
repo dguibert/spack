@@ -198,14 +198,8 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         return "compiler"
 
     @property
-    def component_prefix_linux(self):
-        if self.spec.satisfies("@:2023"):
-            return self.component_prefix.linux
-        return self.component_prefix
-
-    @property
     def compiler_search_prefix(self):
-        return self.component_prefix_linux.bin
+        return self.prefix.compiler.join(str(self.version)).linux.bin
 
     def setup_run_environment(self, env):
         """Adds environment variables to the generated module file.
@@ -220,10 +214,10 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         """
         super().setup_run_environment(env)
 
-        env.set("CC", self.component_prefix_linux.bin.icx)
-        env.set("CXX", self.component_prefix_linux.bin.icpx)
-        env.set("F77", self.component_prefix_linux.bin.ifx)
-        env.set("FC", self.component_prefix_linux.bin.ifx)
+        env.set("CC", self.component_prefix.linux.bin.icx)
+        env.set("CXX", self.component_prefix.linux.bin.icpx)
+        env.set("F77", self.component_prefix.linux.bin.ifx)
+        env.set("FC", self.component_prefix.linux.bin.ifx)
 
     def install(self, spec, prefix):
         # Copy instead of install to speed up debugging
@@ -235,13 +229,17 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         # install fortran
         self.install_component(find("fortran-installer", "*")[0])
 
+        # Some installers have a bug and do not return an error code when failing
+        if not is_exe(self.component_prefix.linux.bin.intel64.ifort):
+            raise RuntimeError("install failed")
+
     @run_after("install")
     def inject_rpaths(self):
         # Sets rpath so the compilers can work without setting LD_LIBRARY_PATH.
         patchelf = which("patchelf")
         patchelf.add_default_arg("--set-rpath", ":".join(self._ld_library_path()))
         for pd in ["bin", "lib", join_path("compiler", "lib", "intel64_lin")]:
-            for file in find(self.component_prefix_linux.join(pd), "*", recursive=False):
+            for file in find(self.component_prefix.linux.join(pd), "*", recursive=False):
                 # Try to patch all files, patchelf will do nothing and fail if file
                 # should not be patched
                 patchelf(file, fail_on_error=False)
@@ -266,7 +264,7 @@ class IntelOneapiCompilers(IntelOneApiPackage):
         #  C++, and Fortran), but in practice are not.
         # TODO: it is unclear whether we should really use all elements of
         #  _ld_library_path because it looks like the only rpath that needs to be
-        #  injected is self.component_prefix_linux.compiler.lib.intel64_lin.
+        #  injected is self.component_prefix.linux.compiler.lib.intel64_lin.
         common_flags = ["-Wl,-rpath,{}".format(d) for d in self._ld_library_path()]
 
         # Make sure that underlying clang gets the right GCC toolchain by default
@@ -283,22 +281,16 @@ class IntelOneapiCompilers(IntelOneApiPackage):
             llvm_flags.append("-Wno-unused-command-line-argument")
 
         self.write_config_file(
-            common_flags + llvm_flags, self.component_prefix_linux.bin, ["icx", "icpx"]
+            common_flags + llvm_flags, self.component_prefix.linux.bin, ["icx", "icpx"]
         )
         self.write_config_file(
-            common_flags + classic_flags, self.component_prefix_linux.bin, ["ifx"]
+            common_flags + classic_flags, self.component_prefix.linux.bin, ["ifx"]
         )
-        # icc / icpc are removed in 2024.0.0
-        if self.spec.satisfies("@2024:"):
-            self.write_config_file(
-                common_flags + classic_flags, self.component_prefix_linux.bin, ["ifort"]
-            )
-        else:
-            self.write_config_file(
-                common_flags + classic_flags,
-                self.component_prefix_linux.bin.intel64,
-                ["icc", "icpc", "ifort"],
-            )
+        self.write_config_file(
+            common_flags + classic_flags,
+            self.component_prefix.linux.bin.intel64,
+            ["icc", "icpc", "ifort"],
+        )
 
     def _ld_library_path(self):
         # Returns an iterable of directories that might contain shared runtime libraries
@@ -312,6 +304,6 @@ class IntelOneapiCompilers(IntelOneApiPackage):
             join_path("compiler", "lib", "intel64_lin"),
             join_path("compiler", "lib"),
         ]:
-            p = join_path(self.component_prefix_linux, d)
+            p = join_path(self.component_prefix.linux, d)
             if find(p, "*." + dso_suffix, recursive=False):
                 yield p

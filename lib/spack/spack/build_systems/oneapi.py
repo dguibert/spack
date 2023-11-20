@@ -58,8 +58,7 @@ class IntelOneApiPackage(Package):
     @property
     def component_prefix(self):
         """Path to component <prefix>/<component>/<version>."""
-        v = self.spec.version if self.spec.satisfies("@:2023") else self.spec.version.up_to(2)
-        return self.prefix.join(join_path(self.component_dir, v))
+        return self.prefix.join(join_path(self.component_dir, self.spec.version))
 
     @property
     def env_script_args(self):
