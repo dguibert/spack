@@ -208,7 +208,7 @@ class IntelOneapiCompilers(IntelOneApiPackage):
 
     @property
     def _classic_bin(self):
-        return self.component_prefix.bin if self.v2_layout else self.component_prefix.linux.intel64.bin
+        return self.component_prefix.bin if self.v2_layout else self.component_prefix.linux.bin.intel64
 
     @property
     def compiler_search_prefix(self):
