@@ -22,6 +22,36 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     license("MIT")
 
     version(
+        "1.16.3", tag="v1.16.3", commit="2ac381c55397dffff327cc6efecf6f95a70f90a1", submodules=True
+    )
+    version(
+        "1.16.2", tag="v1.16.2", commit="2a1fd2586ff9ea7b2af94a7d4b1b3c124f5f3cda", submodules=True
+    )
+    version(
+        "1.16.1", tag="v1.16.1", commit="2a1fd2586ff9ea7b2af94a7d4b1b3c124f5f3cda", submodules=True
+    )
+    version(
+        "1.16.0", tag="v1.16.0", commit="e7a0495a874251e9747b2ce0683e0580282c54df", submodules=True
+    )
+    version(
+        "1.15.1", tag="v1.15.1", commit="baeece44ba075009c6bfe95891a8c1b3d4571cb3", submodules=True
+    )
+    version(
+        "1.15.0", tag="v1.15.0", commit="638146b79ea52598ece514704d3f592c10fab2f1", submodules=True
+    )
+    version(
+        "1.14.1", tag="v1.14.1", commit="c57cf374b67f72575546d7b4c69a1af4972e2b54", submodules=True
+    )
+    version(
+        "1.13.1", tag="v1.13.1", commit="b353e0b41d588605958b03f9a223d10a2fbeb514", submodules=True
+    )
+    version(
+        "1.12.1", tag="v1.12.1", commit="70481649e3c2dba0f0e1728d15a00e440084a217", submodules=True
+    )
+    version(
+        "1.11.1", tag="v1.11.1", commit="366f4ebcb425b6a47c2b0decd3b39fa14eb9dbf6", submodules=True
+    )
+    version(
         "1.10.0", tag="v1.10.0", commit="0d9030e79888d1d5828730b254fedc53c7b640c1", submodules=True
     )
     version(
@@ -30,12 +60,23 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
 
     variant("cuda", default=False, description="Build with CUDA support")
 
-    depends_on("cmake@3.1:", type="build")
+    # Official dependencies https://github.com/microsoft/onnxruntime/blob/main/cmake/deps.txt
+    # used by microsoft to build the onnxruntime package
+
+    depends_on("cmake@3.13:", type="build")
+    depends_on("cmake@3.18:", type="build", when="@1.9:")
+    depends_on("cmake@3.24:", type="build", when="@1.14:")
+    depends_on("abseil-cpp@20220623.0", type="build", when="@1.12.1:1.13.1")
+    #depends_on("abseil-cpp@20230125.0:", type="build", when="@1.15.0:")
+    depends_on("re2+shared", type="build", when="@1.12.1:1.13.1")
+
+    depends_on("boost", type="build", when="@1.12.1:")
     depends_on("python", type=("build", "run"))
     depends_on("py-pip", type="build")
     depends_on("protobuf")
     # https://github.com/microsoft/onnxruntime/pull/11639
     depends_on("protobuf@:3.19", when="@:1.11")
+    depends_on("protobuf@3.21.12", when="@1.6.3")
     depends_on("py-protobuf", type=("build", "run"))
     depends_on("py-setuptools", type="build")
     depends_on("py-numpy@1.16.6:", type=("build", "run"))
@@ -51,7 +92,6 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     depends_on("cuda", when="+cuda")
     depends_on("cudnn", when="+cuda")
     depends_on("iconv", type=("build", "link", "run"))
-    depends_on("re2+shared")
 
     extends("python")
     # Adopted from CMS experiment's fork of onnxruntime
@@ -102,6 +142,7 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
 
         args = [
             define("onnxruntime_ENABLE_PYTHON", True),
+            define("BUILD_ONNX_PYTHON", True),
             define("onnxruntime_BUILD_SHARED_LIB", True),
             define_from_variant("onnxruntime_USE_CUDA", "cuda"),
             define("onnxruntime_BUILD_CSHARP", False),
