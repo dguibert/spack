@@ -15,6 +15,8 @@ class AbseilCpp(CMakePackage):
     maintainers("jcftang")
     tags = ["windows"]
 
+    version("20230802.1", sha256="987ce98f02eefbaf930d6e38ab16aa05737234d7afbab2d5c4ea7adbe50c28ed")
+    version("20230802.0", sha256="59d2976af9d6ecf001a81a35749a6e551a335b949d34918cfade07737b9d93c5")
     version(
         "20230125.3", sha256="5366d7e7fa7ba0d915014d387b66d0d002c03236448e1ba9ef98122c13b35c36"
     )
