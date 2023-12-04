@@ -33,9 +33,13 @@ class PyMpi4py(PythonPackage):
     version("1.3.1", sha256="e7bd2044aaac5a6ea87a87b2ecc73b310bb6efe5026031e33067ea3c2efc3507")
 
     depends_on("py-setuptools@40.9:", type="build")
-    depends_on("py-cython@0.27:2", when="@:3.1.6", type="build")
+    depends_on("py-cython@0.27:2", when="@:3.1.3", type="build")
     depends_on("py-cython@0.27:3", when="@master", type="build")
     depends_on("mpi")
+
+    # https://github.com/mpi4py/mpi4py/pull/311
+    conflicts("^py-cython@3:", when="@:3.1.4")
+
 
     def setup_build_environment(self, env):
         env.set("MPICC", self.spec["mpi"].mpicc)
