@@ -81,8 +81,10 @@ class PyPandas(PythonPackage):
     depends_on("python@:3.8", when="@0.25.2:1.1.2", type=("build", "run"))
 
     depends_on("py-meson-python@0.13.1", when="@2.1:", type="build")
-    depends_on("meson@1.2.1", when="@2.1.1:", type="build")
+    depends_on("meson@1.2.2", when="@2.1.2:", type="build")
+    depends_on("meson@1.2.1", when="@2.1.1:2.1.2", type="build")
     depends_on("meson@1.0.1", when="@2.1.0", type="build")
+
     depends_on("py-cython@3.0.5", when="@2.2:", type="build")
     depends_on("py-cython@0.29.33:2", when="@2.0:2.1", type="build")
     depends_on("py-cython@0.29.32:2", when="@1.4.4:1", type="build")
