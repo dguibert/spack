@@ -30,5 +30,5 @@ class PyPygments(PythonPackage):
     version("2.0.2", sha256="7320919084e6dac8f4540638a46447a3bd730fca172afc17d2c03eed22cf4f51")
 
     depends_on("python@3.7:", when="@2.15:", type=("build", "run"))
-    depends_on("py-setuptools@61:", when="@2.15:", type=("build", "run"))
-    depends_on("py-setuptools", type=("build", "run"))
+    depends_on("py-setuptools@61:", when="@2.15:", type="build")
+    depends_on("py-setuptools", type="build")
