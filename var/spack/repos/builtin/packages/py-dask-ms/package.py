@@ -27,6 +27,7 @@ class PyDaskMs(PythonPackage):
     # depends_on("py-wheel@X.Y:", type="build")
 
     depends_on("py-setuptools", type="build")
+    depends_on("py-poetry", type="build")
 
     #[tool.poetry.dependencies]
     # python = "^3.9, < 3.13"
