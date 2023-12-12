@@ -106,6 +106,8 @@ class Casacore(CMakePackage):
             args.extend(["-DBUILD_PYTHON=YES", "-DBUILD_PYTHON3=NO"])
 
         args.append("-DBUILD_TESTING=OFF")
+        if self.spec.satisfies("@3.3.0%gcc@10:"):
+            args.append('-DCMAKE_Fortran_FLAGS=-fallow-argument-mismatch')
         return args
 
     def patch(self):
