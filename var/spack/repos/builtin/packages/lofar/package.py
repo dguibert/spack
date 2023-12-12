@@ -39,10 +39,10 @@ class Lofar(CMakePackage):
     version("master", branch="master")
     #version("4.4.71")
 
-    build_directory = "gnu_opt" # for gnu variants
+    build_directory = "gnucxx11_opt" # for gnu variants
 
     # FIXME: Add dependencies if required.
-    depends_on("casacore")
+    depends_on("casacore@3.3.0") # newers fail to build
     depends_on("boost+date_time+regex")
     depends_on("py-numpy")
     depends_on("hdf5")
