@@ -7,3 +7,5 @@ merge feature/simpler-compiler-bootstrap
 merge dg/restore-config-locks
 
 merge rocm-6.0.0-rel-br
+
+merge dg/modules
