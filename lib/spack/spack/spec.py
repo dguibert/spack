@@ -2876,14 +2876,13 @@ class Spec:
                 continue
 
             # Add any patches from the package to the spec.
-            patches = set()
+            patches = []
             for cond, patch_list in s.package_class.patches.items():
                 if s.satisfies(cond):
                     for patch in patch_list:
-                        patches.add(patch)
+                        patches.append(patch)
             if patches:
                 spec_to_patches[id(s)] = patches
-
         # Also record all patches required on dependencies by
         # depends_on(..., patch=...)
         for dspec in root.traverse_edges(deptype=all, cover="edges", root=False):
@@ -2891,25 +2890,17 @@ class Spec:
                 continue
 
             pkg_deps = dspec.parent.package_class.dependencies
+            if dspec.spec.name not in pkg_deps:
+                continue
 
             patches = []
-            for cond, deps_by_name in pkg_deps.items():
-                if not dspec.parent.satisfies(cond):
-                    continue
-
-                dependency = deps_by_name.get(dspec.spec.name)
-                if not dependency:
-                    continue
-
+            for cond, dependency in pkg_deps[dspec.spec.name].items():
                 for pcond, patch_list in dependency.patches.items():
-                    if dspec.spec.satisfies(pcond):
+                    if dspec.parent.satisfies(cond) and dspec.spec.satisfies(pcond):
                         patches.extend(patch_list)
-
             if patches:
-                all_patches = spec_to_patches.setdefault(id(dspec.spec), set())
-                for patch in patches:
-                    all_patches.add(patch)
-
+                all_patches = spec_to_patches.setdefault(id(dspec.spec), [])
+                all_patches.extend(patches)
         for spec in root.traverse():
             if id(spec) not in spec_to_patches:
                 continue
@@ -3172,17 +3163,13 @@ class Spec:
         If no conditions are True (and we don't depend on it), return
         ``(None, None)``.
         """
+        conditions = self.package_class.dependencies[name]
+
         vt.substitute_abstract_variants(self)
         # evaluate when specs to figure out constraints on the dependency.
         dep = None
-        for when_spec, deps_by_name in self.package_class.dependencies.items():
-            if not self.satisfies(when_spec):
-                continue
-
-            for dep_name, dependency in deps_by_name.items():
-                if dep_name != name:
-                    continue
-
+        for when_spec, dependency in conditions.items():
+            if self.satisfies(when_spec):
                 if dep is None:
                     dep = dp.Dependency(Spec(self.name), Spec(name), depflag=0)
                 try:
@@ -3357,7 +3344,7 @@ class Spec:
 
         while changed:
             changed = False
-            for dep_name in self.package_class.dependency_names():
+            for dep_name in self.package_class.dependencies:
                 # Do we depend on dep_name?  If so pkg_dep is not None.
                 dep = self._evaluate_dependency_conditions(dep_name)
 

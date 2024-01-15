@@ -694,13 +694,15 @@ def _unknown_variants_in_directives(pkgs, error_cls):
                 )
 
         # Check "depends_on" directive
-        for trigger in pkg_cls.dependencies:
-            vrn = spack.spec.Spec(trigger)
-            errors.extend(
-                _analyze_variants_in_directive(
-                    pkg_cls, vrn, directive="depends_on", error_cls=error_cls
+        for _, triggers in pkg_cls.dependencies.items():
+            triggers = list(triggers)
+            for trigger in list(triggers):
+                vrn = spack.spec.Spec(trigger)
+                errors.extend(
+                    _analyze_variants_in_directive(
+                        pkg_cls, vrn, directive="depends_on", error_cls=error_cls
+                    )
                 )
-            )
 
         # Check "patch" directive
         for _, triggers in pkg_cls.provided.items():
@@ -734,60 +736,70 @@ def _issues_in_depends_on_directive(pkgs, error_cls):
     for pkg_name in pkgs:
         pkg_cls = spack.repo.PATH.get_pkg_class(pkg_name)
         filename = spack.repo.PATH.filename_for_package_name(pkg_name)
-
-        for when, deps_by_name in pkg_cls.dependencies.items():
-            for dep_name, dep in deps_by_name.items():
-                # Check if there are nested dependencies declared. We don't want directives like:
-                #
-                #     depends_on('foo+bar ^fee+baz')
-                #
-                # but we'd like to have two dependencies listed instead.
-                nested_dependencies = dep.spec.dependencies()
+        for dependency_name, dependency_data in pkg_cls.dependencies.items():
+            # Check if there are nested dependencies declared. We don't want directives like:
+            #
+            #     depends_on('foo+bar ^fee+baz')
+            #
+            # but we'd like to have two dependencies listed instead.
+            for when, dependency_edge in dependency_data.items():
+                dependency_spec = dependency_edge.spec
+                nested_dependencies = dependency_spec.dependencies()
                 if nested_dependencies:
-                    summary = f"{pkg_name}: nested dependency declaration '{dep.spec}'"
-                    ndir = len(nested_dependencies) + 1
+                    summary = (
+                        f"{pkg_name}: invalid nested dependency "
+                        f"declaration '{str(dependency_spec)}'"
+                    )
                     details = [
-                        f"split depends_on('{dep.spec}', when='{when}') into {ndir} directives",
+                        f"split depends_on('{str(dependency_spec)}', when='{str(when)}') "
+                        f"into {len(nested_dependencies) + 1} directives",
                         f"in {filename}",
                     ]
                     errors.append(error_cls(summary=summary, details=details))
 
-                # No need to analyze virtual packages
-                if spack.repo.PATH.is_virtual(dep_name):
-                    continue
+                for s in (dependency_spec, when):
+                    if s.virtual and s.variants:
+                        summary = f"{pkg_name}: virtual dependency cannot have variants"
+                        details = [
+                            f"remove variants from '{str(s)}' in depends_on directive",
+                            f"in {filename}",
+                        ]
+                        errors.append(error_cls(summary=summary, details=details))
 
-                # check for unknown dependencies
-                try:
-                    dependency_pkg_cls = spack.repo.PATH.get_pkg_class(dep_name)
-                except spack.repo.UnknownPackageError:
-                    # This dependency is completely missing, so report
-                    # and continue the analysis
-                    summary = (
-                        f"{pkg_name}: unknown package '{dep_name}' in " "'depends_on' directive"
-                    )
-                    details = [f" in {filename}"]
-                    errors.append(error_cls(summary=summary, details=details))
-                    continue
+            # No need to analyze virtual packages
+            if spack.repo.PATH.is_virtual(dependency_name):
+                continue
 
-                # check variants
-                dependency_variants = dep.spec.variants
+            try:
+                dependency_pkg_cls = spack.repo.PATH.get_pkg_class(dependency_name)
+            except spack.repo.UnknownPackageError:
+                # This dependency is completely missing, so report
+                # and continue the analysis
+                summary = pkg_name + ": unknown package '{0}' in " "'depends_on' directive".format(
+                    dependency_name
+                )
+                details = [" in " + filename]
+                errors.append(error_cls(summary=summary, details=details))
+                continue
+
+            for _, dependency_edge in dependency_data.items():
+                dependency_variants = dependency_edge.spec.variants
                 for name, value in dependency_variants.items():
                     try:
                         v, _ = dependency_pkg_cls.variants[name]
                         v.validate_or_raise(value, pkg_cls=dependency_pkg_cls)
                     except Exception as e:
                         summary = (
-                            f"{pkg_name}: wrong variant used for dependency in 'depends_on()'"
+                            pkg_name + ": wrong variant used for a "
+                            "dependency in a 'depends_on' directive"
                         )
-
+                        error_msg = str(e).strip()
                         if isinstance(e, KeyError):
-                            error_msg = (
-                                f"variant {str(e).strip()} does not exist in package {dep_name}"
-                            )
-                        error_msg += f" in package '{dep_name}'"
+                            error_msg = "the variant {0} does not " "exist".format(error_msg)
+                        error_msg += " in package '" + dependency_name + "'"
 
                         errors.append(
-                            error_cls(summary=summary, details=[error_msg, f"in {filename}"])
+                            error_cls(summary=summary, details=[error_msg, "in " + filename])
                         )
 
     return errors
@@ -854,17 +866,14 @@ def _version_constraints_are_satisfiable_by_some_version_in_repo(pkgs, error_cls
     for pkg_name in pkgs:
         pkg_cls = spack.repo.PATH.get_pkg_class(pkg_name)
         filename = spack.repo.PATH.filename_for_package_name(pkg_name)
-
         dependencies_to_check = []
+        for dependency_name, dependency_data in pkg_cls.dependencies.items():
+            # Skip virtual dependencies for the time being, check on
+            # their versions can be added later
+            if spack.repo.PATH.is_virtual(dependency_name):
+                continue
 
-        for _, deps_by_name in pkg_cls.dependencies.items():
-            for dep_name, dep in deps_by_name.items():
-                # Skip virtual dependencies for the time being, check on
-                # their versions can be added later
-                if spack.repo.PATH.is_virtual(dep_name):
-                    continue
-
-                dependencies_to_check.append(dep.spec)
+            dependencies_to_check.extend([edge.spec for edge in dependency_data.values()])
 
         host_architecture = spack.spec.ArchSpec.default_arch()
         for s in dependencies_to_check:
@@ -936,28 +945,18 @@ def _named_specs_in_when_arguments(pkgs, error_cls):
     for pkg_name in pkgs:
         pkg_cls = spack.repo.PATH.get_pkg_class(pkg_name)
 
-        def _refers_to_pkg(when):
-            when_spec = spack.spec.Spec(when)
-            return when_spec.name is None or when_spec.name == pkg_name
-
-        def _error_items(when_dict):
-            for when, elts in when_dict.items():
-                if not _refers_to_pkg(when):
-                    yield when, elts, [f"using '{when}', should be '^{when}'"]
-
         def _extracts_errors(triggers, summary):
             _errors = []
             for trigger in list(triggers):
-                if not _refers_to_pkg(trigger):
+                when_spec = spack.spec.Spec(trigger)
+                if when_spec.name is not None and when_spec.name != pkg_name:
                     details = [f"using '{trigger}', should be '^{trigger}'"]
                     _errors.append(error_cls(summary=summary, details=details))
             return _errors
 
-        for when, dnames, details in _error_items(pkg_cls.dependencies):
-            errors.extend(
-                error_cls(f"{pkg_name}: wrong 'when=' condition for '{dname}' dependency", details)
-                for dname in dnames
-            )
+        for dname, triggers in pkg_cls.dependencies.items():
+            summary = f"{pkg_name}: wrong 'when=' condition for the '{dname}' dependency"
+            errors.extend(_extracts_errors(triggers, summary))
 
         for vname, (variant, triggers) in pkg_cls.variants.items():
             summary = f"{pkg_name}: wrong 'when=' condition for the '{vname}' variant"
@@ -972,15 +971,13 @@ def _named_specs_in_when_arguments(pkgs, error_cls):
             summary = f"{pkg_name}: wrong 'when=' condition in 'requires' directive"
             errors.extend(_extracts_errors(triggers, summary))
 
-        for when, _, details in _error_items(pkg_cls.patches):
-            errors.append(
-                error_cls(f"{pkg_name}: wrong 'when=' condition in 'patch' directives", details)
-            )
+        triggers = list(pkg_cls.patches)
+        summary = f"{pkg_name}: wrong 'when=' condition in 'patch' directives"
+        errors.extend(_extracts_errors(triggers, summary))
 
-        for when, _, details in _error_items(pkg_cls.resources):
-            errors.append(
-                error_cls(f"{pkg_name}: wrong 'when=' condition in 'resource' directives", details)
-            )
+        triggers = list(pkg_cls.resources)
+        summary = f"{pkg_name}: wrong 'when=' condition in 'resource' directives"
+        errors.extend(_extracts_errors(triggers, summary))
 
     return llnl.util.lang.dedupe(errors)
 

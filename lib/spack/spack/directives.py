@@ -29,7 +29,6 @@ The available directives are:
   * ``requires``
 
 """
-import collections
 import collections.abc
 import functools
 import os.path
@@ -91,7 +90,7 @@ Patcher = Callable[[Union["spack.package_base.PackageBase", Dependency]], None]
 PatchesType = Optional[Union[Patcher, str, List[Union[Patcher, str]]]]
 
 
-def _make_when_spec(value: WhenType) -> Optional["spack.spec.Spec"]:
+def _make_when_spec(value):
     """Create a ``Spec`` that indicates when a directive should be applied.
 
     Directives with ``when`` specs, e.g.:
@@ -114,7 +113,7 @@ def _make_when_spec(value: WhenType) -> Optional["spack.spec.Spec"]:
     as part of concretization.
 
     Arguments:
-        value: a conditional Spec, constant ``bool``, or None if not supplied
+        value (spack.spec.Spec or bool): a conditional Spec or a constant ``bool``
            value indicating when a directive should be applied.
 
     """
@@ -124,7 +123,7 @@ def _make_when_spec(value: WhenType) -> Optional["spack.spec.Spec"]:
     # Unsatisfiable conditions are discarded by the caller, and never
     # added to the package class
     if value is False:
-        return None
+        return False
 
     # If there is no constraint, the directive should always apply;
     # represent this by returning the unconstrained `Spec()`, which is
@@ -183,8 +182,8 @@ class DirectiveMeta(type):
         # that the directives are called to set it up.
 
         if "spack.pkg" in cls.__module__:
-            # Ensure the presence of the dictionaries associated with the directives.
-            # All dictionaries are defaultdicts that create lists for missing keys.
+            # Ensure the presence of the dictionaries associated
+            # with the directives
             for d in DirectiveMeta._directive_dict_names:
                 setattr(cls, d, {})
 
@@ -463,14 +462,7 @@ def _execute_version(pkg, ver, **kwargs):
     pkg.versions[version] = kwargs
 
 
-def _depends_on(
-    pkg: "spack.package_base.PackageBase",
-    spec: SpecType,
-    *,
-    when: WhenType = None,
-    type: DepType = dt.DEFAULT_TYPES,
-    patches: PatchesType = None,
-):
+def _depends_on(pkg, spec, when=None, type=dt.DEFAULT_TYPES, patches=None):
     when_spec = _make_when_spec(when)
     if not when_spec:
         return
@@ -482,6 +474,7 @@ def _depends_on(
         raise CircularReferenceError("Package '%s' cannot depend on itself." % pkg.name)
 
     depflag = dt.canonicalize(type)
+    conditions = pkg.dependencies.setdefault(dep_spec.name, {})
 
     # call this patches here for clarity -- we want patch to be a list,
     # but the caller doesn't have to make it one.
@@ -509,13 +502,11 @@ def _depends_on(
     assert all(callable(p) for p in patches)
 
     # this is where we actually add the dependency to this package
-    deps_by_name = pkg.dependencies.setdefault(when_spec, {})
-    dependency = deps_by_name.get(dep_spec.name)
-
-    if not dependency:
+    if when_spec not in conditions:
         dependency = Dependency(pkg, dep_spec, depflag=depflag)
-        deps_by_name[dep_spec.name] = dependency
+        conditions[when_spec] = dependency
     else:
+        dependency = conditions[when_spec]
         dependency.spec.constrain(dep_spec, deps=False)
         dependency.depflag |= depflag
 
@@ -560,20 +551,15 @@ def conflicts(conflict_spec, when=None, msg=None):
 
 
 @directive(("dependencies"))
-def depends_on(
-    spec: SpecType,
-    when: WhenType = None,
-    type: DepType = dt.DEFAULT_TYPES,
-    patches: PatchesType = None,
-):
+def depends_on(spec, when=None, type=dt.DEFAULT_TYPES, patches=None):
     """Creates a dict of deps with specs defining when they apply.
 
     Args:
-        spec: the package and constraints depended on
-        when: when the dependent satisfies this, it has
+        spec (spack.spec.Spec or str): the package and constraints depended on
+        when (spack.spec.Spec or str): when the dependent satisfies this, it has
             the dependency represented by ``spec``
-        type: str or tuple of legal Spack deptypes
-        patches: single result of ``patch()`` directive, a
+        type (str or tuple): str or tuple of legal Spack deptypes
+        patches (typing.Callable or list): single result of ``patch()`` directive, a
             ``str`` to be passed to ``patch``, or a list of these
 
     This directive is to be used inside a Package definition to declare
@@ -582,7 +568,7 @@ def depends_on(
 
     """
 
-    def _execute_depends_on(pkg: "spack.package_base.PackageBase"):
+    def _execute_depends_on(pkg):
         _depends_on(pkg, spec, when=when, type=type, patches=patches)
 
     return _execute_depends_on
@@ -651,31 +637,28 @@ def provides(*specs, when: Optional[str] = None):
 
 
 @directive("patches")
-def patch(
-    url_or_filename: str,
-    level: int = 1,
-    when: WhenType = None,
-    working_dir: str = ".",
-    sha256: Optional[str] = None,
-    archive_sha256: Optional[str] = None,
-) -> Patcher:
+def patch(url_or_filename, level=1, when=None, working_dir=".", **kwargs):
     """Packages can declare patches to apply to source.  You can
     optionally provide a when spec to indicate that a particular
     patch should only be applied when the package's spec meets
     certain conditions (e.g. a particular version).
 
     Args:
-        url_or_filename: url or relative filename of the patch
-        level: patch level (as in the patch shell command)
-        when: optional anonymous spec that specifies when to apply the patch
-        working_dir: dir to change to before applying
-        sha256: sha256 sum of the patch, used to verify the patch (only required for URL patches)
-        archive_sha256: sha256 sum of the *archive*, if the patch is compressed (only required for
-            compressed URL patches)
+        url_or_filename (str): url or relative filename of the patch
+        level (int): patch level (as in the patch shell command)
+        when (spack.spec.Spec): optional anonymous spec that specifies when to apply
+            the patch
+        working_dir (str): dir to change to before applying
+
+    Keyword Args:
+        sha256 (str): sha256 sum of the patch, used to verify the patch
+            (only required for URL patches)
+        archive_sha256 (str): sha256 sum of the *archive*, if the patch
+            is compressed (only required for compressed URL patches)
 
     """
 
-    def _execute_patch(pkg_or_dep: Union["spack.package_base.PackageBase", Dependency]):
+    def _execute_patch(pkg_or_dep):
         pkg = pkg_or_dep
         if isinstance(pkg, Dependency):
             pkg = pkg.pkg
@@ -697,16 +680,9 @@ def patch(
         ordering_key = (pkg.name, _patch_order_index)
         _patch_order_index += 1
 
-        patch: spack.patch.Patch
         if "://" in url_or_filename:
             patch = spack.patch.UrlPatch(
-                pkg,
-                url_or_filename,
-                level,
-                working_dir,
-                ordering_key=ordering_key,
-                sha256=sha256,
-                archive_sha256=archive_sha256,
+                pkg, url_or_filename, level, working_dir, ordering_key=ordering_key, **kwargs
             )
         else:
             patch = spack.patch.FilePatch(

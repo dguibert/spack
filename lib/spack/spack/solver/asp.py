@@ -1663,8 +1663,8 @@ class SpackSolverSetup:
 
     def package_dependencies_rules(self, pkg):
         """Translate 'depends_on' directives into ASP logic."""
-        for cond, deps_by_name in sorted(pkg.dependencies.items()):
-            for _, dep in sorted(deps_by_name.items()):
+        for _, conditions in sorted(pkg.dependencies.items()):
+            for cond, dep in sorted(conditions.items()):
                 depflag = dep.depflag
                 # Skip test dependencies if they're not requested
                 if not self.tests:
@@ -1766,7 +1766,9 @@ class SpackSolverSetup:
             if rule.condition != spack.spec.Spec():
                 msg = f"condition to activate requirement {requirement_grp_id}"
                 try:
-                    main_condition_id = self.condition(rule.condition, name=pkg_name, msg=msg)
+                    main_condition_id = self.condition(
+                        main_requirement_condition, name=pkg_name, msg=msg
+                    )
                 except Exception as e:
                     if rule.kind != RequirementKind.DEFAULT:
                         raise RuntimeError(
