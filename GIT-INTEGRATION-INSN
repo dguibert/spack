@@ -9,3 +9,5 @@ merge dg/restore-config-locks
 merge rocm-6.0.0-rel-br
 
 merge dg/modules
+
+merge dg/misc
