@@ -562,7 +562,8 @@ class PackageBase(WindowsRPath, PackageViewMixin, metaclass=PackageMeta):
     # This allows analysis tools to correctly interpret the class attributes.
     versions: dict
     dependencies: Dict["spack.spec.Spec", Dict[str, "spack.dependency.Dependency"]]
-    conflicts: Dict["spack.spec.Spec", List[Tuple["spack.spec.Spec", Optional[str]]]]
+
+    # and patches
     patches: Dict["spack.spec.Spec", List["spack.patch.Patch"]]
 
     #: By default, packages are not virtual
