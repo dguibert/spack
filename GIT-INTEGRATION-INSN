@@ -1,3 +1,12 @@
+. base instruction
+
+  Setup your .git/config
+  git config --add remote.dguibert.fetch refs/insns/*:refs/insns/*
+  git config --add remote.dguibert.fetch +refs/heads/dg/*:refs/heads/dg/*
+
+  use gh to get branch form a PR
+  gh pr checkout XXXX
+
 base spack/develop
 
 merge dg/viridian
@@ -6,6 +15,7 @@ merge feature/simpler-compiler-bootstrap
 
 merge dg/restore-config-locks
 
+. exec   gh pr checkout renjithravindrankannath:rocm-6.0.0-rel-br
 merge rocm-6.0.0-rel-br
 
 merge dg/modules
