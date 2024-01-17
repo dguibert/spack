@@ -11,3 +11,5 @@ merge rocm-6.0.0-rel-br
 merge dg/modules
 
 merge dg/misc
+
+merge dg/gnuplot-fix-39720
