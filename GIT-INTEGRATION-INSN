@@ -22,8 +22,6 @@ merge dg/modules
 
 merge dg/misc
 
-merge dg/gnuplot-fix-39720
-
 merge dg/revert-when
 
 merge dg/fckit-with-nvhpc
