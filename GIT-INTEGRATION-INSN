@@ -22,6 +22,4 @@ merge dg/modules
 
 merge dg/misc
 
-merge dg/revert-when
-
 merge dg/fckit-with-nvhpc
