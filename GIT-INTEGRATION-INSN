@@ -9,14 +9,13 @@
 
 base spack/develop
 
-merge dg/viridian
-
 merge feature/simpler-compiler-bootstrap
 
 merge dg/restore-config-locks
 
+. example d'integration de PR
 . exec   gh pr checkout renjithravindrankannath:rocm-6.0.0-rel-br
-merge rocm-6.0.0-rel-br
+. merge rocm-6.0.0-rel-br
 
 merge dg/modules
 
@@ -35,3 +34,8 @@ merge dg/init-py-pyfastaq
 merge dg/update-racon
 
 merge dg/iqbal-lab-pkgs
+
+  Developpers don't care about having their tools in SPACK, see
+  https://github.com/iqbal-lab-org/cylon/issues/21
+
+  But we do.
