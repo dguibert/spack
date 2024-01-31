@@ -33,3 +33,5 @@ merge dg/init-py-pymummer
 merge dg/init-py-pyfastaq
 
 merge dg/update-racon
+
+merge dg/iqbal-lab-pkgs
