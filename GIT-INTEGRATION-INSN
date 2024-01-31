@@ -13,7 +13,7 @@ merge feature/simpler-compiler-bootstrap
 
 merge dg/restore-config-locks
 
-. example d'integration de PR
+. example d integration de PR
 . exec   gh pr checkout renjithravindrankannath:rocm-6.0.0-rel-br
 . merge rocm-6.0.0-rel-br
 
