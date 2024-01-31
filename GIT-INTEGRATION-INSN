@@ -23,3 +23,5 @@ merge dg/modules
 merge dg/misc
 
 merge dg/fckit-with-nvhpc
+
+merge dg/oci-insecure-registry
