@@ -31,3 +31,5 @@ merge dg/update-minimap2
 merge dg/init-py-pymummer
 
 merge dg/init-py-pyfastaq
+
+merge dg/update-racon
