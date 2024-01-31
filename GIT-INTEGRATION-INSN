@@ -27,3 +27,5 @@ merge dg/fckit-with-nvhpc
 merge dg/oci-insecure-registry
 
 merge dg/update-minimap2
+
+merge dg/init-py-pymummer
