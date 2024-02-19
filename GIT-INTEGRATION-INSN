@@ -37,3 +37,5 @@ merge dg/iqbal-lab-pkgs
   But we do.
 
 merge dg/bootstrap-readonly
+
+merge dg/hcoll-requires-to-depends
