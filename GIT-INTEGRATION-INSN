@@ -9,7 +9,9 @@
 
 base spack/develop
 
-merge feature/simpler-compiler-bootstrap
+. merge feature/simpler-compiler-bootstrap
+
+  not needed for nixpack-parts
 
 merge dg/restore-config-locks
 
