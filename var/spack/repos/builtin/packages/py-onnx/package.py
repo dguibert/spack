@@ -37,6 +37,7 @@ class PyOnnx(PythonPackage):
     # requirements.txt
     depends_on("py-setuptools@61:", type="build")
     depends_on("py-setuptools", type="build")
+    depends_on("protobuf", type="build")
     depends_on("py-protobuf@3.20.2:", type=("build", "run"), when="@1.15:")
     depends_on("py-protobuf@3.20.2:3", type=("build", "run"), when="@1.13")
     depends_on("py-protobuf@3.12.2:3.20.1", type=("build", "run"), when="@1.12")
@@ -59,3 +60,9 @@ class PyOnnx(PythonPackage):
 
     # 'python_out' does not recognize dllexport_decl.
     patch("remove_dllexport_decl.patch", when="@:1.6.0")
+
+    def cmake_args(self):
+        spec = self.spec
+        protobuf = spec["protobuf"].prefix.include
+        args = [self.define("CMAKE_CXX_FLAGS", "-I{0}".format(protobuf))]
+        return args
