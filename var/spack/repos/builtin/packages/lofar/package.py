@@ -45,7 +45,7 @@ class Lofar(CMakePackage):
     depends_on("casacore@3.3.0") # newers fail to build
     depends_on("boost+date_time+regex")
     depends_on("py-numpy")
-    depends_on("hdf5")
+    depends_on("hdf5+hl")
     
     patch("lofar-remove-gcc-full-paths.patch")
 
