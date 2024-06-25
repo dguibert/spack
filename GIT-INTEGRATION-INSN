@@ -41,3 +41,5 @@ merge dg/iqbal-lab-pkgs
 merge dg/bootstrap-readonly
 
 merge dg/hcoll-requires-to-depends
+
+merge dg/fix-impalajit
