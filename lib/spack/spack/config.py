@@ -182,8 +182,16 @@ class DirectoryConfigScope(ConfigScope):
             filesystem.mkdirp(self.path)
             with open(filename, "w") as f:
                 syaml.dump_config(data, stream=f, default_flow_style=False)
-        except (syaml.SpackYAMLError, OSError) as e:
-            raise ConfigFileError(f"cannot write to '{filename}'") from e
+        except (syaml.SpackYAMLError, IOError) as e:
+            if hasattr(e, 'errno') and e.errno in [13, 30]:
+                tty.warn("Ignoring write error on readonly %s" % filename)
+                # for the moment, stubbing this out because spack is trying to
+                # update the bootstrap.yaml in the bootstrap area *all* *the* *time*
+                # (with what is already in there) which keeps you from using
+                # a bootstrap area in cvmfs...  Really need to fix upstream
+                # from here to not update the config file if its already right...
+            else:
+                raise ConfigFileError(f"cannot write to '{filename}'") from e
 
     @property
     def is_platform_dependent(self) -> bool:
