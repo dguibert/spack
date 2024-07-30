@@ -39,11 +39,12 @@ class Gdrcopy(MakefilePackage, CudaPackage):
         make("exes")
 
     def install(self, spec, prefix):
+        nvcc=self.spec['cuda'].prefix.bin.nvcc
         mkdir(prefix.include)
         mkdir(prefix.lib64)
         if spec.satisfies("@2.2:"):
             make("lib_install", "prefix={0}".format(self.prefix))
             make("exes_install", "prefix={0}".format(self.prefix))
         else:
-            make("lib_install", "PREFIX={0}".format(self.prefix))
-            make("exes_install", "PREFIX={0}".format(self.prefix))
+            make("lib_install", "PREFIX={0}".format(self.prefix), "NVCC={0}".format(nvcc))
+            make("exes_install", "PREFIX={0}".format(self.prefix), "NVCC={0}".format(nvcc))
