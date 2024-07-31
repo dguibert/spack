@@ -23,8 +23,6 @@ merge dg/modules
 
 merge dg/misc
 
-merge dg/fckit-with-nvhpc
-
 merge dg/oci-insecure-registry
 
 merge dg/update-minimap2
@@ -44,4 +42,6 @@ merge dg/hcoll-requires-to-depends
 
 merge dg/fix-impalajit
 
-merge dg/fix-gdrcopy-tests
+merge fixgdrcopy
+
+merge dg/update-nvhpc
