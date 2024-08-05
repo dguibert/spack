@@ -23,6 +23,7 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     license("MIT")
 
     version("1.17.1", tag="v1.17.1", commit="8f5c79cb63f09ef1302e85081093a3fe4da1bc7d")
+    version("1.16.3", tag="v1.16.3", commit="2ac381c55397dffff327cc6efecf6f95a70f90a1")
     version("1.10.0", tag="v1.10.0", commit="0d9030e79888d1d5828730b254fedc53c7b640c1")
     version("1.7.2", tag="v1.7.2", commit="5bc92dff16b0ddd5063b717fb8522ca2ad023cb0")
 
@@ -37,8 +38,13 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     # Needs absl/strings/has_absl_stringify.h
     # cxxstd=20 may also work, but cxxstd=14 does not
     depends_on("abseil-cpp@20240116.0: cxxstd=17", when="@1.17:")
+    depends_on("abseil-cpp@20220623.0", type="build", when="@1.12.1:1.13.1")
 
     extends("python")
+
+    depends_on("re2+shared", type="build", when="@1.12.1:1.13.1")
+
+    depends_on("boost", type="build", when="@1.12.1:")
     depends_on("python", type=("build", "run"))
     depends_on("py-pip", type="build")
     depends_on("py-wheel", type="build")
@@ -56,6 +62,12 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     depends_on("protobuf")
     # https://github.com/microsoft/onnxruntime/pull/11639
     depends_on("protobuf@:3.19", when="@:1.11")
+    depends_on("protobuf@3.21.12", when="@1.6.3")
+    depends_on("py-protobuf", type=("build", "run"))
+    depends_on("py-setuptools", type="build")
+    depends_on("py-numpy@1.16.6:", type=("build", "run"))
+    depends_on("py-sympy@1.1:", type=("build", "run"))
+    depends_on("py-packaging", type=("build", "run"))
     depends_on("py-cerberus", type=("build", "run"))
     depends_on("py-onnx", type=("build", "run"))
     depends_on("py-onnx@:1.15.0", type=("build", "run"), when="@:1.17.1")
@@ -64,7 +76,6 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     depends_on("cuda", when="+cuda")
     depends_on("cudnn", when="+cuda")
     depends_on("iconv", type=("build", "link", "run"))
-    depends_on("re2+shared")
 
     # Adopted from CMS experiment's fork of onnxruntime
     # https://github.com/cms-externals/onnxruntime/compare/5bc92df...d594f80
@@ -114,6 +125,7 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
 
         args = [
             define("onnxruntime_ENABLE_PYTHON", True),
+            define("BUILD_ONNX_PYTHON", True),
             define("onnxruntime_BUILD_SHARED_LIB", True),
             define_from_variant("onnxruntime_USE_CUDA", "cuda"),
             define("onnxruntime_BUILD_CSHARP", False),
