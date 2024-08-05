@@ -45,3 +45,5 @@ merge dg/fix-impalajit
 merge fixgdrcopy
 
 merge dg/update-nvhpc
+
+merge dg/openmpi-oshmem-disable
