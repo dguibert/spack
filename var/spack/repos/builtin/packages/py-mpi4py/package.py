@@ -34,6 +34,7 @@ class PyMpi4py(PythonPackage):
 
     depends_on("py-setuptools@40.9:", type="build")
     depends_on("py-cython@0.27:2", when="@:3.1.3", type="build")
+    depends_on("py-cython@0.27:3", when="@3.1.5:3.1.6", type="build")
     depends_on("py-cython@0.27:3", when="@master", type="build")
     depends_on("mpi")
 
