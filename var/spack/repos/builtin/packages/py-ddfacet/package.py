@@ -52,7 +52,7 @@ class PyDdfacet(PythonPackage):
     depends_on("py-scipy")           # "scipy >= 1.3.3,<=1.5.4; python_version >= '3'",
     depends_on("py-astlib")          # "astLib >= 0.8.0,<=0.11.7; python_version >= '3'",
     depends_on("py-psutil")          # "psutil >= 5.2.2,<=5.9.1; python_version >= '3'",
-    depends_on("py-pycpuinfo")       # "py-cpuinfo >= 3.2.0,<=8.0.0; python_version >= '3'",
+    depends_on("py-py-cpuinfo")       # "py-cpuinfo >= 3.2.0,<=8.0.0; python_version >= '3'",
     depends_on("py-tables")          # "tables >= 3.6.0,<=3.7.0; python_version >= '3'",
     depends_on("py-prettytable")     # "prettytable >= 0.7.2,<=2.5.0; python_version >= '3'",
     depends_on("py-pybind11")        # "pybind11 >= 2.2.2,<=2.9.2; python_version >= '3'",
