@@ -47,3 +47,7 @@ merge fixgdrcopy
 merge dg/update-nvhpc
 
 merge dg/openmpi-oshmem-disable
+
+merge dg/ddfacet-busy-week
+
+  ddfacet (https://github.com/saopicc/DDFacet) and its dependencies.
