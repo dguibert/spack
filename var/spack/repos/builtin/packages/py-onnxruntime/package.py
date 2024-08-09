@@ -42,6 +42,10 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     depends_on("abseil-cpp@20220623.0", type="build", when="@1.12.1:1.13.1")
 
     extends("python")
+
+    depends_on("re2+shared", type="build", when="@1.12.1:1.13.1")
+
+    depends_on("boost", type="build", when="@1.12.1:")
     depends_on("python", type=("build", "run"))
     depends_on("py-pip", type="build")
     depends_on("py-wheel", type="build")
@@ -59,6 +63,12 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     depends_on("protobuf")
     # https://github.com/microsoft/onnxruntime/pull/11639
     depends_on("protobuf@:3.19", when="@:1.11")
+    depends_on("protobuf@3.21.12", when="@1.6.3")
+    depends_on("py-protobuf", type=("build", "run"))
+    depends_on("py-setuptools", type="build")
+    depends_on("py-numpy@1.16.6:", type=("build", "run"))
+    depends_on("py-sympy@1.1:", type=("build", "run"))
+    depends_on("py-packaging", type=("build", "run"))
     depends_on("py-cerberus", type=("build", "run"))
     depends_on("py-onnx", type=("build", "run"))
     depends_on("py-onnx@:1.15.0", type=("build", "run"), when="@:1.17")
