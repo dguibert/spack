@@ -203,7 +203,7 @@ class Scorep(AutotoolsPackage):
         config_args += self.with_or_without("shmem")
         config_args += self.with_or_without("mpi")
 
-        if spec.satisfies("^intel-mpi"):
+        if spec.satisfies("^intel-mpi") or spec.satisfies("^intel-oneapi-mpi"):
             config_args.append("--with-mpi=intel3")
         elif (
             spec.satisfies("^mpich")
