@@ -13,6 +13,7 @@ class PyDatabricksCli(PythonPackage):
     pypi = "databricks-cli/databricks-cli-0.17.4.tar.gz"
 
     version("0.17.4", sha256="bc0c4dd082f033cb6d7978cacaca5261698efe3a4c70f52f98762c38db925ce0")
+    version("0.17.3", sha256="1bbf6e6ad2f1404cb70da1568822ab6a8fa07e563e9529782077011c5640bb9e")
     version("0.14.3", sha256="bdf89a3917a3f8f8b99163e38d40e66dc478c7408954747f145cd09816b05e2c")
 
     depends_on("python@3.6:", type=("build", "run"))

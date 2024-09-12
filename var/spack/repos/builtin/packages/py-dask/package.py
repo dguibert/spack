@@ -16,6 +16,7 @@ class PyDask(PythonPackage):
 
     license("BSD-3-Clause")
 
+    version("2024.8.0", sha256="f1fec39373d2f101bc045529ad4e9b30e34e6eb33b7aa0fa7073aec7b1bf9eee")
     version("2024.7.1", sha256="dbaef2d50efee841a9d981a218cfeb50392fc9a95e0403b6d680450e4f50d531")
     version("2023.4.1", sha256="9dc72ebb509f58f3fe518c12dd5a488c67123fdd66ccb0b968b34fd11e512153")
     version("2022.10.2", sha256="42cb43f601709575fa46ce09e74bea83fdd464187024f56954e09d9b428ceaab")
@@ -99,6 +100,7 @@ class PyDask(PythonPackage):
     depends_on("py-partd@0.3.10:", type=("build", "run"), when="@:2021.3.0 +dataframe")
     # The dependency on py-fsspec is non-optional starting version 2021.3.1
     depends_on("py-fsspec@0.6.0:", type=("build", "run"), when="@:2021.3.0 +dataframe")
+    depends_on("py-dask-expr@1.1:1.2", type=("build", "run"), when="@2024.8.0: +dataframe")
 
     # Requirements for dask.distributed
     depends_on(
@@ -108,6 +110,7 @@ class PyDask(PythonPackage):
     depends_on("py-distributed@2022.10.2", type=("build", "run"), when="@2022.10.2 +distributed")
     depends_on("py-distributed@2023.4.1", type=("build", "run"), when="@2023.4.1 +distributed")
     depends_on("py-distributed@2024.7.1", type=("build", "run"), when="@2024.7.1 +distributed")
+    depends_on("py-distributed@2024.8.0", type=("build", "run"), when="@2024.8.0 +distributed")
 
     # Requirements for dask.diagnostics
     depends_on("py-bokeh@1.0.0:1,2.0.1:", type=("build", "run"), when="+diagnostics")
