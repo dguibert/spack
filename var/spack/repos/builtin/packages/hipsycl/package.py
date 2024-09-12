@@ -161,7 +161,7 @@ class Hipsycl(CMakePackage, ROCmPackage):
             #    the libc++.so and libc++abi.so dyn linked to the sycl
             #    ptx backend
             rpaths = set()
-            if "~rocm" in spec:
+            if "~rocm" in self.spec:
                 so_paths = filesystem.find_libraries(
                     "libc++", self.spec["llvm"].prefix, shared=True, recursive=True
                 )
