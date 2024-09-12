@@ -53,3 +53,5 @@ merge dg/ddfacet-busy-week
   ddfacet (https://github.com/saopicc/DDFacet) and its dependencies.
 
 merge dg/scorep-with-intel-oneapi-mpi
+
+merge dg/fix-hipsycl
