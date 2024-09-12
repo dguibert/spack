@@ -24,6 +24,7 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
 
     version("1.17.3", tag="v1.17.3", commit="56b660f36940a919295e6f1e18ad3a9a93a10bf7")
     version("1.17.1", tag="v1.17.1", commit="8f5c79cb63f09ef1302e85081093a3fe4da1bc7d")
+    version("1.16.3", tag="v1.16.3", commit="2ac381c55397dffff327cc6efecf6f95a70f90a1")
     version("1.10.0", tag="v1.10.0", commit="0d9030e79888d1d5828730b254fedc53c7b640c1")
     version("1.7.2", tag="v1.7.2", commit="5bc92dff16b0ddd5063b717fb8522ca2ad023cb0")
 
@@ -65,7 +66,6 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
     depends_on("cuda", when="+cuda")
     depends_on("cudnn", when="+cuda")
     depends_on("iconv", type=("build", "link", "run"))
-    depends_on("re2+shared")
 
     # Adopted from CMS experiment's fork of onnxruntime
     # https://github.com/cms-externals/onnxruntime/compare/5bc92df...d594f80
@@ -115,6 +115,7 @@ class PyOnnxruntime(CMakePackage, PythonExtension):
 
         args = [
             define("onnxruntime_ENABLE_PYTHON", True),
+            define("BUILD_ONNX_PYTHON", True),
             define("onnxruntime_BUILD_SHARED_LIB", True),
             define_from_variant("onnxruntime_USE_CUDA", "cuda"),
             define("onnxruntime_BUILD_CSHARP", False),
