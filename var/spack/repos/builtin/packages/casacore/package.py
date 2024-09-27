@@ -124,6 +124,8 @@ class Casacore(CMakePackage):
         # args.append(self.define('BUILD_TESTING', self.run_tests))
         args.append(self.define("BUILD_TESTING", False))
 
+        if self.spec.satisfies("@3.3.0%gcc@10:"):
+            args.append('-DCMAKE_Fortran_FLAGS=-fallow-argument-mismatch')
         return args
 
     def patch(self):
