@@ -71,7 +71,6 @@ class PyOnnxruntime(CMakePackage, PythonExtension, ROCmPackage):
     depends_on("cuda", when="+cuda")
     depends_on("cudnn", when="+cuda")
     depends_on("iconv", type=("build", "link", "run"))
-    depends_on("re2+shared")
 
     rocm_dependencies = [
         "hsa-rocr-dev",
@@ -172,6 +171,7 @@ class PyOnnxruntime(CMakePackage, PythonExtension, ROCmPackage):
 
         args = [
             define("onnxruntime_ENABLE_PYTHON", True),
+            define("BUILD_ONNX_PYTHON", True),
             define("onnxruntime_BUILD_SHARED_LIB", True),
             define_from_variant("onnxruntime_USE_CUDA", "cuda"),
             define("onnxruntime_BUILD_CSHARP", False),
