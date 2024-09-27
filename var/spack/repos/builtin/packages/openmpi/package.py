@@ -1150,6 +1150,8 @@ class Openmpi(AutotoolsPackage, CudaPackage):
 
         if "+openshmem" in spec:
             config_args.append("--enable-oshmem")
+        else:
+            config_args.append("--disable-oshmem")
 
         if "+wrapper-rpath" in spec:
             config_args.append("--enable-wrapper-rpath")
