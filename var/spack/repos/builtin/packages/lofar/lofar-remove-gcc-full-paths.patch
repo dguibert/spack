@@ -1,0 +1,76 @@
+diff --git a/CMake/variants/CLANG.cmake b/CMake/variants/CLANG.cmake
+index 4a4a3bc197..bc253d2846 100644
+--- a/CMake/variants/CLANG.cmake
++++ b/CMake/variants/CLANG.cmake
+@@ -11,10 +11,10 @@ set(LOFAR_BUILD_VARIANTS DEBUG OPT OPT3 OPTARCH)
+ 
+ # CLANG compiler suite
+ set(CLANG_COMPILERS CLANG_C CLANG_CXX CLANG_Fortran CLANG_ASM)
+-set(CLANG_C         /usr/bin/clang)    # CLANG C compiler
+-set(CLANG_CXX       /usr/bin/clang++)  # CLANG C++ compiler
+-set(CLANG_Fortran   /usr/bin/gfortran) # CLANG Fortran compiler
+-set(CLANG_ASM       /usr/bin/gcc)      # CLANG assembler
++set(CLANG_C         clang)    # CLANG C compiler
++set(CLANG_CXX       clang++)  # CLANG C++ compiler
++set(CLANG_Fortran   gfortran) # CLANG Fortran compiler
++set(CLANG_ASM       gcc)      # CLANG assembler
+ 
+ set(CLANG_C_FLAGS          "-W -Wall -Wno-unknown-pragmas")
+ set(CLANG_C_FLAGS_DEBUG    "-g")
+diff --git a/CMake/variants/GNU.cmake b/CMake/variants/GNU.cmake
+index 0077dcd50a..153a9b1fa6 100644
+--- a/CMake/variants/GNU.cmake
++++ b/CMake/variants/GNU.cmake
+@@ -11,10 +11,10 @@ set(LOFAR_BUILD_VARIANTS DEBUG OPT OPT3 OPTARCH)
+ 
+ # GNU compiler suite
+ set(GNU_COMPILERS GNU_C GNU_CXX GNU_Fortran GNU_ASM)
+-set(GNU_C         /usr/bin/gcc)      # GNU C compiler
+-set(GNU_CXX       /usr/bin/g++)      # GNU C++ compiler
+-set(GNU_Fortran   /usr/bin/gfortran) # GNU Fortran compiler
+-set(GNU_ASM       /usr/bin/gcc)      # GNU assembler
++set(GNU_C         gcc)      # GNU C compiler
++set(GNU_CXX       g++)      # GNU C++ compiler
++set(GNU_Fortran   gfortran) # GNU Fortran compiler
++set(GNU_ASM       gcc)      # GNU assembler
+ 
+ set(GNU_C_FLAGS          "-W -Wall -Wno-unknown-pragmas")
+ set(GNU_C_FLAGS_DEBUG    "-g")
+diff --git a/CMake/variants/GNUCXX11.cmake b/CMake/variants/GNUCXX11.cmake
+index 643198e9b7..ae6f2e0c80 100644
+--- a/CMake/variants/GNUCXX11.cmake
++++ b/CMake/variants/GNUCXX11.cmake
+@@ -11,10 +11,10 @@ set(LOFAR_BUILD_VARIANTS DEBUG OPT OPT3 OPTARCH)
+ 
+ # GNU compiler suite
+ set(GNUCXX11_COMPILERS GNUCXX11_C GNUCXX11_CXX GNUCXX11_Fortran GNUCXX11_ASM)
+-set(GNUCXX11_C         /usr/bin/gcc)      # GNU C compiler
+-set(GNUCXX11_CXX       /usr/bin/g++)      # GNU C++ compiler
+-set(GNUCXX11_Fortran   /usr/bin/gfortran) # GNU Fortran compiler
+-set(GNUCXX11_ASM       /usr/bin/gcc)      # GNU assembler
++set(GNUCXX11_C         gcc)      # GNU C compiler
++set(GNUCXX11_CXX       g++)      # GNU C++ compiler
++set(GNUCXX11_Fortran   gfortran) # GNU Fortran compiler
++set(GNUCXX11_ASM       gcc)      # GNU assembler
+ 
+ set(GNUCXX11_C_FLAGS          "-W -Wall -Wno-unknown-pragmas")
+ set(GNUCXX11_C_FLAGS_DEBUG    "-g")
+diff --git a/CMake/variants/GNUCXX98.cmake b/CMake/variants/GNUCXX98.cmake
+index 8959dd70bf..72c5eae419 100644
+--- a/CMake/variants/GNUCXX98.cmake
++++ b/CMake/variants/GNUCXX98.cmake
+@@ -11,10 +11,10 @@ set(LOFAR_BUILD_VARIANTS DEBUG OPT OPT3 OPTARCH)
+ 
+ # GNUCXX98 compiler suite
+ set(GNUCXX98_COMPILERS GNUCXX98_C GNUCXX98_CXX GNUCXX98_Fortran GNUCXX98_ASM)
+-set(GNUCXX98_C         /usr/bin/gcc)      # GNUCXX98 C compiler
+-set(GNUCXX98_CXX       /usr/bin/g++)      # GNUCXX98 C++ compiler
+-set(GNUCXX98_Fortran   /usr/bin/gfortran) # GNUCXX98 Fortran compiler
+-set(GNUCXX98_ASM       /usr/bin/gcc)      # GNUCXX98 assembler
++set(GNUCXX98_C         gcc)      # GNUCXX98 C compiler
++set(GNUCXX98_CXX       g++)      # GNUCXX98 C++ compiler
++set(GNUCXX98_Fortran   gfortran) # GNUCXX98 Fortran compiler
++set(GNUCXX98_ASM       gcc)      # GNUCXX98 assembler
+ 
+ set(GNUCXX98_C_FLAGS          "-W -Wall -Wno-unknown-pragmas")
+ set(GNUCXX98_C_FLAGS_DEBUG    "-g")

@@ -45,10 +45,6 @@ class PyOnnxruntime(CMakePackage, PythonExtension, ROCmPackage):
     depends_on("abseil-cpp@20220623.0", type="build", when="@1.12.1:1.13.1")
 
     extends("python")
-
-    depends_on("re2+shared", type="build", when="@1.12.1:1.13.1")
-
-    depends_on("boost", type="build", when="@1.12.1:")
     depends_on("python", type=("build", "run"))
     depends_on("py-pip", type="build")
     depends_on("py-wheel", type="build")

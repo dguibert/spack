@@ -13,7 +13,8 @@ class Arrow(CMakePackage, CudaPackage):
     """
 
     homepage = "https://arrow.apache.org"
-    url = "https://github.com/apache/arrow/archive/apache-arrow-0.9.0.tar.gz"
+    #url = "https://github.com/apache/arrow/archive/refs/tags/apache-arrow-0.9.0.tar.gz"
+    url = "https://github.com/apache/arrow/archive/refs/tags/apache-arrow-14.0.2.tar.gz"
 
     license("Apache-2.0")
 
