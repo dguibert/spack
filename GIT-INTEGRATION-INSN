@@ -56,7 +56,5 @@ merge dg/scorep-with-intel-oneapi-mpi
 
 merge dg/fix-hipsycl
 
-. https://github.com/spack/spack/pull/41176
+. https://github.com/spack/spack/pull/xxxx
 . GH_TOKEN=$(pass 00_tokens/github.com | head -1) nix run nixpkgs#gh pr checkout 41176
-
-merge thomas/seissol
