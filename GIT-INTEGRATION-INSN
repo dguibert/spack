@@ -58,3 +58,5 @@ merge dg/fix-hipsycl
 
 . https://github.com/spack/spack/pull/xxxx
 . GH_TOKEN=$(pass 00_tokens/github.com | head -1) nix run nixpkgs#gh pr checkout 41176
+
+merge dg/ssjon-dump-sorted
