@@ -26,15 +26,15 @@ merge dg/misc
 merge dg/oci-insecure-registry
 
 . merge dg/update-minimap2
-.
+
 . merge dg/update-racon
-.
+
 . merge dg/iqbal-lab-pkgs
-.
-.   Developpers don't care about having their tools in SPACK, see
-.   https://github.com/iqbal-lab-org/cylon/issues/21
-.
-.   But we do.
+
+   Developpers don't care about having their tools in SPACK, see
+   https://github.com/iqbal-lab-org/cylon/issues/21
+
+   But we do.
 
 merge dg/bootstrap-readonly
 
