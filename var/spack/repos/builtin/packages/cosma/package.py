@@ -89,20 +89,17 @@ class Cosma(CMakePackage):
         query_to_cmake_arg = [
             ("+cuda", "CUDA"),
             ("+rocm", "ROCM"),
-            ("^[virtuals=blas] intel-oneapi-mkl", "MKL"),
-            ("^[virtuals=blas] cray-libsci", "CRAY_LIBSCI"),
-            ("^[virtuals=blas] netlib-lapack", "CUSTOM"),
-            ("^[virtuals=blas] openblas", "OPENBLAS"),
-            ("^[virtuals=blas] fujitsu-ssl2", "SSL2"),
+            ("^intel-mkl", "MKL"),
+            ("^intel-oneapi-mkl", "MKL"),
+            ("^cray-libsci", "CRAY_LIBSCI"),
+            ("^netlib-lapack", "CUSTOM"),
+            ("^openblas", "OPENBLAS"),
+            ("^fujitsu-ssl2", "SSL2"),
         ]
 
         if self.version >= Version("2.4.0"):
             query_to_cmake_arg.extend(
-                [
-                    ("^[virtuals=blas] blis", "BLIS"),
-                    ("^[virtuals=blas] amdblis", "BLIS"),
-                    ("^[virtuals=blas] atlas", "ATLAS"),
-                ]
+                [("^blis", "BLIS"), ("^amdblis", "BLIS"), ("^atlas", "ATLAS")]
             )
 
         for query, cmake_arg in query_to_cmake_arg:
@@ -116,7 +113,7 @@ class Cosma(CMakePackage):
 
         if spec.satisfies("~scalapack"):
             return "OFF"
-        elif spec.satisfies("^[virtuals=scalapack] intel-oneapi-mkl"):
+        elif spec.satisfies("^intel-mkl") or spec.satisfies("^intel-oneapi-mkl"):
             return "MKL"
         elif spec.satisfies("^cray-libsci"):
             return "CRAY_LIBSCI"

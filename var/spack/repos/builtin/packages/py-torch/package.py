@@ -662,10 +662,14 @@ class PyTorch(PythonPackage, CudaPackage, ROCmPackage):
         elif self.spec["lapack"].name in ["libflame", "amdlibflame"]:
             env.set("BLAS", "FLAME")
             env.set("WITH_BLAS", "FLAME")
-        elif self.spec["blas"].name == "intel-oneapi-mkl":
+        elif self.spec["blas"].name in ["intel-mkl", "intel-parallel-studio", "intel-oneapi-mkl"]:
             env.set("BLAS", "MKL")
             env.set("WITH_BLAS", "mkl")
-            env.set("INTEL_MKL_DIR", self.spec["mkl"].prefix.mkl.latest)
+            # help find MKL
+            if self.spec["mkl"].name == "intel-oneapi-mkl":
+                env.set("INTEL_MKL_DIR", self.spec["mkl"].prefix.mkl.latest)
+            else:
+                env.set("INTEL_MKL_DIR", self.spec["mkl"].prefix.mkl)
         elif self.spec["blas"].name == "openblas":
             env.set("BLAS", "OpenBLAS")
             env.set("WITH_BLAS", "open")

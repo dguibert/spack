@@ -213,17 +213,15 @@ class Scorep(AutotoolsPackage):
         # If autodetection fails for +shmem with one of these available to spack, please add
         # a "if spec.satisfies():" clause for said package.
 
-        if spec.satisfies("^[virtuals=mpi] intel-oneapi-mpi"):
+        if spec.satisfies("^intel-mpi") or spec.satisfies("^intel-oneapi-mpi"):
             config_args.append("--with-mpi=intel3")
         elif (
-            spec.satisfies("^[virtuals=mpi] mpich")
-            or spec.satisfies("^[virtuals=mpi] mvapich2")
-            or spec.satisfies("^[virtuals=mpi] cray-mpich")
+            spec.satisfies("^mpich")
+            or spec.satisfies("^mvapich2")
+            or spec.satisfies("^cray-mpich")
         ):
             config_args.append("--with-mpi=mpich3")
-        elif spec.satisfies("^[virtuals=mpi] openmpi") or spec.satisfies(
-            "^[virtuals=mpi] hpcx-mpi"
-        ):
+        elif spec.satisfies("^openmpi") or spec.satisfies("^hpcx-mpi"):
             config_args.append("--with-mpi=openmpi")
         elif "~mpi" in spec:
             config_args.append("--without-mpi")

@@ -572,7 +572,7 @@ class MakefilePackageTemplate(PackageTemplate):
 class IntelPackageTemplate(PackageTemplate):
     """Provides appropriate overrides for licensed Intel software"""
 
-    base_class_name = "IntelOneApiPackage"
+    base_class_name = "IntelPackage"
 
     body_def = """\
     # FIXME: Override `setup_environment` if necessary."""

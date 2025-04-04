@@ -43,7 +43,7 @@ class Ctffind(AutotoolsPackage):
     def configure_args(self):
         config_args = []
 
-        if self.spec.satisfies("^[virtuals=fftw-api] intel-oneapi-mkl"):
+        if self.spec["fftw-api"].name in INTEL_MATH_LIBRARIES:
             config_args.extend(
                 [
                     "--enable-mkl",

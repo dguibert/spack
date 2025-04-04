@@ -24,7 +24,8 @@ class RRmpi(RPackage):
     depends_on("mpi")
 
     # The following MPI types are not supported
-    conflicts("^[virtuals=mpi] intel-oneapi-mpi")
+    conflicts("^[virtuals=mpi] intel-mpi")
+    conflicts("^[virtuals=mpi] intel-parallel-studio")
     conflicts("^[virtuals=mpi] mvapich2")
     conflicts("^[virtuals=mpi] spectrum-mpi")
 

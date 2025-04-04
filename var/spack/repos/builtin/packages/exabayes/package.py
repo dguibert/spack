@@ -30,15 +30,21 @@ class Exabayes(AutotoolsPackage):
     # GCC 7.1.0 is used.
     conflicts("%gcc@:4.5.4, 7.1.0:", when="@:1.5.0")
     conflicts("%clang@:3.1")
-    conflicts("^intel-oneapi-mpi", when="+mpi")
+    conflicts("^intel-mpi", when="+mpi")
+    conflicts("^intel-parallel-studio+mpi", when="+mpi")
     conflicts("^mvapich2", when="+mpi")
     conflicts("^spectrum-mpi", when="+mpi")
 
     def configure_args(self):
-        return self.enable_or_disable("mpi")
+        args = []
+        if self.spec.satisfies("+mpi"):
+            args.append("--enable-mpi")
+        else:
+            args.append("--disable-mpi")
+        return args
 
     def flag_handler(self, name, flags):
         if name.lower() == "cxxflags":
             # manual cites need for c++11
             flags.append(self.compiler.cxx11_flag)
-        return flags, None, None
+        return (flags, None, None)
