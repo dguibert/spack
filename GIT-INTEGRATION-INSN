@@ -25,16 +25,16 @@ merge dg/misc
 
 merge dg/oci-insecure-registry
 
-merge dg/update-minimap2
-
-merge dg/update-racon
-
-merge dg/iqbal-lab-pkgs
-
-  Developpers don't care about having their tools in SPACK, see
-  https://github.com/iqbal-lab-org/cylon/issues/21
-
-  But we do.
+. merge dg/update-minimap2
+.
+. merge dg/update-racon
+.
+. merge dg/iqbal-lab-pkgs
+.
+.   Developpers don't care about having their tools in SPACK, see
+.   https://github.com/iqbal-lab-org/cylon/issues/21
+.
+.   But we do.
 
 merge dg/bootstrap-readonly
 
@@ -48,7 +48,7 @@ merge dg/update-nvhpc
 
 merge dg/openmpi-oshmem-disable
 
-merge dg/ddfacet-busy-week
+. merge dg/ddfacet-busy-week
 
   ddfacet (https://github.com/saopicc/DDFacet) and its dependencies.
 
