@@ -60,3 +60,5 @@ merge dg/fix-hipsycl
 . GH_TOKEN=$(pass 00_tokens/github.com | head -1) nix run nixpkgs#gh pr checkout 41176
 
 merge dg/ssjon-dump-sorted
+
+merge dg/restore-intel-compilers
