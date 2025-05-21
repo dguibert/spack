@@ -23,8 +23,8 @@ def load(stream: Any) -> Dict:
 def dump(data: Dict, stream: Optional[Any] = None) -> Optional[str]:
     """Dump JSON with a reasonable amount of indentation and separation."""
     if stream is None:
-        return json.dumps(data, **_json_dump_args)  # type: ignore[arg-type]
-    json.dump(data, stream, **_json_dump_args)  # type: ignore[arg-type]
+        return json.dumps(data, sort_keys=True, **_json_dump_args)  # type: ignore[arg-type]
+    json.dump(data, stream, sort_keys=True, **_json_dump_args)  # type: ignore[arg-type]
     return None
 
 
