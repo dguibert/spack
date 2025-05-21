@@ -31,14 +31,13 @@ class Sionlib(AutotoolsPackage):
 
     def configure_args(self):
         args = []
+        spec = self.spec
 
-        if self.spec.satisfies("^[virtuals=mpi] intel-oneapi-mpi"):
+        if spec.satisfies("^intel-mpi"):
             args.append("--mpi=intel2")
-        elif self.spec.satisfies("^[virtuals=mpi] mpich") or self.spec.satisfies(
-            "^[virtuals=mpi] mvapich2"
-        ):
+        elif spec.satisfies("^mpich") or spec.satisfies("^mvapich2"):
             args.append("--mpi=mpich2")
-        elif self.spec.satisfies("^[virtuals=mpi] openmpi"):
+        elif spec.satisfies("^openmpi"):
             args.append("--mpi=openmpi")
 
         return args

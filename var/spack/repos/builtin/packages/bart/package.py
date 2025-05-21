@@ -52,7 +52,7 @@ class Bart(MakefilePackage, CudaPackage):
         if spec["blas"].name == "openblas":
             env["OPENBLAS"] = "1"
 
-        elif spec.satisfies("^[virtuals=blas] intel-oneapi-mkl"):
+        elif spec["blas"].name in INTEL_MATH_LIBRARIES:
             env["MKL"] = "1"
             env["MKL_BASE"] = spec["mkl"].prefix.mkl
         else:

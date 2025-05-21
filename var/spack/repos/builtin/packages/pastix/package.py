@@ -85,11 +85,11 @@ class Pastix(CMakePackage, CudaPackage):
             args.extend([self.define("PASTIX_WITH_STARPU", "ON")])
             args.extend([self.define_from_variant("PASTIX_WITH_CUDA", "cuda")])
 
-        if spec.satisfies("^[virtuals=lapack] intel-oneapi-mkl"):
+        if "^intel-mkl" in spec or "^intel-parallel-studio+mkl" in spec:
             args.extend([self.define("BLA_VENDOR", "Intel10_64lp_seq")])
-        elif spec.satisfies("^[virtuals=lapack] netlib-lapack"):
+        elif "^netlib-lapack" in spec:
             args.extend([self.define("BLA_VENDOR", "Generic")])
-        elif spec.satisfies("^[virtuals=lapack] openblas"):
+        elif "^openblas" in spec:
             args.extend([self.define("BLA_VENDOR", "OpenBLAS")])
 
         if spec.satisfies("+mpi"):

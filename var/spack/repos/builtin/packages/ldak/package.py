@@ -30,13 +30,14 @@ class Ldak(Package):
     depends_on("blas")
     depends_on("lapack")
     depends_on("openblas threads=openmp", when="^[virtuals=blas] openblas")
+    depends_on("intel-mkl threads=openmp", when="^[virtuals=blas] intel-mkl")
     depends_on("intel-oneapi-mkl threads=openmp", when="^[virtuals=blas] intel-oneapi-mkl")
     depends_on("glpk", when="+glpk")
 
     requires("target=x86_64:", when="~glpk", msg="bundled qsopt is only for x86_64")
     requires(
-        "^[virtuals=lapack] openblas",
-        "^[virtuals=lapack] intel-oneapi-mkl",
+        "^openblas",
+        *[f"^{intel_pkg}" for intel_pkg in INTEL_MATH_LIBRARIES],
         policy="one_of",
         msg="Only mkl or openblas are supported for blas/lapack with ldak",
     )

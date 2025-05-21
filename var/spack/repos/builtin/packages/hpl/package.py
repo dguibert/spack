@@ -126,7 +126,11 @@ class Hpl(AutotoolsPackage):
         if self.spec.satisfies("+openmp"):
             cflags.append(self.compiler.openmp_flag)
 
-        if self.spec.satisfies("^intel-oneapi-mkl"):
+        if (
+            self.spec.satisfies("^intel-mkl")
+            or self.spec.satisfies("^intel-oneapi-mkl")
+            or self.spec.satisfies("^intel-parallel-studio+mkl")
+        ):
             ldflags.append(self.spec["blas"].libs.ld_flags)
 
         if self.spec.satisfies("%aocc"):

@@ -37,11 +37,14 @@ class Gsibec(CMakePackage):
 
     depends_on("lapack", type=("build", "run"))
 
-    depends_on("ecbuild", type="build")
-    depends_on("jedi-cmake", type="build")
-    depends_on("sp", type="build")
+    depends_on("ecbuild", type=("build"))
+    depends_on("jedi-cmake", type=("build"))
+    depends_on("sp", type=("build"))
 
     def cmake_args(self):
-        return [
-            self.define("ENABLE_MKL", self.spec.satisfies("^[virtuals=lapack] intel-oneapi-mkl"))
-        ]
+        args = []
+
+        mkl_providers = ["intel-mkl", "intel-oneapi-mkl", "intel-parallel-studio"]
+        args.append(self.define("ENABLE_MKL", self.spec["lapack"].name in mkl_providers))
+
+        return args
