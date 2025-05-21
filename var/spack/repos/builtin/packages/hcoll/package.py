@@ -38,6 +38,15 @@ class Hcoll(Package):
     # requires("ucx@1.13", when="@4.7.3208")
     # requires("ucx@1.12", when="@4.7.3202")
     # requires("ucx@1.11", when="@4.7.3199")
+    depends_on("ucx@1.18", when="@4.8.3230")
+    depends_on("ucx@1.17", when="@4.8.3228")
+    depends_on("ucx@1.16:1.17", when="@4.8.3227")
+    depends_on("ucx@1.15:1.16", when="@4.8.3223")
+    depends_on("ucx@1.15", when="@4.8.3221")
+    depends_on("ucx@1.14", when="@4.8.3217:4.8.3220")
+    depends_on("ucx@1.13", when="@4.7.3208")
+    depends_on("ucx@1.12", when="@4.7.3202")
+    depends_on("ucx@1.11", when="@4.7.3199")
 
     # HCOLL needs to be added as an external package to SPACK. For this, the
     # config file packages.yaml needs to be adjusted:
