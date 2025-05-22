@@ -17,6 +17,17 @@ class Cctools(AutotoolsPackage):
     url = "https://ccl.cse.nd.edu/software/files/cctools-7.4.2-source.tar.gz"
     maintainers("dthain", "btovar")
 
+    version("7.15.3", sha256="a8dfff0f328e8633dd79ba44d52c512e615045104d25d22bdcef313c0ea68e55")
+    version("7.14.7", sha256="3740a61d86022dd5ce00a4d7319a096d7d84e6cb43e581118d6e4be6991ad571")
+    version("7.13.3", sha256="82ef6c0488f52b9bee9abb5a29e61f8db41ede4f6d3c359f3f30fffadcdea31a")
+    version("7.12.0", sha256="b55fa1d4e06570e95a328bf9db3d34ede220689a85dc5689e3502249f65882d0")
+    version("7.11.1", sha256="4c7be883d709f02b0f6cc9de2a47e7a9b7ba409a83e017207e70ea63bd5b140c")
+    version("7.10.0", sha256="6ce96033ffbac41d3d45455c6e4ae45fe3725ef5958f68b51c978fd779d700d1")
+    version("7.8.1", sha256="547db0b9bd4c6d7b481d455e5493ed5faf9c03e32f581bb1b79d751162d1b0aa")
+    version("7.7.2", sha256="bb4f653584cb0ba628910f03cd6e8c60d82617ed92bbaf7805c8abc9d11713e7")
+    version("7.6.2", sha256="93643c95366c5e12b392a1b880b231208298709b1654978001e6d168ae24b9f4")
+    version("7.5.5", sha256="f73a52472d22fd835418be3cd178a2393c925120760dfebaa22485747d419d42")
+    version("7.4.16", sha256="1639192ead1a9ecdea86c41f846247b6f60a8ef59062a095c09182fd0bc2bb09")
     version("7.4.2", sha256="7c8c86f09bcb9ad23ab44e52dfb5bf3a4e4a1ad84ef51e500a9c8c2371770f4b")
     version("7.2.10", sha256="4a604329896ae5e0fad7451a3814f531ff2f00a41c96e971ac08276208aa1650")
     version("7.2.4", sha256="36d36465a14b503a27c4739ebe0e11e00970ef6abb07c0365a46670753dddbd0")
