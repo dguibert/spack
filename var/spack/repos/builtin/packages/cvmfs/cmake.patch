@@ -1,0 +1,97 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b3a339eba..c2d884033 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -125,7 +125,7 @@ else (MACOSX) # --> Linux
+     endif (ARCHLINUX)
+     set (CMAKE_INSTALL_LIBDIR "lib")
+   else (DEBIAN OR ARCHLINUX) # --> RedHat, Fedora, CentOS, SuSE
+-    set (CMAKE_MOUNT_INSTALL_BINDIR "/sbin")
++    set (CMAKE_MOUNT_INSTALL_BINDIR "sbin")
+     set (CVMFS_LIBEXEC_DIR "libexec/cvmfs")
+     if (IS_64_BIT)
+       set (CMAKE_INSTALL_LIBDIR "lib64")
+diff --git a/bootstrap.sh b/bootstrap.sh
+index 52d887f8f..c6d2926dd 100755
+--- a/bootstrap.sh
++++ b/bootstrap.sh
+@@ -273,7 +273,7 @@ build_lib() {
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ 
+ # Build a list of libs that need to be built
+-missing_libs="libcurl libcrypto pacparser zlib sparsehash leveldb googletest maxminddb protobuf sqlite3 vjson sha3 libarchive"
++missing_libs="libcrypto pacparser vjson sha3"
+ 
+ if [ x"$BUILD_UBENCHMARKS" != x"" ]; then
+     missing_libs="$missing_libs googlebench"
+diff --git a/cvmfs/CMakeLists.txt b/cvmfs/CMakeLists.txt
+index e06601e32..32c2dbac0 100644
+--- a/cvmfs/CMakeLists.txt
++++ b/cvmfs/CMakeLists.txt
+@@ -367,7 +367,7 @@ if (BUILD_CVMFS)
+   # Systemd service unit for reloads after package upgrades
+   install (
+     FILES pkg/cvmfs-reload.service
+-    DESTINATION /usr/lib/systemd/system
++    DESTINATION lib/systemd/system
+     PERMISSIONS   OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+   )
+ 
+diff --git a/externals/pacparser/src/makeHook.sh b/externals/pacparser/src/makeHook.sh
+index 7489325ae..2606c3a5a 100755
+--- a/externals/pacparser/src/makeHook.sh
++++ b/externals/pacparser/src/makeHook.sh
+@@ -16,8 +16,8 @@ fi
+ 
+ echo "make clean && make for libpacparser (omitting test execution)..."
+ [ -d $static_result_dir ] && rm -fR $static_result_dir
+-make $FIX_PYTHON -C src clean -j ${CVMFS_BUILD_EXTERNAL_NJOBS}
+-make $FIX_PYTHON $FIX_COMP CVMFS_BASE_C_FLAGS="$CVMFS_BASE_C_FLAGS" -j1 -C src pacparser.o spidermonkey/libjs.a  # default target runs tests!
++make $FIX_PYTHON -C src clean -j ${CVMFS_BUILD_EXTERNAL_NJOBS} SHELL=bash
++make $FIX_PYTHON $FIX_COMP CVMFS_BASE_C_FLAGS="$CVMFS_BASE_C_FLAGS" -j1 -C src pacparser.o spidermonkey/libjs.a SHELL=bash  # default target runs tests!
+ echo "finished internal build of libpacparser"
+ 
+ echo "creating static link library for libpacparser..."
+diff --git a/mount/CMakeLists.txt b/mount/CMakeLists.txt
+index b0d2fce69..22a364e78 100644
+--- a/mount/CMakeLists.txt
++++ b/mount/CMakeLists.txt
+@@ -143,24 +143,24 @@ else (MACOSX)
+   )
+ 
+   if (ARCHLINUX)
+-    SET( autofsmap_link    /etc/autofs/auto.cvmfs)
++    SET( autofsmap_link    etc/autofs/auto.cvmfs)
+   else (ARCHLINUX)
+-    SET( autofsmap_link    /etc/auto.cvmfs)
++    SET( autofsmap_link    etc/auto.cvmfs)
+   endif (ARCHLINUX)
+   SET( autofsmap_dest    ${CMAKE_INSTALL_PREFIX}/${CVMFS_LIBEXEC_DIR})
+   SET( autofsmap_target  ${autofsmap_dest}/auto.cvmfs)
+-  # Symlink /etc/(autofs)/auto.cvmfs --> /usr/lib(exec)/cvmfs/auto.cvmfs
+-  install(CODE "
+-    if (\"\$ENV{DESTDIR}\" STREQUAL \"\")
+-      execute_process(COMMAND ln -sf
+-        ${autofsmap_target}
+-        ${autofsmap_link})
+-    else ()
+-      execute_process(COMMAND ln -sf
+-        ${autofsmap_target}
+-        \$ENV{DESTDIR}/${autofsmap_link})
+-    endif ()
+-  ")
++  ## Symlink /etc/(autofs)/auto.cvmfs --> /usr/lib(exec)/cvmfs/auto.cvmfs
++  #install(CODE "
++  #  if (\"\$ENV{DESTDIR}\" STREQUAL \"\")
++  #    execute_process(COMMAND ln -sf
++  #      ${autofsmap_target}
++  #      ${autofsmap_link})
++  #  else ()
++  #    execute_process(COMMAND ln -sf
++  #      ${autofsmap_target}
++  #      \$ENV{DESTDIR}/${autofsmap_link})
++  #  endif ()
++  #")
+ 
+   install (
+     TARGETS       ${MOUNT_TARGET_NAME}
