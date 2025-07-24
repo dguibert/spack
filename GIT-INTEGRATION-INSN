@@ -21,7 +21,7 @@ merge dg/restore-config-locks
 
 merge dg/modules
 
-merge dg/misc
+. merge dg/misc
 
 merge dg/oci-insecure-registry
 
@@ -38,27 +38,27 @@ merge dg/oci-insecure-registry
 
 merge dg/bootstrap-readonly
 
-merge dg/hcoll-requires-to-depends
+. merge dg/hcoll-requires-to-depends
 
-merge dg/fix-impalajit
+. merge dg/fix-impalajit
 
-merge fixgdrcopy
+. merge fixgdrcopy
 
-merge dg/update-nvhpc
+. merge dg/update-nvhpc
 
-merge dg/openmpi-oshmem-disable
+. merge dg/openmpi-oshmem-disable
 
 . merge dg/ddfacet-busy-week
 
   ddfacet (https://github.com/saopicc/DDFacet) and its dependencies.
 
-merge dg/scorep-with-intel-oneapi-mpi
+. merge dg/scorep-with-intel-oneapi-mpi
 
-merge dg/fix-hipsycl
+. merge dg/fix-hipsycl
 
 . https://github.com/spack/spack/pull/xxxx
 . GH_TOKEN=$(pass 00_tokens/github.com | head -1) nix run nixpkgs#gh pr checkout 41176
 
 merge dg/ssjon-dump-sorted
 
-merge dg/restore-intel-compilers
+. merge dg/restore-intel-compilers
