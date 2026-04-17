@@ -110,16 +110,20 @@ class LmodConfiguration(BaseConfiguration):
                 candidates[language].extend(node.dependencies(virtuals=(language,)))
 
         self.compiler = None
+        self.compilers = []
 
         for language in language_virtuals:
             if candidates[language]:
                 self.compiler = candidates[language][0]
+                self.compilers.extend(candidates[language])
                 if len(set(candidates[language])) > 1:
                     warnings.warn(
                         f"{spec.short_spec} uses more than one compiler, and might not fit the "
                         f"LMod hierarchy. Using {self.compiler.short_spec} as the LMod compiler."
                     )
                 break
+            
+        self.compilers = list(set(self.compilers))
 
     @property
     def core_compilers(self) -> List[spack.spec.Spec]:
@@ -199,6 +203,7 @@ class LmodConfiguration(BaseConfiguration):
             if x in self.spec and not (self.spec.name == x or self.spec.package.provides(x)):
                 requirements[x] = self.spec[x]  # record the actual provider
 
+        requirements['compilers'] = self.compilers or [requirements['compiler']]
         return requirements
 
     @property
@@ -214,6 +219,7 @@ class LmodConfiguration(BaseConfiguration):
         # If it is in the list of supported compilers family -> compiler
         if self.spec.name in spack.compilers.config.supported_compilers():
             provides["compiler"] = spack.spec.Spec(self.spec.format("{name}{@versions}"))
+            provides["compilers"] = [spack.spec.Spec(self.spec.format("{name}{@versions}"))]
         elif self.spec.name in BUILTIN_TO_LEGACY_COMPILER:
             # If it is the package for a supported compiler, but of a different name
             cname = BUILTIN_TO_LEGACY_COMPILER[self.spec.name]
@@ -370,6 +376,8 @@ class LmodFileLayout(BaseFileLayout):
 
         # Attach the services required to each combination
         to_be_processed = [x + tuple(requires_key) for x in combinations]
+        if "compilers" in to_be_processed:
+            to_be_processed.remove("compilers")
 
         # Compute the paths that are unconditionally added
         # and append them to the dictionary (key = None)
@@ -381,6 +389,27 @@ class LmodFileLayout(BaseFileLayout):
             available_combination.append(tuple(ac))
             parts = [self.token_to_path(x, available[x]) for x in ac]
             unlocked[None].append(tuple([self.arch_dirname] + parts))
+
+            parts = [[]]
+            for x in ac:
+                if x == "compiler":
+                    av = available['compilers'] # => List[str]
+                    new_parts = []
+                    for subpart in parts:
+                        for token in av:
+                            part = subpart + [self.token_to_path(x,token)]
+                            new_parts.append(part)
+                    parts = new_parts
+                else:
+                    token = available[x] # => str
+                    new_parts = []
+                    for subpart in parts:
+                        part = subpart + [self.token_to_path(x,token)]
+                        new_parts.append(part)
+                    parts = new_parts
+
+            for part in parts:
+                unlocked[None].append(tuple([self.arch_dirname] + part))
 
         # Deduplicate the list
         unlocked[None] = list(lang.dedupe(unlocked[None]))
