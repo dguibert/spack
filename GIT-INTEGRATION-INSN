@@ -23,3 +23,5 @@ merge dg/bootstrap-readonly
 . GH_TOKEN=$(pass 00_tokens/github.com | head -1) nix run nixpkgs#gh pr checkout 41176
 
 . merge dg/ssjon-dump-sorted
+
+merge dg/lmod-hierarchy-multiple-compilers
