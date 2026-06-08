@@ -25,7 +25,3 @@ merge dg/bootstrap-readonly
 . merge dg/ssjon-dump-sorted
 
 merge dg/lmod-hierarchy-multiple-compilers
-
-. https://github.com/spack/spack/pull/52441
-. nix run nixpkgs#gh -- pr checkout 52441
-merge bugfix/intel-oneapi-multiple
